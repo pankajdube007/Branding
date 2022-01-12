@@ -1,0 +1,77 @@
+﻿.popbg {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    opacity: 0.6;
+}
+
+.popcontent {
+    border: 2px solid #fff;
+    position: fixed;
+    border-radius: 5px;
+    background-color: #fff;
+    z-index: 999;
+    padding: 10px;
+    height: auto;
+}
+
+.closebtn {
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
+
+.bltitle h5 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #ED3338 !important;
+    text-transform: uppercase;
+}
+
+.sectionend {
+    width: 100%;
+    height: 1px;
+    border: 1px solid #ED3338;
+    margin-bottom: 20px;
+}
+
+.lcgd h5 {
+    text-align: center;
+    font-weight: bold !important;
+}
+
+
+
+.closebtn2 {
+    width: 100px;
+    padding: 5px;
+    border: 2px solid #000;
+    border-radius: 3px;
+    text-align: center;
+    margin: 0 auto;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+    .closebtn2:hover {
+        border: 2px solid #ED3338;
+        color: #ED3338;
+    }
+
+.steps {
+    font-size: 15px;
+    margin-left: 20px;
+}
+
+.step {
+    padding: 10px;
+    font-size: 14px;
+    margin-left: 25px;
+}

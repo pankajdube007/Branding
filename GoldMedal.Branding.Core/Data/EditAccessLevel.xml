@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <Master>
+    <overwrite>40</overwrite>
+    <maxtime>120</maxtime>
+    <check>Yes</check>
+  </Master>
+  <Order>
+    <overwrite>60</overwrite>
+    <maxtime>200</maxtime>
+    <check>No</check>
+  </Order>
+</root>

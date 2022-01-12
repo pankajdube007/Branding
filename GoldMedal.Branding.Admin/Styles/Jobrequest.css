@@ -1,0 +1,189 @@
+﻿.cls-sub-topic {
+    border-bottom: solid 1px #ccc;
+    margin: 25px 0px 20px 15px;
+    padding: 0px 0px 0px 0px;
+    width: 98.4%;
+    color: black;
+    overflow: hidden;
+}
+
+.redmark {
+    color: #FF0000;
+    font-size: 12px;
+}
+
+.cls-sub-topic h2 {
+    margin-bottom: 1px;
+    color: black;
+    float: left;
+    font-size: 20px;
+    color: #3A7FBA;
+}
+
+.cls-sub-topic i {
+    float: left;
+    padding-right: 10px;
+    font-size: 20px;
+    margin-top: 2px;
+    color: #3A7FBA;
+}
+
+.cls-buttons {
+    padding: 25px;
+    float: right;
+    text-align: right;
+}
+
+file {
+    width: 100px;
+    position: absolute;
+    top: 0px;
+    background-color: #33BB00;
+    color: #FFFFFF;
+    border-style: solid;
+}
+
+.anchor-disable {
+    cursor: default;
+    text-decoration: none;
+}
+
+label.error {
+    color: red;
+    display: inline-flex;
+}
+
+.btn-space {
+    margin-right: 10px;
+}
+
+table.myGridView {
+    color: black;
+    border: solid 1px #999999;
+    background-color: white;
+    width: 439px;
+    font-family: arial;
+}
+
+
+    table.myGridView th {
+        /*style your column headings*/
+        text-align: center;
+    }
+
+    table.myGridView td {
+        /*style your cells*/
+        /*padding: 10px;*/
+        padding: 5px;
+        text-align: center;
+    }
+
+    table.myGridView tr:first-child {
+        /*style the first cell in each row padding-left: 10px;*/
+        background-color: #ccc;
+    }
+
+    table.myGridView tr td:first-child {
+        /*style the first cell in each row padding-left: 10px;*/
+    }
+
+.rblCss label {
+    color: #000 !important;
+    font-weight: normal;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.td {
+    width: 120px;
+    background: #cdcdcd;
+    font-size: 11px;
+}
+
+.wd140 {
+    width: 140px;
+    text-align: left;
+    font-size: 11px;
+}
+
+input:focus {
+    background-color: #DDD;
+    border-color: #ED1B24;
+    outline: none;
+}
+
+.fu {
+    font-size: 10px;
+    width: 116px;
+}
+
+.wd400 {
+    width: 400px;
+    height: 30px;
+    text-align: left;
+    font-size: 11px;
+}
+
+.HeaderFreez {
+    position: relative;
+    top: expression(this.offsetParent.scrollTop-1);
+    z-index: 10;
+}
+
+.txt-ctr {
+    text-align: center;
+}
+
+.modalBackground {
+    background-color: Gray;
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+    z-index: 10000;
+}
+
+textarea.form-control-grid {
+    height: 50px !important;
+}
+
+.form-control-grid {
+    display: block;
+    width: 100%;
+    height: 25px;
+    /*padding: 6px 12px;*/
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .closebtn:hover {
+        color: black;
+    }

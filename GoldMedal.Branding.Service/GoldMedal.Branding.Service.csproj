@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{48273768-C06B-46EB-9C41-39A591EAC77B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GoldMedal.Branding.Service</RootNamespace>
+    <AssemblyName>GoldMedal.Branding.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApproveJob\ApproveJobServiceCall.cs" />
+    <Compile Include="AssignJobService\AssignJobServiceCall.cs" />
+    <Compile Include="AssignToFabricator\AssignToFabricatorServiceCall.cs.cs" />
+    <Compile Include="AssigntoPrinter\AssignToPrinterServiceCall.cs.cs" />
+    <Compile Include="BoardType\BoardTypeServiceCall.cs" />
+    <Compile Include="CancelJob\CancelJobServiceCall.cs" />
+    <Compile Include="ChangePassword\ChangePasswordServiceCall.cs" />
+    <Compile Include="CheckEditService\CheckEditServiceCall.cs" />
+    <Compile Include="CheckTime\CheckTimeServiceCall.cs" />
+    <Compile Include="Dashboard\DashboardServiceCall.cs" />
+    <Compile Include="DesignSubmit\DesignSubmitServiceCall.cs" />
+    <Compile Include="DesignTypeService\DesignTypeServiceCall.cs" />
+    <Compile Include="DesignTypeSubCatService\DesignTypeSubCatServiceCall.cs" />
+    <Compile Include="Disapproved\DisApproveJobServiceCall.cs" />
+    <Compile Include="FabricatorDesignSubmit\fabricatorDesignSubmitServiceCall.cs" />
+    <Compile Include="FabricatorQuotation\FabricatorQuotationServiceCall.cs" />
+    <Compile Include="Fabricator\FabricatorServiceCall.cs" />
+    <Compile Include="FinalAssembaly\FinalAssemblyServiceCall.cs" />
+    <Compile Include="JobRequestService\JobRequestServiceCall.cs" />
+    <Compile Include="JobTypeMaping\JobTypeMapingServiceCall.cs" />
+    <Compile Include="JobType\JobTypeServiceCall.cs" />
+    <Compile Include="MasterMenu\MasterMenuServiceCall.cs" />
+    <Compile Include="PrinterDesignSubmit\PrinterDesignSubmitServiceCall.cs" />
+    <Compile Include="PrinterQuotation\PrinterQuotationServiceCall.cs" />
+    <Compile Include="Printer\PrinterServiceCall.cs" />
+    <Compile Include="ProductTypeService\ProductTypeServiceCall.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubJobTypeMaping\SubJobTypeMapingServiceCall.cs" />
+    <Compile Include="SubJobType\SubJobTypeServiceCall.cs" />
+    <Compile Include="SubSubJobTypeService\SubSubJobTypeServiceCall.cs" />
+    <Compile Include="Unit\UnitServiceCall.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GoldMedal.Branding.Data\GoldMedal.Branding.Data.csproj">
+      <Project>{bd65bf4d-fdce-496a-b1ba-9fd017eaefd9}</Project>
+      <Name>GoldMedal.Branding.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

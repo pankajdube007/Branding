@@ -1,0 +1,398 @@
+﻿@charset "utf-8";
+
+.text1 {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    color: #666;
+    text-decoration: none;
+    padding-left: 20px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.textin {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    color: #666;
+    text-decoration: none;
+    text-align: left;
+    vertical-align: top;
+}
+
+.listin {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 90%;
+    font-weight: normal;
+    color: #333;
+    background-color: #cccccc;
+}
+
+.headerform {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    color: #666;
+    text-decoration: none;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.texttable {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    color: #666;
+    text-decoration: none;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.tag {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #666;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.tag1 {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: #666;
+    text-decoration: none;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.text3 {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10px;
+    font-weight: normal;
+    color: #666;
+    text-decoration: none;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.addrestext {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    color: #666;
+    text-decoration: none;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.text2 {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    color: #666;
+    text-decoration: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.text4 {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    color: #666;
+    text-decoration: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.btn {
+    display: inline-block;
+    display: inline;
+    padding: 6px 20px;
+    margin: 0;
+    border: 1px solid #bbb;
+    font: bold 13px arial, helvetica, sans-serif;
+    text-decoration: none;
+    white-space: nowrap;
+    color: #555;
+    background-color: #ddd;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+    text-shadow: 0 1px 0 rgba(255,255,255, .9);
+}
+
+    .btn:hover {
+        background-color: #eee;
+        color: #555;
+    }
+
+    .btn:active {
+        position: relative;
+        top: 1px;
+    }
+
+.tabsB {
+    float: left;
+    width: 100%;
+    font: bold 10pt Verdana;
+    line-height: normal;
+}
+
+    .tabsB ul {
+        margin: 0;
+        padding: 15px 15px 15px 15px;
+        list-style: none;
+        border-redius: 15px 15px 15px 15px;
+    }
+
+    .tabsB li {
+        display: inline;
+        margin: 0;
+        padding: 0;
+    }
+
+    .tabsB a {
+        float: left;
+        margin: 0;
+        padding: 4px 4px 4px 4px;
+        text-decoration: none;
+    }
+
+        .tabsB a span {
+            float: center;
+            display: block;
+            padding: 10px 20px 10px 20px;
+            color: #666;
+        }
+        /* Commented Backslash Hack hides rule from IE5-Mac \*/
+        .tabsB a span {
+            float: none;
+        }
+        /* End IE5-Mac hack */
+        .tabsB a:hover span {
+            color: #666;
+        }
+
+.box {
+    box-shadow: 0px 0px 5px #333333;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.upload {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    color: #666;
+    text-decoration: none;
+    padding-left: 20px;
+    text-align: left;
+    vertical-align: top;
+    background-color: #F0F0F0;
+    padding-top: 10px;
+}
+
+.link {
+    display: inline-block;
+    display: inline;
+    padding: 6px 20px;
+    margin: 0;
+    border: 1px solid #bbb;
+    font: bold 13px arial, helvetica, sans-serif;
+    text-decoration: none;
+    white-space: nowrap;
+    color: #555;
+    background-color: #ddd;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+    text-shadow: 0 1px 0 rgba(255,255,255, .9);
+}
+
+    .link:hover {
+        background-color: #eee;
+        color: #555;
+    }
+
+    .link:active {
+        position: relative;
+        top: 1px;
+        color: #555;
+    }
+
+    .link:visited {
+        position: relative;
+        top: 1px;
+        color: #555;
+    }
+
+.logoff {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    color: #666;
+    text-decoration: none;
+    text-align: center;
+}
+
+    .logoff:visited {
+        font-family: Verdana, Geneva, sans-serif;
+        font-size: 13px;
+        font-weight: normal;
+        color: #666;
+        text-decoration: none;
+        text-align: center;
+    }
+
+.button {
+    text-align: left;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    color: #333333;
+}
+
+.table {
+    text-align: left;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    color: #666666;
+}
+
+.padd {
+    padding-left: 10px;
+    vertical-align: text-top;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.address {
+    text-align: left;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    color: #333333;
+}
+
+.potabletext {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    color: #333;
+    text-decoration: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+}
+
+.potabletexthead {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    color: #333;
+    text-decoration: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    background-color: #cccccc;
+}
+
+.potab {
+    border: 1px solid #bbb;
+    border-left-color: #bbb;
+    border-bottom: #bbb;
+}
+
+.my-table td {
+    /* border-left:1px solid #333333;
+   border-right: 1px solid #333333;
+   border-bottom:1px solid #333333;*/
+    border-left: 0;
+    border-right: 1px solid #333333;
+    border-bottom: 0;
+    /*padding: 2px 10px;*/
+    font-size: 14px;
+    text-align: left;
+}
+
+    .my-table td.line12 {
+        border-bottom: 1px solid #333333;
+    }
+
+.my-table {
+    text-decoration: none;
+}
+
+.border {
+    border: 1px solid #333333;
+}
+
+.dcfont {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    color: #666;
+    text-decoration: none;
+    padding-left: 20px;
+    text-align: left;
+    padding-top: 20px;
+    vertical-align: top;
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+
+.dcfontlist {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #666;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.dcfonttotal {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #666;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 250px;
+    text-align: right;
+}
+
+.dctag {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: #666;
+    text-decoration: none;
+    text-align: center;
+}
+
+fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+}
+
+legend.scheduler-border {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    width: auto;
+    padding: 0 10px;
+    border-bottom: none;
+}

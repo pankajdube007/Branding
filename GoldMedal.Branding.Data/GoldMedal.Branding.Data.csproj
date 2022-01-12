@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BD65BF4D-FDCE-496A-B1BA-9FD017EAEFD9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GoldMedal.Branding.Data</RootNamespace>
+    <AssemblyName>GoldMedal.Branding.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApproveJob\ApproveJobDataAccess.cs" />
+    <Compile Include="ApproveJob\ApproveJobModel.cs" />
+    <Compile Include="AssignFabricator\AssignToFabricatorDataAccess.cs" />
+    <Compile Include="AssignFabricator\AssignToFabricator.cs" />
+    <Compile Include="AssignJob\AssignJobDataAccess.cs" />
+    <Compile Include="AssignJob\AssignJobModel.cs" />
+    <Compile Include="AssigntoPrinter\AssigntoPrinter.cs" />
+    <Compile Include="AssigntoPrinter\AssignToPrinterDataAccess.cs" />
+    <Compile Include="BoardType\BoardTypeDataAccess.cs" />
+    <Compile Include="BoardType\BoardTypeModel.cs" />
+    <Compile Include="CancelJob\CancelJob.cs" />
+    <Compile Include="CancelJob\CancelJobDataAccess.cs" />
+    <Compile Include="ChangePassword\ChangePassword.cs" />
+    <Compile Include="ChangePassword\ChangePasswordDataAccess.cs" />
+    <Compile Include="CheckEdit\CheckEditDataAccess.cs" />
+    <Compile Include="CheckEdit\CheckEditModel.cs" />
+    <Compile Include="CheckTime\CheckTimeDataAccess.cs" />
+    <Compile Include="CheckTime\CheckTimeModel.cs" />
+    <Compile Include="Dashboard\DashboardDataAccess.cs" />
+    <Compile Include="DataAccess.cs" />
+    <Compile Include="DesignSubmit\DesignSubmit.cs" />
+    <Compile Include="DesignSubmit\DesignSubmitDataAccess.cs" />
+    <Compile Include="DesignTypeSubCat\DesignTypeSubCatDataAccess.cs" />
+    <Compile Include="DesignTypeSubCat\DesignTypeSubCatModel.cs" />
+    <Compile Include="DesignType\DesignTypeDataAccess.cs" />
+    <Compile Include="DesignType\DesignTypeModel.cs" />
+    <Compile Include="Disapproved\DisApproveJobDataAccess.cs" />
+    <Compile Include="Disapproved\DisApproveJobModel.cs" />
+    <Compile Include="FabricatorDesignSubmit\FabricatorDesignSubmit.cs" />
+    <Compile Include="FabricatorDesignSubmit\FabricatorDesignSubmitDataAccess.cs" />
+    <Compile Include="FabricatorQuotation\FabricatorQuotation.cs" />
+    <Compile Include="FabricatorQuotation\FabricatorQuotationDataAccess.cs" />
+    <Compile Include="Fabricator\FabricatorDataAccess.cs" />
+    <Compile Include="Fabricator\FabricatorModel.cs" />
+    <Compile Include="FinalAssembaly\FinalAssembly.cs" />
+    <Compile Include="FinalAssembaly\FinalAssemblyDataAccess.cs" />
+    <Compile Include="JobRequest\JobRequestDataAccess.cs" />
+    <Compile Include="JobRequest\JobRequestModel.cs" />
+    <Compile Include="JobTypeMaping\JobTypeMapingDataAccess.cs" />
+    <Compile Include="JobTypeMaping\JobTypeMapingModel.cs" />
+    <Compile Include="JobType\JobTypeDataAccess.cs" />
+    <Compile Include="JobType\JobTypeModel.cs" />
+    <Compile Include="MasterMenu\MasterMenuDataAccess.cs" />
+    <Compile Include="MasterMenu\MasterMenuModel.cs" />
+    <Compile Include="PrinterDesignSubmit\PrinterDesignSubmit.cs" />
+    <Compile Include="PrinterDesignSubmit\PrinterDesignSubmitDataAccess.cs" />
+    <Compile Include="PrinterQuotation\PrinterQuotation.cs" />
+    <Compile Include="PrinterQuotation\PrinterQuotationDataAccess.cs" />
+    <Compile Include="Printer\PrinterDataAccess.cs" />
+    <Compile Include="Printer\PrinterModel.cs" />
+    <Compile Include="ProductType\ProductTypeDataAccess.cs" />
+    <Compile Include="ProductType\ProductTypeModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubJobTypeMaping\SubJobTypeMapingDataAccess.cs" />
+    <Compile Include="SubJobTypeMaping\SubJobTypeMapingModel.cs" />
+    <Compile Include="SubJobType\SubJobTypeDataAccess.cs" />
+    <Compile Include="SubJobType\SubJobTypeModel.cs" />
+    <Compile Include="SubSubJobType\SubSubJobTypeDataAccess.cs" />
+    <Compile Include="SubSubJobType\SubSubJobTypeModel.cs" />
+    <Compile Include="Unit\UnitDataAccess.cs" />
+    <Compile Include="Unit\UnitModel.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

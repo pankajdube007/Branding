@@ -1,0 +1,761 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="GoldMedal.Branding.Admin.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Goldmedal</title>
+    <asp:PlaceHolder ID="PlaceHolder1" runat="server">
+         <!--https link -->
+        <link href="<%=ResolveUrl("https://fonts.googleapis.com/css?family=Oswald")%>" rel="stylesheet" />
+          <link href="<%=ResolveUrl("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic")%>" rel="stylesheet" />
+          <link href="<%=ResolveUrl("https://fonts.googleapis.com/css?family=Kaushan+Script")%>" rel="stylesheet" />
+
+         <!-- https link  -->
+
+
+
+        <!-- Bootstrap core CSS -->
+        <script type="text/javascript" src="<%=ResolveUrl("https://code.jquery.com/jquery-1.10.2.js")%>"></script>
+        <link href="<%=ResolveUrl("assets/libs/bootstrap/css/bootstrap.min.css")%>" rel="stylesheet" />
+        <link href="<%=ResolveUrl("assets/css/main.css")%>" rel="stylesheet" />
+        <link href="<%=ResolveUrl("assets/libs/bootstrapValidator.min.css")%>" rel="stylesheet" />
+        <link href="<%=ResolveUrl("assets/libs/bootstrap/css/jquery.smartmenus.bootstrap.css")%>" rel="stylesheet" />
+        <!-- font Awesome -->
+        <link href="<%=ResolveUrl("assets/css/font-awesome.min.css")%>" rel="stylesheet" type="text/css" />
+        <!-- Ionicons -->
+        <link href="<%=ResolveUrl("assets/css/ionicons.min.css")%>" rel="stylesheet" type="text/css" />
+        <!-- daterange picker -->
+        <link href="<%=ResolveUrl("assets/css/daterangepicker/daterangepicker-bs3.css")%>" rel="stylesheet"
+            type="text/css" />
+        <!-- Theme style -->
+        <link href="<%=ResolveUrl("assets/css/AdminGoldmedal.css")%>" rel="stylesheet" type="text/css" />
+        <link href="<%=ResolveUrl("assets/css/animate.min.css")%>" rel="stylesheet" />
+        <link href="<%=ResolveUrl("assets/css/responsive.css")%>" rel="stylesheet" />
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+<![endif]-->
+        <%--<script type="text/javascript" src="assets/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
+     <%--<script type="text/javascript" src="assets/libs/bootstrap/js/formValidation.min.js"></script>--%>
+        <script type="text/javascript" src="<%=ResolveUrl("assets/libs/bootstrapValidator.min.js")%>"></script>
+
+        <script src="<%=ResolveUrl("assets/js/plugins/input-mask/jquery.inputmask.js")%>" type="text/javascript"></script>
+
+        <script src="<%=ResolveUrl("assets/js/plugins/input-mask/jquery.inputmask.date.extensions.js")%>" type="text/javascript"></script>
+        <script src="<%=ResolveUrl("assets/js/plugins/input-mask/jquery.inputmask.extensions.js")%>" type="text/javascript"></script>
+        <!-- SmartMenus jQuery plugin -->
+        <script type="text/javascript" src="<%=ResolveUrl("assets/js/jquery.smartmenus.js")%>"></script>
+        <!-- SmartMenus jQuery Bootstrap Addon -->
+        <script type="text/javascript" src="<%=ResolveUrl("assets/libs/bootstrap/js/jquery.smartmenus.bootstrap.js")%>"></script>
+        <script src="<%=ResolveUrl("Scripts/validation.js")%>"></script>
+        <%--<script src="<%=ResolveUrl("assets/js/AdminGoldmedal/app.js")%>" type="text/javascript"></script>--%>
+
+         <script type="text/javascript" >
+                 function preventBack() { window.history.forward(); }
+                 setTimeout("preventBack()", 0);
+                 window.onunload = function () { null };
+         </script>
+        <style>
+
+            #loaderbg{
+                position:fixed;
+                top:0;
+                left:0;
+                background-color: #fff;
+                opacity:0.6;
+                width:100%;
+                height:100%;
+                z-index:9999;
+                display:none;
+            }
+
+            #loaderbg img{
+                position:fixed;
+                left: calc(50% - 50px);
+                top: calc(50% - 50px);
+                z-index: 10000;
+                height:100px;
+            }
+
+        </style>
+    </asp:PlaceHolder>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+        <header class="header">
+
+            <div class="navbar-wrapper navbar-fixed-top">
+                <div class="top-bar">
+                    <div class="content-header">
+                        <div class="row">
+                            <div class="col-lg-3 col-xs-3">
+                                <a class="navbar-brand" href="#">
+                                    <img src="<%=ResolveUrl("images/goldmedallogo.png")%>" /></a>
+
+                               <%-- <img src="<%=ResolveUrl("images/goldmedallogo.png")%>" />--%>
+                                
+                            </div>
+
+                            <div class="col-lg-4 col-xs-4 pull-right" id="topmenu" runat="server">
+
+                                <div class="navbar-right">
+                                    <ul class="nav navbar-nav">
+                                         <li id="helpmenu" runat="server"><a href="/Master/HelpDesk.aspx">
+                                            <img src="<%=ResolveUrl("images/help.png")%>" width="16" height="16" />Help Desk</a></li>
+                                         <li id="DbMenu" runat="server"><a href="/Master/Dashboard.aspx">
+                                            <img src="<%=ResolveUrl("images/dashbrd.jpg")%>" width="16" height="16" />Dash Board</a></li>
+                                        <li class="dropdown user user-menu">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="glyphicon glyphicon-user"></i>
+                                                <span style="margin-right:20px;">Welcome
+                                                    <asp:Label ID="lbnm15" runat="server"></asp:Label></span>
+                                            </a>
+                                            <ul class="dropdown-menu" style="min-width:400px;">
+                                                <!-- User image -->
+                                                <li class="user-header bg-light-blue">
+                                                    <img src="<%=ResolveUrl("img/avatar5.png")%>" class="img-circle" alt="User Image" width="50" height="50" />
+                                                    <p style="line-height:10px;">
+                                                        Welcome 
+                                                    </p>
+                                                    <div>
+                                                        <p>
+                                                            <asp:Label ID="lbnm16" runat="server"></asp:Label>
+                                                        </p>
+                                                    </div>
+                                                    
+                                                    
+                                                    
+                                                </li>
+
+                                                <!-- Menu Footer-->
+                                                <li class="user-footer">
+                                                    <div class="pull-left">
+                                                        <%-- <a href="#" class="btn btn-default btn-flat">Profile</a>--%>
+                                                        <a href="<%=ResolveUrl("Password-Reset.aspx")%>" class="btn btn-default btn-flat" style="padding:5px !important;margin-right:5px;">Change Password</a>
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <a href="<%=ResolveUrl("logout.aspx")%>" class="btn btn-default btn-flat" style="padding:5px !important;">Log Off</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.container-->
+                </div>
+                <%-- <div class="top-bar">
+                    <div class="content-header">
+                        <div class="row">
+                            <div class="col-lg-3 col-xs-3">
+                            </div>
+                            <div class="col-lg-5 col-xs-5">
+                                <div class="row">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xs-4 pull-right">
+
+                                <div class="navbar-right">
+                                    <ul class="nav navbar-nav">
+
+                                        <li class="dropdown user user-menu">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="glyphicon glyphicon-user"></i>
+                                                <span>Welcome
+                                                    <asp:Label ID="lbnm15" runat="server"></asp:Label></span>
+                                            </a>
+                                            <ul class="dropdown-menu">
+
+                                                <li class="user-header bg-light-blue">
+                                                    <img src="../../img/avatar5.png" class="img-circle" alt="User Image" width="50" height="50" />
+                                                    <p>
+                                                        <span>
+                                                            <asp:Label ID="lblUser" runat="server"></asp:Label></span>
+                                                    </p>
+                                                </li>
+
+                                                <li class="user-footer">
+                                                    <div class="pull-left">
+                                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <a href="../../logout.aspx" class="btn btn-default btn-flat">Log Off</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>--%>
+
+                <div class="navbar-inverse" role="navigation" id="mainmenu" runat="server">
+                    <div class="content-header">
+
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <div class="navbar-collapse collapse">
+
+                            <ul class="nav navbar-nav">
+                                <li class="active" id="homemenu" runat="server"><a href="../../Master/main.aspx">
+                                    <img src="../../images/home.png" width="16" height="16" />
+                                    Home</a></li>
+                                <li id="MasterMenu" runat="server"><a href="#">
+                                    <img src="../../../images/small_Unit Master.jpg" width="13" height="13" />
+                                    Master</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../Master/Product/ProductType.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Product Type</a></li>
+                                        <li><a href="#">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Job</a>
+                                            <ul class="dropdown-menu">
+                                                 <li><a href="../../Master/JobType/JobType.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Job Type</a></li>
+                                                <li><a href="../../Master/SubJobType/SubJobType.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Sub Job Type</a></li>
+                                            </ul>
+
+
+                                        </li>
+
+                                         <li><a href="../../Master/BoardType/BoardType.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Board Type</a></li>
+                                        <li><a href="../../Master/Unit/Unit.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Unit</a></li>
+
+                                         <li><a href="#">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Job Mapping</a>
+                                            <ul class="dropdown-menu">
+                                                  <li><a href="../../Master/JobTypeMaping/JobTypeMaping.aspx">
+                                                        <img src="../../images/user.png" width="16" height="16" />
+                                                        JobTypeMaping</a></li>
+                                                    <li><a href="../../Master/SubJobTypeMaping/SubJobTypeMaping.aspx">
+                                                        <img src="../../images/user.png" width="16" height="16" />
+                                                        Sub Job Type Mapping</a></li>
+                                            </ul>
+
+
+                                        </li>
+
+
+                                        <li><a href="#">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Printer</a>
+                                            <ul class="dropdown-menu">
+                                                   <li><a href="../../Master/Printer/Printer.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Printer</a></li>
+                                                  <li><a href="../../Master/SubSubJobType/SubSubJobType.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Material used by printer</a></li>
+                                                  <li><a href="../../Master/PrinterQuotation/PrinterQuotation.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Printer Quotation</a></li>
+                                                         <li><a href="../../Master/Printer/PrinterPricingMaster.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Printer Pricing Master</a></li>
+                                                <li><a href="../../Master/Printer/PrinterFabricatorMapping.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Printer Fabricator Mapping Master</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li><a href="#">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Fabricator</a>
+                                            <ul class="dropdown-menu">
+                                                     <li><a href="../../Master/Fabricator/Fabricator.aspx">
+                                                        <img src="../../images/user.png" width="16" height="16" />
+                                                        Fabricator</a></li>
+                                                              <li><a href="../../Master/DesignType/DesignType.aspx">
+                                                        <img src="../../images/user.png" width="16" height="16" />
+                                                        Fabrication material</a></li>
+                                                             <li><a href="../../Master/FabricatorQuotation/FabricatorQuotation.aspx">
+                                                        <img src="../../images/user.png" width="16" height="16" />
+                                                        Fabricator Quotation</a></li>
+                                                         <li><a href="../../Master/Fabricator/FabricatorPricingMaster.aspx">
+                                                        <img src="../../images/user.png" width="16" height="16" />
+                                                        Fabricator Pricing Master</a></li>
+                                            </ul>
+                                        </li>
+
+                                       <%-- <li><a href="../../Master/DesignTypeSubCat/DesignTypeSubCategory.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Design Type Sub Category</a></li>--%>
+                                         <li><a href="../../transaction/CancelJob/JobCancel.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Cancel Job</a></li>
+
+                                         <li><a href="../../Master/ModeOfDispatch/ModeofdispatchMaster.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Mode Of Dispatch</a></li>
+
+                                         <li><a href="../../Master/DispatchTeam/AddUpdateDispatchTeam.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Dispatch Team</a></li>
+                                         <li><a href="../../Master/SelfInstallationTeam/AddUpdateSelfInstallationTeam.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Self Installation Team</a></li>
+                                         <li><a href="../../Master/VendorTeam/AddUpdateVendorTeam.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Vendor Team</a></li>
+
+                                    </ul>
+
+                                </li>
+
+                                <li id="TransactionMenu" runat="server"><a href="#" >
+                                    <img src="../../../images/small_Unit Master.jpg" width="13" height="13" />
+                                    Transaction</a>
+
+                                    <ul class="dropdown-menu">
+                                         <li><a href="../../transaction/jobrequest/jobrequest.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Job Request</a></li>
+                                         <li><a href="#">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Job Request Approval</a>
+                                             <ul class="dropdown-menu">
+                                                <li><a href="../../transaction/ApproveJob/JobArpprove.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Approve Job Request</a></li>
+                                                <li><a href="../../transaction/Disapproved/DisapprovedList.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    DisApprove Job Request</a></li>
+                                            </ul>
+                                         </li>
+
+                                        <li><a href="#">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Assign Job</a>
+                                             <ul class="dropdown-menu">
+                                                
+                                                 <li><a href="../../transaction/AssignJob/JobAssign.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Assign Job</a></li>
+                                                 <li id="ChangeAssignMenu" runat="server"><a href="../../transaction/AssignJob/ChangeJobAssign.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                   Change Assign Job</a></li>
+                                                <li><a href="../../transaction/AssignJob/DeleteAssignJob.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Delete Assigned Job </a></li>
+                                            </ul>
+                                         </li>
+
+                                        <li><a href="#">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Design</a>
+                                             <ul class="dropdown-menu">
+                                                 <li><a href="../../transaction/DesignSubmit/DesignSubmit.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Designers Task </a></li>
+                                                <li><a href="../../transaction/Approvdisapprovdesignsubmit/apdapdesignsubmit.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Design Head Approval </a></li>
+                                                 <li><a href="../../transaction/ApproveByParty/PartyApprovalStatusUpdate.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Party Approval Update</a></li>
+                                                <li><a href="../../transaction/ApprovdisapprovdesignsubmitByManagement/apdapdesignsubmitbymanag.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Live Product Approval </a></li>
+                                                  <li><a href="../../transaction/AssigntoPrinter/approvedassigntoprinter.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                   Approve Send For Print </a></li>
+                                            </ul>
+                                         </li>
+
+                                         <%--<li><a href="#">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Printing</a>
+                                             <ul class="dropdown-menu">
+                                                 <li><a href="../../transaction/AssigntoPrinter/approvedassigntoprinter.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                   Approve Send For Print </a></li>
+                                                  <li><a href="../../transaction/AssigntoPrinter/assigntoprinter.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Send For Print </a></li>
+                                                <li><a href="../../transaction/AssigntoPrinter/deleteassignprinter.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Delete Send For The Printer </a></li>--%>
+                                               <%-- <li><a href="../../transaction/AssigntoPrinter/approveprinterwork.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Approve Printer'S Job </a></li>--%>
+                                            <%--</ul>
+                                         </li>--%>
+
+                                        <li><a href="#">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Branch</a>
+                                             <ul class="dropdown-menu">
+                                                 <li id="BranchMenuReopenSendForPrint" runat="server"><a href="../../transaction/AssigntoPrinter/reopenassigntoprinter.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                   Reopen Send For Print </a></li>
+                                                 <li><a href="../../transaction/AssigntoPrinter/assigntoprinter.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Send For Print </a></li>
+                                                    <li><a href="../../transaction/AssignToPrinter/GeneratePrinterPO.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Generate Printer Job PO </a></li>
+                                                 <li><a href="../../transaction/AssignToPrinter/CancelPrinterPO.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Cancel Printer Job PO </a></li>
+                                                  <li id="BranchMenu1" runat="server"><a href="../../transaction/AssigntoPrinter/reassigntoprinter.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                   Reassign Send For Print </a></li>
+                                                <li><a href="../../transaction/AssigntoPrinter/deleteassignprinter.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Delete Send For The Printer </a></li>
+                                                 <li><a href="../../transaction/ApprovdisapprovdesignsubmitByManagement/apdapdesignaprvdbymanag.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Live Product Approved Jobs </a></li>
+                                                 <li><a href="../../transaction/AssignToFabricator/ReceiveJob.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                   Printer Receive Job </a></li>
+                                                 <li><a href="../../transaction/AssignToFabricator/PrinterCreditDebitNoteJobsApproval1.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                   Printer Credit Debit Note Jobs Approval 1 </a></li>
+                                                 <li><a href="../../transaction/AssignToFabricator/PrinterCreditDebitNoteJobsApproval2.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                   Printer Credit Debit Note Jobs Approval 2 </a></li>
+                                                 <li><a href="../../transaction/AssignToFabricator/AssignToFabricator.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Send To Fabricator </a></li>
+                                                 <li><a href="../../transaction/AssignToFabricator/GenerateFabricatorPO.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Generate Fabricator Job PO </a></li>
+                                                 <li><a href="../../transaction/AssignToFabricator/CancelFabricatorPO.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Cancel Fabricator Job PO </a></li>
+                                                <li><a href="../../transaction/AssignToFabricator/DeleteAssignedFabricator.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Delete Send To Fabricator </a></li>
+                                                 <li><a href="../../transaction/FinalAssembaly/FabricatorReceiveJob.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                   Fabricator Receive Job </a></li>
+                                                 <li><a href="../../transaction/FinalAssembaly/FabricatorCreditDebitNoteJobsApproval1.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                   Fabricator Credit Debit Note Jobs Approval 1 </a></li>
+                                                 <li><a href="../../transaction/FinalAssembaly/FabricatorCreditDebitNoteJobsApproval2.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                   Fabricator Credit Debit Note Jobs Approval 2 </a></li>
+                                                  
+                                                <%--<li><a href="../../transaction/FabricatorDesignSubmit/FabricatorDesignSubmit.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Fabricator'S Job </a></li>--%>
+                                               <%-- <li><a href="../../transaction/AssignToFabricator/ApproveFabricatorWork.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Approve  Fabricator's Job </a></li>--%>
+
+                                            </ul>
+                                         </li>
+
+                                        <li style="display:none;"><a href="#">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Fabrication</a>
+                                             <ul class="dropdown-menu">
+                                                 
+                                            </ul>
+                                         </li>
+
+                                        <li><a href="../../transaction/FinalAssembaly/FinalAssembaly.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Final Assembly</a></li>
+                                        <li><a href="../../transaction/FinalAssembaly/FinalAssembalyModeOfDispatch.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Final Assembly Dispatch Mode Update</a></li>
+                                        <li><a href="../../transaction/FinalAssembaly/FinalAssembalyDispatchDetails.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Final Assembly Dispatch Details Update</a></li>
+                                         <li><a href="../../transaction/FinalAssembaly/FinalAssembalySelfInstallationModeDetails.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Final Assembly Self Installation Mode Update</a></li>
+                                        <li><a href="../../transaction/FinalAssembaly/FinalAssembalyVendorModeDetails.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Final Assembly Vendor Mode Update</a></li>
+                                        <li><a href="../../transaction/FinalAssembaly/jobcloser.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Job Closer</a></li>
+                                    </ul>
+
+                                </li>
+
+                                <li id="PrinterMenu" runat="server" style="display:none;"><a href="#">
+                                    <img src="../../../images/small_Unit Master.jpg" width="13" height="13" />
+                                    Printer</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../transaction/PrinterDesignSubmit/printerdesignsubmit.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Printer's Job </a></li>
+                                        <li><a href="../../transaction/PrinterDesignSubmit/PrinterJobDC.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Printer's Job DC </a></li>
+                                        <li><a href="../../transaction/Reports/PrinterRejectedJobsReport.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Printer's Rejected/Short Jobs Report </a></li>
+                                    </ul>
+                                </li>
+
+                                <li id="FabricatorMenu" runat="server" style="display:none;"><a href="#">
+                                    <img src="../../../images/small_Unit Master.jpg" width="13" height="13" />
+                                    Fabricator</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../transaction/FabricatorDesignSubmit/FabricatorDesignSubmit.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Fabricator's Job </a></li>
+                                        <li><a href="../../transaction/FabricatorDesignSubmit/FabricatorJobDC.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Fabricator's Job DC </a></li>
+                                        <li><a href="../../transaction/Reports/FabricatorRejectedJobsReport.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Fabricator's Rejected/Short Jobs Report </a></li>
+                                    </ul>
+                                </li>
+
+                                <li id="DispatchTeamMenu" runat="server" style="display:none;"><a href="#">
+                                    <img src="../../../images/small_Unit Master.jpg" width="13" height="13" />
+                                    Dispatch</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../transaction/FinalAssembaly/FinalAssembalyDispatchDetails.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Update Transport Details </a></li>
+                                       
+                                    </ul>
+                                </li>
+
+                                 <li id="SelfInstallationTeamMenu" runat="server" style="display:none;"><a href="#">
+                                    <img src="../../../images/small_Unit Master.jpg" width="13" height="13" />
+                                    Self Installation</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../transaction/FinalAssembaly/FinalAssembalySelfInstallationModeDetails.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Update Transport Details </a></li>
+                                       
+                                    </ul>
+                                </li>
+
+                                 <li id="VendorTeamMenu" runat="server" style="display:none;"><a href="#">
+                                    <img src="../../../images/small_Unit Master.jpg" width="13" height="13" />
+                                    Vendor</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../transaction/FinalAssembaly/FinalAssembalyVendorModeDetails.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Update Transport Details </a></li>
+                                       
+                                    </ul>
+                                </li>
+
+                                <li id="AssemblyMenu" runat="server" style="display:none;"><a href="#">
+                                    <img src="../../../images/small_Unit Master.jpg" width="13" height="13" />
+                                    Assembly</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../transaction/jobrequest/jobrequest.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Job Request</a></li>
+                                       <li><a href="../../transaction/ApprovdisapprovdesignsubmitByManagement/apdapdesignaprvdbymanag.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Live Product Approved Jobs </a></li>
+                                         <li><a href="../../transaction/AssignToPrinter/GeneratePrinterPO.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Generate Printer Job PO </a></li>
+                                                 <li><a href="../../transaction/AssignToFabricator/ReceiveJob.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Printer Receive Job </a></li>
+                                                 <li><a href="../../transaction/AssignToFabricator/AssignToFabricator.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Send To Fabricator </a></li>
+                                                <li><a href="../../transaction/AssignToFabricator/DeleteAssignedFabricator.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Delete Send To Fabricator </a></li>
+                                         <li><a href="../../transaction/AssignToFabricator/GenerateFabricatorPO.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Generate Fabricator Job PO </a></li>
+                                        <li><a href="../../transaction/FinalAssembaly/FabricatorReceiveJob.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                   Fabricator Receive Job </a></li>
+                                     <li><a href="../../transaction/FinalAssembaly/FinalAssembaly.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Final Assembly</a></li>
+                                        <li><a href="../../transaction/FinalAssembaly/FinalAssembalyModeOfDispatch.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Final Assembly Dispatch Mode Update</a></li>
+                                        
+                                        <li><a href="../../transaction/FinalAssembaly/jobcloser.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Job Closer</a></li>
+                                         <li id="Li1" runat="server"><a href="../../transaction/FinalAssembaly/JobHistory.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Job History</a></li>
+                                         <li  runat="server"><a href="../../transaction/Reports/PendingJobsdetailsReportFabricator.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Pending Jobs Details Report Fabricator</a></li>
+                                    </ul>
+                                   
+                                </li>
+
+          <li id="ReportMenuMaster" runat="server"><a href="#">
+                                    <img src="../../../images/small_Unit Master.jpg" width="13" height="13" />
+                                    Report</a>
+                                    <ul class="dropdown-menu">
+                                        <li id="ReportMenu1" runat="server"><a href="../../transaction/FinalAssembaly/JobRequestReport.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Job Report</a></li>
+                                        <li id="ReportMenu2" runat="server"><a href="../../transaction/Reports/DisapprovedJobReport.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Disapproved Jobs Report</a></li>
+                                        <li id="ReportMenu3" runat="server"><a href="../../transaction/FinalAssembaly/JobHistory.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Job History</a></li>
+                                        <li id="ReportMenu4" runat="server"><a href="../../transaction/Reports/OverdueJobsReport.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Overdue Jobs Report</a></li>
+                                        <li id="ReportMenu10" runat="server"><a href="../../transaction/Reports/PendingJobsdetailsReportPrinter.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Pending Jobs Details Report Printer</a></li>
+                                        <li id="ReportMenu11" runat="server"><a href="../../transaction/Reports/PendingJobsdetailsReportFabricator.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Pending Jobs Details Report Fabricator</a></li>
+                                      
+                                        <li id="ReportMenu20" runat="server"><a href="../../transaction/Reports/PartyApprovalPendingJobsReport.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Party Approval Pending Jobs Report</a></li>
+                                         <li id="ReportMenu21" style="display:none" runat="server"><a href="../../transaction/Reports/LiveProductJobStatusDesignerwiseReport.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Live Product Job Status Report</a></li>
+                                         <li id="ReportMenu22" runat="server"><a href="../../transaction/Reports/LiveProductJobStatusBranchwiseReport.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Live Product Job Status Report</a></li>
+                                       
+                                    </ul>
+                                </li>
+
+                                 <li id="AuditReportMenuMaster" runat="server"><a href="#">
+                                    <img src="../../../images/small_Unit Master.jpg" width="13" height="13" />
+                                    Audit Report</a>
+                                    <ul class="dropdown-menu">
+                                        
+                                        <li id="ReportMenu5" runat="server"><a href="../../transaction/Reports/UserLoginReport.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            User Login Detail Report</a></li>
+                                        
+                                         <li id="ReportMenu8" runat="server"><a href="../../transaction/Reports/PriceComparisonReport.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Price Comparison Report (Fabricator)</a></li>
+                                        <li id="ReportMenu9" runat="server"><a href="../../transaction/Reports/PriceComparisonReportForPrinter.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Price Comparison Report (Printer)</a></li>
+                                         <li id="ReportMenu12" runat="server"><a href="../../transaction/Reports/PrinterDcReportBranch.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            PrinterDc Report Branch</a></li>
+                                        <li id="ReportMenu14" runat="server"><a href="../../transaction/Reports/FabricatorDcReportBranch.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            FabricatorDc Report Branch</a></li>
+                                        <li id="ReportMenu17" runat="server"><a href="../../transaction/Reports/PrinterPoReportwithvalueAudit.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            PrinterPO Audit Report</a></li>
+                                        <li id="ReportMenu19" runat="server"><a href="../../transaction/Reports/FabricatorPoReportwithvalueAudit.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            FabricatorPO Audit Report</a></li>
+                                         <li id="ReportMenu25" runat="server"><a href="../../transaction/Reports/PrinterAccountReportAudit.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Printer Account Report Audit</a></li>
+                                        <li id="ReportMenu26" runat="server"><a href="../../transaction/Reports/FabricatorAccountReportAudit.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Fabricator Account Report Audit</a></li>
+                                      
+                                    </ul>
+                                </li>
+
+                                <li id="HOReportMenuMaster" runat="server"><a href="#">
+                                    <img src="../../../images/small_Unit Master.jpg" width="13" height="13" />
+                                    HO Report</a>
+                                    <ul class="dropdown-menu">
+                                        
+                                    <li id="ReportMenu6" runat="server"><a href="../../transaction/Reports/JobTypeImageReport.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Job Type Image Report</a></li>
+                                        <li id="ReportMenu7" runat="server"><a href="../../transaction/Reports/SubJobTypeImageReport.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Sub Job Type Image Report</a></li>
+                                          <li id="ReportMenu13" runat="server"><a href="../../transaction/Reports/PrinterDcReportHO.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            PrinterDc Report HO Report</a></li>
+                                           <li id="ReportMenu15" runat="server"><a href="../../transaction/Reports/FabricatorDcReportHO.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            FabricatorDc Report HO Report</a></li>
+                                        <li id="ReportMenu16" runat="server"><a href="../../transaction/Reports/PrinterPoReportwithoutvalueHo.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            PrinterPO HO Report</a></li>
+                                        <li id="ReportMenu18" runat="server"><a href="../../transaction/Reports/FabricatorPoReportwithoutvalueHo.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            FabricatorPO HO Report</a></li>
+                                          <li id="ReportMenu23" runat="server"><a href="../../transaction/Reports/PrinterSupplierReport.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Printer Supplier Report</a></li>
+                                          <li id="ReportMenu24" runat="server"><a href="../../transaction/Reports/FabricatorSupplierReport.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Fabricator Supplier Report</a></li>
+                                        <li id="ReportMenu27" runat="server"><a href="../../transaction/Reports/PrinterAccountReportHO.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Printer Account Report HO</a></li>
+                                        <li id="ReportMenu28" runat="server"><a href="../../transaction/Reports/FabricatorAccountReportHO.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Fabricator Account Report HO</a></li>
+                                    </ul>
+                                </li>
+                                
+
+                            </ul>
+
+                            <%--  <li><a href="logout.aspx"><img src="images/Logout.png" width="16" height="16" />Log Out  </a>
+                        </li>--%>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
+                    <!--/.container-->
+                </div>
+            </div>
+        </header>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <div id="loaderbg" style="">
+             <img class="loaderimg" src="/images/loder.gif" />
+        </div>
+    </form>
+    
+    <script type="text/javascript">
+
+        $(function () {
+            $('.navbar-nav a').each(function () {
+                if ($(this).parent('li').children('ul').size() > 0) {
+                    $(this).append('<span class="sub-arrow"></span>');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

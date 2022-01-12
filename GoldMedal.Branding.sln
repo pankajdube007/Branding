@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.438
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{0B07567D-58F0-4034-864E-BD61576FC49E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentations", "Presentations", "{57BF72F6-81E7-43D5-A931-0DB85A71224A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{A5BBED53-55C0-4B8A-A63B-1FDBB5FE8F2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldMedal.Branding.Core", "GoldMedal.Branding.Core\GoldMedal.Branding.Core.csproj", "{44EF32DD-BA9F-4CE9-A467-2859126AC4A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldMedal.Branding.Data", "GoldMedal.Branding.Data\GoldMedal.Branding.Data.csproj", "{BD65BF4D-FDCE-496A-B1BA-9FD017EAEFD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldMedal.Branding.Service", "GoldMedal.Branding.Service\GoldMedal.Branding.Service.csproj", "{48273768-C06B-46EB-9C41-39A591EAC77B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldMedal.Branding.Admin", "GoldMedal.Branding.Admin\GoldMedal.Branding.Admin.csproj", "{C33E9680-1CAC-4EF7-9CBB-1813CF01306E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44EF32DD-BA9F-4CE9-A467-2859126AC4A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44EF32DD-BA9F-4CE9-A467-2859126AC4A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44EF32DD-BA9F-4CE9-A467-2859126AC4A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44EF32DD-BA9F-4CE9-A467-2859126AC4A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD65BF4D-FDCE-496A-B1BA-9FD017EAEFD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD65BF4D-FDCE-496A-B1BA-9FD017EAEFD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD65BF4D-FDCE-496A-B1BA-9FD017EAEFD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD65BF4D-FDCE-496A-B1BA-9FD017EAEFD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48273768-C06B-46EB-9C41-39A591EAC77B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48273768-C06B-46EB-9C41-39A591EAC77B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48273768-C06B-46EB-9C41-39A591EAC77B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48273768-C06B-46EB-9C41-39A591EAC77B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C33E9680-1CAC-4EF7-9CBB-1813CF01306E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C33E9680-1CAC-4EF7-9CBB-1813CF01306E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C33E9680-1CAC-4EF7-9CBB-1813CF01306E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C33E9680-1CAC-4EF7-9CBB-1813CF01306E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{44EF32DD-BA9F-4CE9-A467-2859126AC4A2} = {0B07567D-58F0-4034-864E-BD61576FC49E}
+		{BD65BF4D-FDCE-496A-B1BA-9FD017EAEFD9} = {0B07567D-58F0-4034-864E-BD61576FC49E}
+		{48273768-C06B-46EB-9C41-39A591EAC77B} = {0B07567D-58F0-4034-864E-BD61576FC49E}
+		{C33E9680-1CAC-4EF7-9CBB-1813CF01306E} = {57BF72F6-81E7-43D5-A931-0DB85A71224A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {96D8936F-B7ED-4D6C-9F27-0BC651E6F052}
+	EndGlobalSection
+EndGlobal

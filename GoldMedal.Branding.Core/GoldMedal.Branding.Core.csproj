@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{44EF32DD-BA9F-4CE9-A467-2859126AC4A2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GoldMedal.Branding.Core</RootNamespace>
+    <AssemblyName>GoldMedal.Branding.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.RichEdit.v18.1.Export, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.3.0.0\lib\net452\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=9.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.9.3.1\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApproveJob\ApproveJob.cs" />
+    <Compile Include="ApproveJob\IApproveJob.cs" />
+    <Compile Include="AssignJob\AssignJob.cs" />
+    <Compile Include="AssignJob\IAssignJob.cs" />
+    <Compile Include="AssignToFabricator\AssignToFabricator.cs" />
+    <Compile Include="AssignToFabricator\IAssignToFabricator.cs" />
+    <Compile Include="AssigntoPrinter\Assigntoprinter.cs" />
+    <Compile Include="AssigntoPrinter\IAssigntoprinter.cs" />
+    <Compile Include="BoardType\BoardType.cs" />
+    <Compile Include="BoardType\IBoardType.cs" />
+    <Compile Include="CancelJob\CancelJob.cs" />
+    <Compile Include="CancelJob\ICancelJob.cs" />
+    <Compile Include="ChangePassword\ChangePassword.cs" />
+    <Compile Include="ChangePassword\IChangePassword.cs" />
+    <Compile Include="CheckEdit\CheckEdit.cs" />
+    <Compile Include="CheckEdit\ICheckEdit.cs" />
+    <Compile Include="CheckTime\CheckTime.cs" />
+    <Compile Include="CheckTime\ICheckTime.cs" />
+    <Compile Include="Common\CommonHelper.cs" />
+    <Compile Include="Common\Exception\GoldException.cs" />
+    <Compile Include="Common\ManageUser\IUserManagement.cs" />
+    <Compile Include="Common\ManageUser\PrivateMessage.cs" />
+    <Compile Include="Common\ManageUser\UserEnum.cs" />
+    <Compile Include="Common\ManageUser\UserInfo.cs" />
+    <Compile Include="Common\ManageUser\UserManagement.cs" />
+    <Compile Include="Common\ManageUser\UserValidateModel.cs" />
+    <Compile Include="Common\ValidateDataType.cs" />
+    <Compile Include="Dashboard\Dashboard.cs" />
+    <Compile Include="Dashboard\IDashboard.cs" />
+    <Compile Include="DesignSubmit\DesignSubmit.cs" />
+    <Compile Include="DesignSubmit\IDesignSubmit.cs" />
+    <Compile Include="Design\DesignType.cs" />
+    <Compile Include="DesignTypeSubCat\DesignTypeSubCat.cs" />
+    <Compile Include="Design\IDesignType.cs" />
+    <Compile Include="DesignTypeSubCat\IDesignTypeSubCat.cs" />
+    <Compile Include="Disapproved\Disapproved.cs" />
+    <Compile Include="Disapproved\IDisapproved.cs" />
+    <Compile Include="ExportImport\Assets\Abstractions\FileStoreException.cs" />
+    <Compile Include="ExportImport\Assets\Abstractions\IFileStore.cs" />
+    <Compile Include="ExportImport\Assets\Abstractions\IFileStoreEntry.cs" />
+    <Compile Include="ExportImport\Assets\Abstractions\IFileStoreExtensions.cs" />
+    <Compile Include="ExportImport\Assets\BlobAsync\BlobDirectory.cs" />
+    <Compile Include="ExportImport\Assets\BlobAsync\BlobFile.cs" />
+    <Compile Include="ExportImport\Assets\BlobAsync\BlobFileStore.cs" />
+    <Compile Include="ExportImport\Assets\BlobAsync\BlobStorageOptions.cs" />
+    <Compile Include="Export\Export.cs" />
+    <Compile Include="Export\IExport.cs" />
+    <Compile Include="FabricatorDesignSubmit\FabricatorDesignSubmit.cs" />
+    <Compile Include="FabricatorDesignSubmit\IFabricatorDesignSubmit.cs" />
+    <Compile Include="FabricatorQuotation\FabricatorQuotation.cs" />
+    <Compile Include="FabricatorQuotation\IFabricatorQuotation.cs" />
+    <Compile Include="Fabricator\Fabricator.cs" />
+    <Compile Include="Fabricator\IFabricator.cs" />
+    <Compile Include="FinalAssembaly\FinalAssembly.cs" />
+    <Compile Include="FinalAssembaly\IFinalAssembly.cs" />
+    <Compile Include="JobRequest\IJobRequest.cs" />
+    <Compile Include="JobRequest\JobRequest.cs" />
+    <Compile Include="JobTypeMaping\IJobTypeMaping.cs" />
+    <Compile Include="JobTypeMaping\JobTypeMaping.cs" />
+    <Compile Include="JobType\IJobType.cs" />
+    <Compile Include="JobType\JobType.cs" />
+    <Compile Include="MasterMenu\IMasterMenu.cs" />
+    <Compile Include="MasterMenu\MasterMenu.cs" />
+    <Compile Include="PrinterDesignSubmit\IPrinterDesignSubmit.cs" />
+    <Compile Include="PrinterDesignSubmit\PrinterDesignSubmit.cs" />
+    <Compile Include="PrinterQuotation\IPrinterQuotation.cs" />
+    <Compile Include="PrinterQuotation\PrinterQuotation.cs" />
+    <Compile Include="Printer\IPrinter.cs" />
+    <Compile Include="Printer\Printer.cs" />
+    <Compile Include="Product\IProductType.cs" />
+    <Compile Include="Product\ProductType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubJobTypeMaping\ISubJobTypeMaping.cs" />
+    <Compile Include="SubJobTypeMaping\SubJobTypeMaping.cs" />
+    <Compile Include="SubJobType\ISubJobType.cs" />
+    <Compile Include="SubJobType\SubJobType.cs" />
+    <Compile Include="SubSubJobType\ISubSubJobType.cs" />
+    <Compile Include="SubSubJobType\SubSubJobType.cs" />
+    <Compile Include="UAParser\IUAParser.cs" />
+    <Compile Include="UAParser\IUAParserOutput.cs" />
+    <Compile Include="UAParser\Models\ClientInfo.cs" />
+    <Compile Include="UAParser\Models\Device.cs" />
+    <Compile Include="UAParser\Models\DeviceFormFactor.cs" />
+    <Compile Include="UAParser\Models\OS.cs" />
+    <Compile Include="UAParser\Models\UserAgent.cs" />
+    <Compile Include="UAParser\Parser.cs" />
+    <Compile Include="UAParser\ParserOptions.cs" />
+    <Compile Include="UAParser\Utils\DictionaryExtensions.cs" />
+    <Compile Include="UAParser\Utils\MinimalYamlParser.cs" />
+    <Compile Include="UAParser\Utils\RegexBinderBuilder.cs" />
+    <Compile Include="UAParser\Utils\StringExtensions.cs" />
+    <Compile Include="UAParser\Utils\VersionString.cs" />
+    <Compile Include="Unit\IUint.cs" />
+    <Compile Include="Unit\Unit.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GoldMedal.Branding.Data\GoldMedal.Branding.Data.csproj">
+      <Project>{bd65bf4d-fdce-496a-b1ba-9fd017eaefd9}</Project>
+      <Name>GoldMedal.Branding.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GoldMedal.Branding.Service\GoldMedal.Branding.Service.csproj">
+      <Project>{48273768-c06b-46eb-9c41-39a591eac77b}</Project>
+      <Name>GoldMedal.Branding.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utility\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\EditAccessLevel.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
