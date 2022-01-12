@@ -33,7 +33,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssignToFabricator
                     lbslno.Text = "0";
                     ASPxPageControl1.ActiveTabIndex = 1;
 
-                    ASPxGridView1.DataBind();
+                    ASPxGridView1.DataBind(); 
                 }
             }
         }
