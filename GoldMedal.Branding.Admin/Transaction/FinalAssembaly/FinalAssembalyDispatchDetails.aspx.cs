@@ -72,7 +72,7 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
         {
             DataTable dt5 = new DataTable();
             Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty dsp = new Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty();
-            dsp.userid = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("userlogid");
+            dsp.userid = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("slno");
             Core.FinalAssembaly.FinalAssembly objselectall = new Core.FinalAssembaly.FinalAssembly();
             dt5 = objselectall.ListOfJobForFinlaAssemblyDispatchMode(dsp);
             return dt5;
@@ -163,7 +163,7 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
 
                     dst.NoofPackages = Convert.ToInt32(txtpkges.Text == "" ? "0" : txtpkges.Text);
                     dst.Remark = txtremark.Text.Trim();
-                    dst.uid = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("userlogid");
+                    dst.uid = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("slno");
                     dst.TotalBoardQty = Convert.ToInt32(txtnoofboards.Text == "" ? "0" : txtnoofboards.Text);
 
                     Core.FinalAssembaly.FinalAssembly objSend = new Core.FinalAssembaly.FinalAssembly();

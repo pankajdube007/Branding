@@ -441,12 +441,12 @@
                                                                    
                                                                     </br>
                                                                     <div class="row">
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-md-8">
                                                                              <label>Item Details:</label>
                                                                             <asp:UpdatePanel ID="UpdatePanel28" runat="server">
                                                                                 <ContentTemplate>
                                                                                     <asp:Label ID="lblMsg2" runat="server" />
-                                                                                    <asp:GridView runat="server" ID="gvSchemeChild" AutoGenerateColumns="false" EmptyDataText="No Records Found.">
+                                                                                    <asp:GridView runat="server" ID="gvSchemeChild" Width="100%" AutoGenerateColumns="false" EmptyDataText="No Records Found.">
                                                                                         <Columns>
                                                                                             <asp:TemplateField HeaderText="Sl. No." ItemStyle-Width="100">
                                                                                                 <ItemTemplate>

@@ -84,36 +84,38 @@
                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="reqno" Caption="Request No." VisibleIndex="1">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
-                                                                                       
-                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="jobtype" Caption="JobType" VisibleIndex="2">
+                                                                                       <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="BranchName" Caption="Branch" VisibleIndex="2">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
-                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="name" Caption="Dealer Name" VisibleIndex="3">
+                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="jobtype" Caption="JobType" VisibleIndex="3">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="250px" FieldName="address" Caption="Address" VisibleIndex="4">
+                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="name" Caption="Dealer Name" VisibleIndex="4">
+                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                        </dx:GridViewDataTextColumn>
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="250px" FieldName="address" Caption="Address" VisibleIndex="5">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
                                                                                         <%--Retailer Details--%>
 
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="subname" Caption="Retailer" VisibleIndex="5">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="subname" Caption="Retailer" VisibleIndex="6">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="SubAddress" Caption="Retailer Address" VisibleIndex="6">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="SubAddress" Caption="Retailer Address" VisibleIndex="7">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="SubContact" Caption="Retailer Contact" VisibleIndex="7">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="SubContact" Caption="Retailer Contact" VisibleIndex="8">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="Qty" Caption="Total Qty" VisibleIndex="8">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="Qty" Caption="Total Qty" VisibleIndex="9">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="Qty" Caption="Sending Qty" VisibleIndex="9">
+                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="Qty" Caption="Sending Qty" VisibleIndex="10">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
@@ -124,12 +126,12 @@
                                                                                            </DataItemTemplate>
                                                                                            </dx:GridViewDataTextColumn>--%>
 
-                                                                                         <dx:GridViewDataDateColumn Settings-AllowDragDrop="True" Width="160px" FieldName="FinalAssemblySubmittedDate" Caption="Final Assembly Submitted Date" VisibleIndex="10">
+                                                                                         <dx:GridViewDataDateColumn Settings-AllowDragDrop="True" Width="160px" FieldName="FinalAssemblySubmittedDate" Caption="Final Assembly Submitted Date" VisibleIndex="11">
                                                                                             <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy hh:mm:ss tt" DisplayFormatInEditMode="True"></PropertiesDateEdit>
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataDateColumn>
 
-                                                                                         <dx:GridViewDataDateColumn Settings-AllowDragDrop="True" Width="160px" FieldName="ModeofdispatchUpdatedon" Caption="Dispatch Mode Update Date" VisibleIndex="11">
+                                                                                         <dx:GridViewDataDateColumn Settings-AllowDragDrop="True" Width="160px" FieldName="ModeofdispatchUpdatedon" Caption="Dispatch Mode Update Date" VisibleIndex="12">
                                                                                             <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy hh:mm:ss tt" DisplayFormatInEditMode="True"></PropertiesDateEdit>
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataDateColumn>

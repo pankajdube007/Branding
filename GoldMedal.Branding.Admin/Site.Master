@@ -487,7 +487,7 @@
                                         <li><a href="../../transaction/FinalAssembaly/FinalAssembalyModeOfDispatch.aspx">
                                             <img src="../../images/user.png" width="16" height="16" />
                                             Final Assembly Dispatch Mode Update</a></li>
-                                        <li><a href="../../transaction/FinalAssembaly/FinalAssembalyDispatchDetails.aspx">
+                                      <%--  <li><a href="../../transaction/FinalAssembaly/FinalAssembalyDispatchDetails.aspx">
                                             <img src="../../images/user.png" width="16" height="16" />
                                             Final Assembly Dispatch Details Update</a></li>
                                          <li><a href="../../transaction/FinalAssembaly/FinalAssembalySelfInstallationModeDetails.aspx">
@@ -495,7 +495,7 @@
                                             Final Assembly Self Installation Mode Update</a></li>
                                         <li><a href="../../transaction/FinalAssembaly/FinalAssembalyVendorModeDetails.aspx">
                                             <img src="../../images/user.png" width="16" height="16" />
-                                            Final Assembly Vendor Mode Update</a></li>
+                                            Final Assembly Vendor Mode Update</a></li>--%>
                                         <li><a href="../../transaction/FinalAssembaly/jobcloser.aspx">
                                             <img src="../../images/user.png" width="16" height="16" />
                                             Job Closer</a></li>
