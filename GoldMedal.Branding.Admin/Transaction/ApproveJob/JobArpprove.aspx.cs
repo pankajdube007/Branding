@@ -713,8 +713,8 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
         /// </summary>
         protected void columnhide()
         {
-            gvHead.Columns[19].Visible = false;
-            gvHead.Columns[25].Visible = false;
+            gvHead.Columns[20].Visible = false;
+            gvHead.Columns[26].Visible = false;
         }
 
         /// <summary>
@@ -722,18 +722,19 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
         /// </summary>
         protected void columnshow()
         {
-            gvHead.Columns[25].Visible = true;
-            gvHead.Columns[19].Visible = true;
+            
+            gvHead.Columns[20].Visible = true;
+            gvHead.Columns[26].Visible = true;
         }
 
         protected void columnhide2()
         {
-            gvHead.Columns[13].Visible = false;
+            ASPxGridView1.Columns[16].Visible = false;
         }
 
         protected void columnshow2()
         {
-            gvHead.Columns[14].Visible = true;
+            ASPxGridView1.Columns[16].Visible = true;
         }
 
         #endregion 

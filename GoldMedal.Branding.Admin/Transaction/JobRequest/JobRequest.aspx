@@ -453,6 +453,42 @@
                                                                                 <ClientSideEvents SelectedIndexChanged="function(s, e) { lp.Show(); }" />
                                                                             </dx:ASPxComboBox>
                                                                         </div>
+                                                                         <div class="col-md-3">
+                                                                <label>Is Wall Size:</label>
+
+                                                                <asp:UpdatePanel ID="UpdatePanel13" runat="server">
+                                                                    <ContentTemplate>
+                                                                        <div class="form-group">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <asp:CheckBox ID="chkwallsize" runat="server"></asp:CheckBox>
+                                                                        </div>
+                                                                    </ContentTemplate>
+                                                                </asp:UpdatePanel>
+                                                            </div>
+                                                                         <div class="col-md-3">
+                                                                <label>Map Wall Size Job:</label>
+
+                                                                <asp:UpdatePanel ID="UpdatePanel16" runat="server">
+                                                                    <ContentTemplate>
+                                                                        <div class="form-group">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <asp:CheckBox ID="chkmapjob" runat="server" OnCheckedChanged="chkmapjob_CheckedChanged" AutoPostBack="true"></asp:CheckBox>
+                                                                        </div>
+                                                                    </ContentTemplate>
+                                                                </asp:UpdatePanel>
+                                                            </div>
+                                                                         <div class="col-md-3">
+                                                                            <label>Wall Size Jobs Request Nos:<strong class="redmark"></strong></label>
+
+                                                                            <dx:ASPxComboBox runat="server" ID="cmbWallSizeJobs" DropDownStyle="DropDownList" IncrementalFilteringMode="StartsWith"
+                                                                                TextField="reqno" EnableSynchronization="False" CssClass="form-control">
+                                                                              
+                                                                            </dx:ASPxComboBox>
+                                                                        </div>
+
+
                                                                          </div>
                                                                     <div class="row">
                                                                         <div class="cls-sub-topic">

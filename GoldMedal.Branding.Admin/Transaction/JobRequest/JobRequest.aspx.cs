@@ -1924,6 +1924,9 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                     var givenby = HttpUtility.HtmlEncode(txtGivenByOther.Text);
                     var givenbyid = Convert.ToInt32(cmbSalesExecutive.Value);
 
+                    var wallsizeheadslno = Convert.ToInt32(cmbWallSizeJobs.Value);
+                    var wallsizeheadreqno = HttpUtility.HtmlEncode(cmbWallSizeJobs.Text);
+
                     if (cmbGivenBy.SelectedItem != null && cmbGivenBy.SelectedItem.Value != null)
                     {
                         if (cmbGivenBy.SelectedItem.Value.ToString() == "1")
@@ -1964,6 +1967,18 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                     }
 
 
+                    bool IsWallSize;
+
+                    if (chkwallsize.Checked == true)
+                    {
+                        IsWallSize = Convert.ToBoolean(1);
+                    }
+                    else
+                    {
+                        IsWallSize = Convert.ToBoolean(0);
+                    }
+
+
 
                     Headdst.NameTypeId = Convert.ToInt32(nametypeid);
 
@@ -1994,6 +2009,9 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                     Headdst.slno = Convert.ToInt64(slno);
                     Headdst.finyear = finYear;
                     Headdst.Statecheck = IsSubnameIdstaterightswise;
+                    Headdst.IsWallSize = IsWallSize;
+                    Headdst.Wallsizejobheadid = wallsizeheadslno;
+                    Headdst.WallsizejobheadReqNo = wallsizeheadreqno;
                     Core.JobRequest.JobRequest objinsert = new Core.JobRequest.JobRequest();
                     result = objinsert.AddUpdateJobRequesHeadtDACore(Headdst);
                     deleteFiles(hfVisitingImageDelete.Text, slno, slno);
@@ -4696,6 +4714,38 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
         protected void chkStatecheck_CheckedChanged(object sender, EventArgs e)
         {
             LoadSubName();
+        }
+
+        protected void chkmapjob_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkmapjob.Checked==true)
+            {
+                Data.JobRequest.JobRequestModel.JobRequestProperties param = new Data.JobRequest.JobRequestModel.JobRequestProperties();
+
+               
+                param.userbranchid = Convert.ToInt32(cmbbranch.Value);
+                Core.JobRequest.JobRequest objselectsingleselect = new Core.JobRequest.JobRequest();
+                DataSet dsaselect = objselectsingleselect.AllWallSizeJobRequestBranchHeadDACore(param);
+               
+                if(dsaselect.Tables[0].Rows.Count > 0 )
+                {
+                    cmbWallSizeJobs.Items.Clear();
+                    cmbWallSizeJobs.Value = null;
+                    cmbWallSizeJobs.DataSource = dsaselect.Tables[0];
+                    cmbWallSizeJobs.TextField = "reqno";
+                    cmbWallSizeJobs.ValueField = "slno";
+                    cmbWallSizeJobs.DataBind();
+
+                }
+
+               
+            }
+            else
+            {
+                cmbWallSizeJobs.Items.Clear();
+                cmbWallSizeJobs.Value = null;
+                cmbWallSizeJobs.Text = null;
+            }
         }
     }
 }

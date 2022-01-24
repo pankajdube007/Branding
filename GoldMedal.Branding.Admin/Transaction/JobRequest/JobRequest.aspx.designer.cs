@@ -186,6 +186,51 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
         protected global::DevExpress.Web.ASPxComboBox cmbbranch;
 
         /// <summary>
+        /// UpdatePanel13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel13;
+
+        /// <summary>
+        /// chkwallsize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkwallsize;
+
+        /// <summary>
+        /// UpdatePanel16 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel16;
+
+        /// <summary>
+        /// chkmapjob control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkmapjob;
+
+        /// <summary>
+        /// cmbWallSizeJobs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxComboBox cmbWallSizeJobs;
+
+        /// <summary>
         /// dvRequest control.
         /// </summary>
         /// <remarks>

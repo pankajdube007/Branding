@@ -27,6 +27,13 @@ namespace GoldMedal.Branding.Core.JobRequest
             return result;
         }
 
+        public DataSet AllWallSizeJobRequestBranchHeadDACore(GoldMedal.Branding.Data.JobRequest.JobRequestModel.JobRequestProperties alldata)
+        {
+            DataSet result = new DataSet();
+            result = JobRequestServiceCall.AllWallSizeJobRequestHeadBranchDAServiceMethod(alldata, "MSSQLSERVER");
+            return result;
+        }
+
         public DataTable AllNameCore(GoldMedal.Branding.Data.JobRequest.JobRequestModel.JobRequestProperties alldata)
         {
             DataTable result = new DataTable();

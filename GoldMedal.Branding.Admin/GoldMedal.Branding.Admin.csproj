@@ -1092,6 +1092,7 @@
     <Content Include="Transaction\AssigntoPrinter\GeneratePrinterPO.aspx" />
     <Content Include="Transaction\AssigntoPrinter\reassigntoprinter.aspx" />
     <Content Include="Transaction\AssigntoPrinter\reopenassigntoprinter.aspx" />
+    <Content Include="Transaction\AssigntoPrinter\WallsizeJobsApproval.aspx" />
     <Content Include="Transaction\CancelJob\JobCancel.aspx" />
     <Content Include="Transaction\DesignSubmit\DesignSubmit.aspx" />
     <Content Include="Transaction\Disapproved\DisapprovedList.aspx" />
@@ -1652,6 +1653,13 @@
     </Compile>
     <Compile Include="Transaction\AssigntoPrinter\reopenassigntoprinter.aspx.designer.cs">
       <DependentUpon>reopenassigntoprinter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\AssigntoPrinter\WallsizeJobsApproval.aspx.cs">
+      <DependentUpon>WallsizeJobsApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transaction\AssigntoPrinter\WallsizeJobsApproval.aspx.designer.cs">
+      <DependentUpon>WallsizeJobsApproval.aspx</DependentUpon>
     </Compile>
     <Compile Include="Transaction\CancelJob\JobCancel.aspx.cs">
       <DependentUpon>JobCancel.aspx</DependentUpon>

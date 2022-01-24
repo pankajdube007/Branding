@@ -49,6 +49,20 @@ namespace GoldMedal.Branding.Service.JobRequestService
             }
             return recid;
         }
+        public static DataSet AllWallSizeJobRequestHeadBranchDAServiceMethod(GoldMedal.Branding.Data.JobRequest.JobRequestModel.JobRequestProperties alldata, string DatabaseType)
+        {
+            DataSet recid = null;
+            JobRequestDataAccess objdata = new JobRequestDataAccess();
+            if (string.Equals(DatabaseType, "MSSQLSERVER"))
+            {
+                recid = objdata.AllWallSizeJobRequestHeadDABranch(alldata);
+            }
+            else
+            {
+                recid = null;
+            }
+            return recid;
+        }
 
         public static DataTable AllNameServiceMethod(GoldMedal.Branding.Data.JobRequest.JobRequestModel.JobRequestProperties alldata, string DatabaseType)
         {
