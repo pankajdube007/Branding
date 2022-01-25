@@ -477,7 +477,7 @@ namespace GoldMedal.Branding.Service.DesignSubmit
             }
             else
             {
-                recid = 0;
+                recid = 0; 
             }
             return recid;
         }
