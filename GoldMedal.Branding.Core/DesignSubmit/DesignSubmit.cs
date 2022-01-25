@@ -47,6 +47,13 @@ namespace GoldMedal.Branding.Core.DesignSubmit
             return recid;
         }
 
+        public DataTable GetAllDesignSubmitWallSizeJobsByUserforapprovel(GoldMedal.Branding.Data.DesignSubmit.DesignSubmit.DesignSubmitProperty dtsingle)
+        {
+            DataTable recid = new DataTable();
+            recid = DesignSubmitServiceCall.AllDesignSubmitByUserforWallsizejobsapprovelServiceMethod(dtsingle, "MSSQLSERVER");
+            return recid;
+        }
+
         public DataTable GetAllSubmitedDesignApprovedByUser(GoldMedal.Branding.Data.DesignSubmit.DesignSubmit.DesignSubmitProperty dtsingle)
         {
             DataTable recid = new DataTable();
@@ -141,6 +148,13 @@ namespace GoldMedal.Branding.Core.DesignSubmit
         {
             DataTable recid = new DataTable();
             recid = DesignSubmitServiceCall.DetailOfDesignSubmitByUserServiceMethod(dtsingle, "MSSQLSERVER");
+            return recid;
+        }
+
+        public DataTable GetDetailOfDesignSubmitWallSizeByUser(GoldMedal.Branding.Data.DesignSubmit.DesignSubmit.DesignSubmitProperty dtsingle)
+        {
+            DataTable recid = new DataTable();
+            recid = DesignSubmitServiceCall.DetailOfDesignSubmitWallSizeByUserServiceMethod(dtsingle, "MSSQLSERVER");
             return recid;
         }
 

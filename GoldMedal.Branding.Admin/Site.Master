@@ -376,6 +376,9 @@
                                                 <li><a href="../../transaction/Approvdisapprovdesignsubmit/apdapdesignsubmit.aspx">
                                                     <img src="../../images/user.png" width="16" height="16" />
                                                     Design Head Approval </a></li>
+                                                  <li><a href="../../transaction/AssigntoPrinter/WallsizeJobsApproval.aspx">
+                                                    <img src="../../images/user.png" width="16" height="16" />
+                                                    Wallsize Jobs Approval </a></li>
                                                  <li><a href="../../transaction/ApproveByParty/PartyApprovalStatusUpdate.aspx">
                                                     <img src="../../images/user.png" width="16" height="16" />
                                                     Party Approval Update</a></li>

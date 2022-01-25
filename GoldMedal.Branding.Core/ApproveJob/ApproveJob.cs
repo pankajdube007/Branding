@@ -19,6 +19,13 @@ namespace GoldMedal.Branding.Core.ApproveJob
             return recid;
         }
 
+        public string ApproveWallSizeJobInsertMethod(GoldMedal.Branding.Data.ApproveJob.ApproveJobModel.ApproveProperties dti)
+        {
+            string recid = "0";
+            recid = ApproveJobServiceCall.AddApproveWallSizeJobInsertServiceMethod(dti, "MSSQLSERVER");
+            return recid;
+        }
+
         public string PartyApproveApproveJobInsertMethod(GoldMedal.Branding.Data.ApproveJob.ApproveJobModel.ApproveProperties dti)
         {
             string recid = "0";

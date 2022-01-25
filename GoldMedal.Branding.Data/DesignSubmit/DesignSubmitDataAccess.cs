@@ -44,6 +44,13 @@ namespace GoldMedal.Branding.Data.DesignSubmit
             return (objDataAccess.ReturnDataTableWithParameters("GetSubmitedDesignApprovedByUser", objParameter));
         }
 
+        public DataTable AllSubmitedDesignWallsizeJobsApprovedByUserDA(DesignSubmit.DesignSubmitProperty ObjDesignSubmitsingle)
+        {
+            SqlParameter[] objParameter = new SqlParameter[1];
+            objParameter[0] = new SqlParameter("@createuid", ObjDesignSubmitsingle.createuid);
+            return (objDataAccess.ReturnDataTableWithParameters("getdesignsubmitlistforwallsizejobsapprovel", objParameter));
+        }
+
         public DataTable AllSubmitedDesignDisapprovedByPartyDA(DesignSubmit.DesignSubmitProperty ObjDesignSubmitsingle)
         {
             SqlParameter[] objParameter = new SqlParameter[1];
@@ -137,6 +144,13 @@ namespace GoldMedal.Branding.Data.DesignSubmit
             SqlParameter[] objParameter = new SqlParameter[1];
             objParameter[0] = new SqlParameter("@slno", ObjDesignSubmitsingle.slno);
             return (objDataAccess.ReturnDataTableWithParameters("getdesignsubmitparticular", objParameter));
+        }
+
+        public DataTable DetailSingleDesignSubmitWallSizeJobsByUser(DesignSubmit.DesignSubmitProperty ObjDesignSubmitsingle)
+        {
+            SqlParameter[] objParameter = new SqlParameter[1];
+            objParameter[0] = new SqlParameter("@slno", ObjDesignSubmitsingle.slno);
+            return (objDataAccess.ReturnDataTableWithParameters("getdesignsubmitwallsizejobsparticular", objParameter));
         }
         public DataTable PrinterWorkStatus(DesignSubmit.DesignSubmitProperty ObjDesignSubmitsingle)
         {

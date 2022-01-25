@@ -108,6 +108,21 @@ namespace GoldMedal.Branding.Service.DesignSubmit
             return recid;
         }
 
+        public static DataTable AllDesignSubmitByUserforWallsizejobsapprovelServiceMethod(GoldMedal.Branding.Data.DesignSubmit.DesignSubmit.DesignSubmitProperty dtsingle, string DatabaseType)
+        {
+            DataTable recid = null;
+            DesignSubmitDataAccess objselectall = new DesignSubmitDataAccess();
+            if (string.Equals(DatabaseType, "MSSQLSERVER"))
+            {
+                recid = objselectall.AllSubmitedDesignWallsizeJobsApprovedByUserDA(dtsingle);
+            }
+            else
+            {
+                recid = null;
+            }
+            return recid;
+        }
+
         public static DataTable AllSubmitedDesignApprovedByUserlServiceMethod(GoldMedal.Branding.Data.DesignSubmit.DesignSubmit.DesignSubmitProperty dtsingle, string DatabaseType)
         {
             DataTable recid = null;
@@ -323,6 +338,21 @@ namespace GoldMedal.Branding.Service.DesignSubmit
             if (string.Equals(DatabaseType, "MSSQLSERVER"))
             {
                 recid = objselectall.DetailSingleDesignSubmitByUser(dtsingle);
+            }
+            else
+            {
+                recid = null;
+            }
+            return recid;
+        }
+
+        public static DataTable DetailOfDesignSubmitWallSizeByUserServiceMethod(GoldMedal.Branding.Data.DesignSubmit.DesignSubmit.DesignSubmitProperty dtsingle, string DatabaseType)
+        {
+            DataTable recid = null;
+            DesignSubmitDataAccess objselectall = new DesignSubmitDataAccess();
+            if (string.Equals(DatabaseType, "MSSQLSERVER"))
+            {
+                recid = objselectall.DetailSingleDesignSubmitWallSizeJobsByUser(dtsingle);
             }
             else
             {

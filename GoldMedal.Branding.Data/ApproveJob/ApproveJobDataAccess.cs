@@ -44,6 +44,17 @@ namespace GoldMedal.Branding.Data.ApproveJob
             return Convert.ToString(objDataAccess.ExecuteNonQueryWithOutputParameters("CommonAppprovalSystem", objParameter));
         }
 
+        public string AddWallSizeJobApprovalDA(ApproveJob.ApproveJobModel.ApproveProperties ObjAssignJobInput)
+        {
+            SqlParameter[] objParameter = new SqlParameter[4];
+            objParameter[0] = new SqlParameter("@slno", ObjAssignJobInput.slno);
+            objParameter[1] = new SqlParameter("@branchid", ObjAssignJobInput.branchid);
+            objParameter[2] = new SqlParameter("@uid", ObjAssignJobInput.uid);
+            objParameter[3] = new SqlParameter("@moduleid", ObjAssignJobInput.moduleid);
+           
+            return Convert.ToString(objDataAccess.ExecuteNonQueryWithOutputParameters("WallsizejobsApprovalUpdate", objParameter));
+        }
+
         public string PartyApproveUpdateJobeDA(ApproveJob.ApproveJobModel.ApproveProperties ObjAssignJobInput)
         {
             SqlParameter[] objParameter = new SqlParameter[2];

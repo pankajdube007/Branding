@@ -65,6 +65,20 @@ namespace GoldMedal.Branding.Service.ApproveJob
             }
             return recid;
         }
+        public static string AddApproveWallSizeJobInsertServiceMethod(GoldMedal.Branding.Data.ApproveJob.ApproveJobModel.ApproveProperties dti, string DatabaseType)
+        {
+            string recid = "0";
+            ApproveJobDataAccess objinsert = new ApproveJobDataAccess();
+            if (string.Equals(DatabaseType, "MSSQLSERVER"))
+            {
+                recid = objinsert.AddWallSizeJobApprovalDA(dti);
+            }
+            else
+            {
+                recid = "0";
+            }
+            return recid;
+        }
         public static string PartyApproveUpdateServiceMethod(GoldMedal.Branding.Data.ApproveJob.ApproveJobModel.ApproveProperties dti, string DatabaseType)
         {
             string recid = "0";
