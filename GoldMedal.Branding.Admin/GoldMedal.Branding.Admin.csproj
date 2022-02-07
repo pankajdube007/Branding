@@ -1119,10 +1119,12 @@
     <Content Include="Transaction\Reports\FabricatorAccountReportHO.aspx" />
     <Content Include="Transaction\Reports\FabricatorDcReportBranch.aspx" />
     <Content Include="Transaction\Reports\FabricatorDcReportHO.aspx" />
+    <Content Include="Transaction\Reports\FabricatorPoAgingReport.aspx" />
     <Content Include="Transaction\Reports\FabricatorPoReportwithoutvalueHo.aspx" />
     <Content Include="Transaction\Reports\FabricatorPoReportwithvalueAudit.aspx" />
     <Content Include="Transaction\Reports\FabricatorRejectedJobsReport.aspx" />
     <Content Include="Transaction\Reports\FabricatorSupplierReport.aspx" />
+    <Content Include="Transaction\Reports\JobAgingReport.aspx" />
     <Content Include="Transaction\Reports\JobTypeImageReport.aspx" />
     <Content Include="Transaction\Reports\LiveProductJobStatusBranchwiseReport.aspx" />
     <Content Include="Transaction\Reports\LiveProductJobStatusDesignerwiseReport.aspx" />
@@ -1136,6 +1138,7 @@
     <Content Include="Transaction\Reports\PrinterAccountReportHO.aspx" />
     <Content Include="Transaction\Reports\PrinterDcReportBranch.aspx" />
     <Content Include="Transaction\Reports\PrinterDcReportHO.aspx" />
+    <Content Include="Transaction\Reports\PrinterPOAgingReport.aspx" />
     <Content Include="Transaction\Reports\PrinterPoReportwithoutvalueHo.aspx" />
     <Content Include="Transaction\Reports\PrinterPoReportwithvalueAudit.aspx" />
     <Content Include="Transaction\Reports\PrinterRejectedJobsReport.aspx" />
@@ -1843,6 +1846,13 @@
     <Compile Include="Transaction\Reports\FabricatorDcReportHO.aspx.designer.cs">
       <DependentUpon>FabricatorDcReportHO.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Transaction\Reports\FabricatorPoAgingReport.aspx.cs">
+      <DependentUpon>FabricatorPoAgingReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transaction\Reports\FabricatorPoAgingReport.aspx.designer.cs">
+      <DependentUpon>FabricatorPoAgingReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Transaction\Reports\FabricatorPoReportwithoutvalueHo.aspx.cs">
       <DependentUpon>FabricatorPoReportwithoutvalueHo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1870,6 +1880,13 @@
     </Compile>
     <Compile Include="Transaction\Reports\FabricatorSupplierReport.aspx.designer.cs">
       <DependentUpon>FabricatorSupplierReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\Reports\JobAgingReport.aspx.cs">
+      <DependentUpon>JobAgingReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transaction\Reports\JobAgingReport.aspx.designer.cs">
+      <DependentUpon>JobAgingReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Transaction\Reports\JobTypeImageReport.aspx.cs">
       <DependentUpon>JobTypeImageReport.aspx</DependentUpon>
@@ -1961,6 +1978,13 @@
     </Compile>
     <Compile Include="Transaction\Reports\PrinterDcReportHO.aspx.designer.cs">
       <DependentUpon>PrinterDcReportHO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\Reports\PrinterPOAgingReport.aspx.cs">
+      <DependentUpon>PrinterPOAgingReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transaction\Reports\PrinterPOAgingReport.aspx.designer.cs">
+      <DependentUpon>PrinterPOAgingReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Transaction\Reports\PrinterPoReportwithoutvalueHo.aspx.cs">
       <DependentUpon>PrinterPoReportwithoutvalueHo.aspx</DependentUpon>

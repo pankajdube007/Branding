@@ -4589,3 +4589,27 @@ User Host IP:
 
 
 
+-----------Exception Details on  27-01-2022 11:32:57-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 27-01-2022 11:32:57
+
+Error Line No : ine 225
+
+Error Message: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Location : Procedure or function 'JobRequestChildAddUpdate' expects parameter '@WallSizeJobChildSlno', which was not supplied.
+
+ Error Page Url: http://localhost:50302/transaction/jobrequest/jobrequest.aspx
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+

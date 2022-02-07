@@ -911,6 +911,16 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
             DataTable dt = objselectsingle.GetApprovalDetailOfJobToPrinter(dtsingle);
             if (dt.Rows.Count > 0)
             {
+                if(Convert.ToString(dt.Rows[0]["WallSizeJob"]) =="YES")
+                {
+                    rdsizetype.Enabled = false;
+                }
+                else
+                {
+                    rdsizetype.Enabled = true;
+
+                }
+
                 LblRequestNo.Text = Convert.ToString(dt.Rows[0]["reqno"]);
                 lblBranchID.Text = Convert.ToString(dt.Rows[0]["branchid"]);
                 lblBranch.Text = Convert.ToString(dt.Rows[0]["branch"]);

@@ -88,7 +88,7 @@ namespace GoldMedal.Branding.Data.JobRequest
             public bool Statecheck { get; set; }
 
             public bool IsWallSize { get; set; }
-            public int Wallsizejobheadid { get; set; }
+            public int WallSizeJobChildSlno { get; set; }
             public string WallsizejobheadReqNo { get; set; }
 
         }

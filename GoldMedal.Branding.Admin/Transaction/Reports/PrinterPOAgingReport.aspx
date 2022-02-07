@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="PrinterSupplierReport.aspx.cs" Inherits="GoldMedal.Branding.Admin.Transaction.Reports.PrinterSupplierReport" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="PrinterPOAgingReport.aspx.cs" Inherits="GoldMedal.Branding.Admin.Transaction.Reports.PrinterPOAgingReport" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Assembly="DevExpress.Data.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
@@ -18,7 +17,7 @@
             <asp:ScriptManager ID="tsm" runat="server"></asp:ScriptManager>
             <div class="row">
                 <div class="col-md-12">
-                    <h2 style="text-align: center;">Printer Supplier Report</h2>
+                    <h2 style="text-align: center;">Printer's Job PO Aging Report</h2>
                 </div>
             </div>
             <div class="row">
@@ -51,7 +50,7 @@
                                 
 
                                       <%--.Start of Tab-1--%>
-                                    <dx:TabPage Text="List">
+                                    <dx:TabPage Text="Printer PO">
                                         <ContentCollection>
                                             <dx:ContentControl ID="ContentControl3" runat="server">
                                                 <div class="row">
@@ -86,65 +85,76 @@
                                                                                     </tr>
                                                                                 </table>
                                                                                 <br />
-                                                                                <dx:ASPxGridView Settings-ShowGroupPanel="true" SettingsBehavior-AllowDragDrop="true"
+                                                                                  <dx:ASPxGridView Settings-ShowGroupPanel="true" SettingsBehavior-AllowDragDrop="true"
                                                                                     SettingsBehavior-AllowGroup="true" SettingsBehavior-AllowSort="true" ID="ASPxGridView1"
-                                                                                    align="left" KeyFieldName="PrinterSlno" CssClass="listin" Theme="Default" Width="100%" Settings-HorizontalScrollBarMode="Visible"
+                                                                                    align="left" KeyFieldName="slno" CssClass="listin" Theme="Default" Width="100%" SettingsPager-PageSize="10"
                                                                                     runat="server" EnablePagingCallbackAnimation="True" OnDataBinding="ASPxGridView1_DataBinding"
+                                                                                    
                                                                                     AutoGenerateColumns="False">
                                                                                     <Columns>
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Visible="false"  FieldName="slno" Caption="SlNo" VisibleIndex="1">
+                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                         </dx:GridViewDataTextColumn> 
 
+
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="PoNumber" Caption="Po Number" VisibleIndex="2">
+                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                        </dx:GridViewDataTextColumn>
+
+                                                                                   
+
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="Podt" Caption="Po Date" VisibleIndex="3">
+                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                        </dx:GridViewDataTextColumn>
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="name" Caption="Printer Name" VisibleIndex="4">
+                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                        </dx:GridViewDataTextColumn>
+                                                                                       
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="250px" FieldName="partyadd" Caption="Printer Address" VisibleIndex="5">
+                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                        </dx:GridViewDataTextColumn>
+
+
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="billingadd" Caption="Billing Address" VisibleIndex="6">
+                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                        </dx:GridViewDataTextColumn>
+
+
+                                                                                        <%--Retailer Details--%>
+
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="dispatchadd" Caption="Dispatch Address" VisibleIndex="7">
+                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                        </dx:GridViewDataTextColumn>
+
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="DelivryDate" Caption="Delivery Date" VisibleIndex="8">
+                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                        </dx:GridViewDataTextColumn>
+
+                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="LastDelivryDate" Caption="Last Delivery Date" VisibleIndex="9">
+                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                        </dx:GridViewDataTextColumn>
+
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="TotalQty" Caption="Total Qty" VisibleIndex="10">
+                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                        </dx:GridViewDataTextColumn>
+
+                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="Aging" Caption="Aging" VisibleIndex="11">
+                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                        </dx:GridViewDataTextColumn>
                                                                                       
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="PrinterSlno" Caption="PrinterSlno" Visible="false" VisibleIndex="1">
-                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
-                                                                                        </dx:GridViewDataTextColumn>
-                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="SupplierSlno" Caption="SupplierSlno" Visible="false" VisibleIndex="2">
-                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
-                                                                                        </dx:GridViewDataTextColumn>
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="150px"  FieldName="Printername" Caption="Printer Name" VisibleIndex="3">
-                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
-                                                                                        </dx:GridViewDataTextColumn>
 
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="150px" FieldName="PrinterEmail" Caption="Printer Email" VisibleIndex="4">
-                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
-                                                                                        </dx:GridViewDataTextColumn>
-
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="100px" FieldName="PrinterMobileNo" Caption="Printer MobileNo" VisibleIndex="5">
-                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
-                                                                                        </dx:GridViewDataTextColumn>
-
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="150px" FieldName="SupplierName" Caption="Supplier Name" VisibleIndex="6">
-                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
-                                                                                        </dx:GridViewDataTextColumn>
-
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="250px" FieldName="addline1" Caption="Supplier Address" VisibleIndex="7">
-                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
-                                                                                        </dx:GridViewDataTextColumn>
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="150px" FieldName="gstno" Caption="GST No" VisibleIndex="8">
-                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
-                                                                                        </dx:GridViewDataTextColumn>
-                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="150px" FieldName="ConcernedPerson" Caption="Concerned Person" VisibleIndex="9">
-                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
-                                                                                        </dx:GridViewDataTextColumn>
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="150px" FieldName="cinnumber" Caption="CIN Number" VisibleIndex="10">
-                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
-                                                                                        </dx:GridViewDataTextColumn>
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="panno" Caption="PAN No" VisibleIndex="11">
-                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
-                                                                                        </dx:GridViewDataTextColumn>
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="150px" FieldName="SupplierEmail" Caption="Supplier Email" VisibleIndex="12">
-                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
-                                                                                        </dx:GridViewDataTextColumn>
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="150px" FieldName="SupplierMobileno" Caption="Supplier Mobileno" VisibleIndex="13">
-                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
-                                                                                        </dx:GridViewDataTextColumn>
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="LinkedBranch" Caption="Supplier Branch" VisibleIndex="14">
-                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
-                                                                                        </dx:GridViewDataTextColumn>
-                                                                                      <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="150px" FieldName="approvestatus" Caption="Approval Status" VisibleIndex="15">
-                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
-                                                                                        </dx:GridViewDataTextColumn>
+                                                                                        <%--<dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Caption="View"  ReadOnly="True" VisibleIndex="12">
+                                                                                            <Settings AllowDragDrop="True" />
+                                                                                            <DataItemTemplate>
+                                                                                                <asp:HyperLink ID="ViewProfile" EnableViewState="false" Text="View" runat="server"
+                                                                                      NavigateUrl='<%# "~/PrintGeneratedPrinterPOWithoutAmount.aspx?id="+ Eval("slno") %>' Target="_blank">
+                                                                                                   </asp:HyperLink>
+                                                                                            </DataItemTemplate>
+                                                                                        </dx:GridViewDataTextColumn>--%>
                                                                                     </Columns>
-                                                                                    <Settings ShowFilterRow="True" />
+                                                                                   <%-- <Settings ShowGroupPanel="true" VerticalScrollBarMode="Visible" VerticalScrollableHeight="400" />--%>
+                                                                                  
+                                                                                    <Settings ShowFilterRow="True"  />
                                                                                     <SettingsDataSecurity AllowDelete="False" />
                                                                                     <GroupSummary>
                                                                                         <dx:ASPxSummaryItem SummaryType="Count" />
@@ -154,15 +164,16 @@
                                                                                     </TotalSummary>
                                                                                     <SettingsBehavior EnableRowHotTrack="True" ProcessFocusedRowChangedOnServer="True" />
                                                                                     <SettingsPager>
-                                                                                        <PageSizeItemSettings Visible="true" Items=" 20, 50, 100, 500" />
+                                                                                        <PageSizeItemSettings Visible="true" Items="20, 50, 100, 500" />
                                                                                     </SettingsPager>
                                                                                     <SettingsDataSecurity AllowInsert="false" AllowEdit="false" AllowDelete="false" />
-                                                                                    <Settings ShowFilterRow="True" ShowGroupPanel="True" />
+                                                                                  
                                                                                     <Styles>
                                                                                         <RowHotTrack BackColor="#E9E9E9">
                                                                                         </RowHotTrack>
                                                                                     </Styles>
                                                                                 </dx:ASPxGridView>
+
                                                                             </ContentTemplate>
                                                                         </asp:UpdatePanel>
                                                                     </ContentTemplate>

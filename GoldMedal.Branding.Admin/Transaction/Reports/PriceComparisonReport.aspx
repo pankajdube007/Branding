@@ -100,7 +100,9 @@
                                                                                     </tr>
                                                                                 </table>
                                                                                 <br />
-                             <dx:ASPxPivotGrid ID="ASPxGridView1" runat="server" ClientIDMode="AutoID" OptionsView-ShowRowGrandTotalHeader="False" OptionsView-ShowColumnGrandTotals="False" OptionsView-ShowRowGrandTotals="False" OptionsView-ShowRowTotals="False" Theme="Glass" OnDataBinding="ASPxGridView1_DataBinding">
+                             <dx:ASPxPivotGrid ID="ASPxGridView1" runat="server" ClientIDMode="AutoID" OptionsView-ShowRowGrandTotalHeader="False" 
+                                 OptionsView-ShowColumnGrandTotals="False" OptionsView-ShowRowGrandTotals="False" OptionsView-ShowRowTotals="False"
+                                 Theme="Glass" OnDataBinding="ASPxGridView1_DataBinding" Width="100%" OptionsView-HorizontalScrollBarMode="Visible">
                                 <Fields>
 
                                   

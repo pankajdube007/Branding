@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="PriceComparisonReportForPrinter.aspx.cs" Inherits="GoldMedal.Branding.Admin.Transaction.Reports.PriceComparisonReportForPrinter" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="JobAgingReport.aspx.cs" Inherits="GoldMedal.Branding.Admin.Transaction.Reports.JobAgingReport" %>
 
 
 
@@ -27,18 +27,16 @@
             <asp:ScriptManager ID="tsm" runat="server"></asp:ScriptManager>
             <div class="row">
                 <div class="col-md-12">
-                    <h2 style="text-align: center;">Price Comparison Report (Printer)</h2>
+                    <h2 style="text-align: center;">Job Aging Report</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
 
-                   <%-- <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1">
-                    </dx:ASPxGridViewExporter>--%>
+                    <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1">
+                    </dx:ASPxGridViewExporter>
 
-                    <dx:ASPxPivotGridExporter ID="ASPxPivotGridExporter1" runat="server"
-                ASPxPivotGridID="ASPxGridView1">
-            </dx:ASPxPivotGridExporter>
+                  
                    
                      <dx:ASPxCallback ID="ASPxCallback1" runat="server" ClientInstanceName="ASPxCallback1"
                                                                         OnCallback="ASPxCallback1_Callback">
@@ -100,36 +98,52 @@
                                                                                     </tr>
                                                                                 </table>
                                                                                 <br />
-                             <dx:ASPxPivotGrid ID="ASPxGridView1" runat="server" ClientIDMode="AutoID" OptionsView-ShowRowGrandTotalHeader="False" 
-                                 OptionsView-ShowColumnGrandTotals="False" OptionsView-ShowRowGrandTotals="False" OptionsView-ShowRowTotals="False" 
-                                 Theme="Glass" OnDataBinding="ASPxGridView1_DataBinding" Width="100%" OptionsView-HorizontalScrollBarMode="Visible">
-                                <Fields>
+                                                                               <dx:ASPxGridView Settings-ShowGroupPanel="true" SettingsBehavior-AllowDragDrop="true"
+                                                                                    SettingsBehavior-AllowGroup="true" SettingsBehavior-AllowSort="true" ID="ASPxGridView1"
+                                                                                    align="left" KeyFieldName="slno" CssClass="listin" Theme="Default" Width="100%"
+                                                                                    runat="server" EnablePagingCallbackAnimation="True" OnDataBinding="ASPxGridView1_DataBinding"
+                                                                                    AutoGenerateColumns="False">
+                                                                                    <Columns>
 
-                                  
-                                    <dx:PivotGridField ID="fieldBranchName" FieldName="Branch" Options-AllowSort="False" Area="RowArea" Caption="Branch Name"
-                                        AreaIndex="1">
-                                    </dx:PivotGridField>
+                                                                                       
+                                                                                        <dx:GridViewDataTextColumn FixedStyle="Left"  Settings-AllowDragDrop="True" Visible="false" FieldName="branchid" Caption="branchid" VisibleIndex="1">
+                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                        </dx:GridViewDataTextColumn>
+                                                                                        <dx:GridViewDataTextColumn FixedStyle="Left" Settings-AllowDragDrop="True" FieldName="Branch" Caption="Branch" VisibleIndex="2">
+                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                        </dx:GridViewDataTextColumn>
+                                                                                        <dx:GridViewDataTextColumn FixedStyle="Left" Settings-AllowDragDrop="True" FieldName="ThirtyToSixty" Caption="30-60" VisibleIndex="3">
+                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                        </dx:GridViewDataTextColumn>
 
-                                     <dx:PivotGridField ID="fieldVendorName" FieldName="Vendor" Options-AllowSort="False" Area="RowArea" Caption="Vendor Name"
-                                        AreaIndex="2">
-                                    </dx:PivotGridField>
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="SixtyToNinety" Caption="60-90" VisibleIndex="4">
+                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                        </dx:GridViewDataTextColumn>
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="250px" FieldName="MoreThanNinety" Caption=">90" VisibleIndex="5">
+                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                        </dx:GridViewDataTextColumn>
 
-                                    <dx:PivotGridField ID="fieldstatecode1" FieldName="Material" Area="ColumnArea"
-                                        AreaIndex="0">
-                                    </dx:PivotGridField>
-
-                                    <dx:PivotGridField ID="fieldstatecode2" FieldName="Rate" Area="DataArea"
-                                        AreaIndex="0">
-                                    </dx:PivotGridField>
-
-                                   
-
-
-                                </Fields>
-                                <OptionsView ShowColumnHeaders="False" ShowDataHeaders="False" ShowFilterHeaders="False" />
-                                <%--   <OptionsData DataFieldUnboundExpressionMode="UseSummaryValues" />--%>
-                                <OptionsPager RowsPerPage="10000" />
-                            </dx:ASPxPivotGrid>
+                                                                                       
+                                                                                    </Columns>
+                                                                                    <Settings ShowFilterRow="True" />
+                                                                                    <SettingsDataSecurity AllowDelete="False" />
+                                                                                    <GroupSummary>
+                                                                                        <dx:ASPxSummaryItem SummaryType="Count" />
+                                                                                    </GroupSummary>
+                                                                                    <TotalSummary>
+                                                                                        <dx:ASPxSummaryItem FieldName="Size" SummaryType="Sum" />
+                                                                                    </TotalSummary>
+                                                                                    <SettingsBehavior EnableRowHotTrack="True" ProcessFocusedRowChangedOnServer="True" />
+                                                                                    <SettingsPager>
+                                                                                        <PageSizeItemSettings Visible="true" Items=" 20, 50, 100, 500" />
+                                                                                    </SettingsPager>
+                                                                                    <SettingsDataSecurity AllowInsert="false" AllowEdit="false" AllowDelete="false" />
+                                                                                    <Settings ShowFilterRow="True" ShowGroupPanel="True" />
+                                                                                    <Styles>
+                                                                                        <RowHotTrack BackColor="#E9E9E9">
+                                                                                        </RowHotTrack>
+                                                                                    </Styles>
+                                                                                </dx:ASPxGridView>
                                                                             </ContentTemplate>
                                                                         </asp:UpdatePanel>
                                                                         <asp:Label ID="lblfilename" Visible="false" runat="server"></asp:Label>

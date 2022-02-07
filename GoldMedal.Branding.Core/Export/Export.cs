@@ -24,7 +24,7 @@ namespace GoldMedal.Branding.Core.Export
 
         public void GoldGridExportToRtf(ASPxGridViewExporter agve, string FileName, bool SaveAs)
         {
-            agve.WriteRtfToResponse(FileName, SaveAs);
+            agve.WriteRtfToResponse(FileName, SaveAs );
         }
 
         public void GoldGridExportToCsv(ASPxGridViewExporter agve, string FileName, bool SaveAs)

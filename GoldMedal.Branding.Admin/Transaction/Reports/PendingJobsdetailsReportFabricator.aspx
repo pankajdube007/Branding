@@ -108,7 +108,7 @@
                                                                                 <br />
                                                                                <dx:ASPxGridView Settings-ShowGroupPanel="true" SettingsBehavior-AllowDragDrop="true"
                                                                                     SettingsBehavior-AllowGroup="true" SettingsBehavior-AllowSort="true" ID="ASPxGridView1"
-                                                                                    align="left" KeyFieldName="slno" CssClass="listin" Theme="Default" Width="100%"
+                                                                                    align="left" KeyFieldName="slno" CssClass="listin" Theme="Default" Width="100%" Settings-HorizontalScrollBarMode="Visible"
                                                                                     runat="server" EnablePagingCallbackAnimation="True" OnDataBinding="ASPxGridView1_DataBinding"
                                                                                     AutoGenerateColumns="False">
                                                                                     <Columns>
@@ -151,7 +151,7 @@
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="SubAddress" Caption="Retailer Address" VisibleIndex="8">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="250px" FieldName="SubAddress" Caption="Retailer Address" VisibleIndex="8">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
@@ -176,10 +176,10 @@
                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="subjobtype" Caption="SubJobType" VisibleIndex="13">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="subsubjobtype" Caption="Material" VisibleIndex="14">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="150px" FieldName="subsubjobtype" Caption="Material" VisibleIndex="14">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="designtype" Caption="DesignType" VisibleIndex="15">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="150px" FieldName="designtype" Caption="DesignType" VisibleIndex="15">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="producttype" Caption="ProductType" VisibleIndex="16">
@@ -195,7 +195,7 @@
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                         <dx:GridViewDataDateColumn Settings-AllowDragDrop="True" Width="160px" FieldName="Assigndate" Caption="Assign Date" VisibleIndex="19">
+                                                                                         <dx:GridViewDataDateColumn Settings-AllowDragDrop="True" Width="200px" FieldName="Assigndate" Caption="Assign Date" VisibleIndex="19">
                                                                                             <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy hh:mm:ss tt" DisplayFormatInEditMode="True"></PropertiesDateEdit>
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataDateColumn>

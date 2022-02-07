@@ -29,8 +29,9 @@ namespace GoldMedal.Branding.Data.JobRequest
 
         public DataSet AllWallSizeJobRequestHeadDABranch(JobRequestModel.JobRequestProperties ObjDesignTypesingle)
         {
-            SqlParameter[] objParameter = new SqlParameter[1];
-            objParameter[0] = new SqlParameter("@branchid", ObjDesignTypesingle.userbranchid);
+            SqlParameter[] objParameter = new SqlParameter[2];
+            objParameter[0] = new SqlParameter("@HeadSlno", ObjDesignTypesingle.slno);
+            objParameter[1] = new SqlParameter("@branchid", ObjDesignTypesingle.userbranchid);
             return (objDataAccess.ReturnDatasetWithParameters("GetWallSizeJobReqNos", objParameter));
         }
 
@@ -192,7 +193,7 @@ namespace GoldMedal.Branding.Data.JobRequest
 
         public int AddUpdateJobRequesHeadtDA(JobRequestModel.JobRequestProperties ObjJobRequestInput)
         {
-            SqlParameter[] objParameter = new SqlParameter[31];
+            SqlParameter[] objParameter = new SqlParameter[29];
           //  objParameter[0] = new SqlParameter("@reqno", ObjJobRequestInput.reqno);
             objParameter[0] = new SqlParameter("@NameTypeId", ObjJobRequestInput.NameTypeId);
             objParameter[1] = new SqlParameter("@NameId", ObjJobRequestInput.NameId);
@@ -222,10 +223,9 @@ namespace GoldMedal.Branding.Data.JobRequest
             objParameter[25] = new SqlParameter("@GivenByID", ObjJobRequestInput.GivenByID);
             objParameter[26] = new SqlParameter("@IsSubnameIdstaterightswise", ObjJobRequestInput.Statecheck);
             objParameter[27] = new SqlParameter("@IsWallSize", ObjJobRequestInput.IsWallSize);
-            objParameter[28] = new SqlParameter("@Wallsizejobheadid", ObjJobRequestInput.Wallsizejobheadid);
-            objParameter[29] = new SqlParameter("@WallsizejobheadReqNo", ObjJobRequestInput.WallsizejobheadReqNo);
-            objParameter[30] = new SqlParameter("@Out", SqlDbType.Int, 10);
-            objParameter[30].Direction = ParameterDirection.Output;
+          
+            objParameter[28] = new SqlParameter("@Out", SqlDbType.Int, 10);
+            objParameter[28].Direction = ParameterDirection.Output;
             return Convert.ToInt32(objDataAccess.ExecuteNonQueryWithOutputParameters("JobRequestHeadAddUpdate", objParameter));
         }
 
@@ -241,7 +241,7 @@ namespace GoldMedal.Branding.Data.JobRequest
         }
         public int AddUpdateJobRequestChildDA(JobRequestModel.JobRequestProperties ObjJobRequestInput)
         {
-            SqlParameter[] objParameter = new SqlParameter[33];
+            SqlParameter[] objParameter = new SqlParameter[35];
             objParameter[0] = new SqlParameter("@taskid", ObjJobRequestInput.TaskId);
             objParameter[1] = new SqlParameter("@width", ObjJobRequestInput.Width);
             objParameter[2] = new SqlParameter("@height", ObjJobRequestInput.Height);
@@ -275,8 +275,10 @@ namespace GoldMedal.Branding.Data.JobRequest
             objParameter[29] = new SqlParameter("@PrintLocation", ObjJobRequestInput.PrintLocation);
             objParameter[30] = new SqlParameter("@FabricatorLocation", ObjJobRequestInput.FabricatorLocation);
             objParameter[31] = new SqlParameter("@UseAddressType", ObjJobRequestInput.UseAddressType);
-            objParameter[32] = new SqlParameter("@Out", SqlDbType.Int, 10);
-            objParameter[32].Direction = ParameterDirection.Output;
+            objParameter[32] = new SqlParameter("@WallSizeJobChildSlno", ObjJobRequestInput.WallSizeJobChildSlno);
+            objParameter[33] = new SqlParameter("@WallsizejobheadReqNo", ObjJobRequestInput.WallsizejobheadReqNo);
+            objParameter[34] = new SqlParameter("@Out", SqlDbType.Int, 10);
+            objParameter[34].Direction = ParameterDirection.Output;
            
             return Convert.ToInt32(objDataAccess.ExecuteNonQueryWithOutputParameters("JobRequestChildAddUpdate", objParameter));
         }

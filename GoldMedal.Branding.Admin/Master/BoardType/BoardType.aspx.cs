@@ -377,6 +377,7 @@ namespace GoldMedal.Branding.Admin.Master.BoardType
         /// </summary>
         protected void columnhide()
         {
+           // ASPxGridView1.Columns[3].Visible = false;
             ASPxGridView1.Columns[4].Visible = false;
             ASPxGridView1.Columns[5].Visible = false;
         }
@@ -386,6 +387,7 @@ namespace GoldMedal.Branding.Admin.Master.BoardType
         /// </summary>
         protected void columnshow()
         {
+          //  ASPxGridView1.Columns[3].Visible = true;
             ASPxGridView1.Columns[4].Visible = true;
             ASPxGridView1.Columns[5].Visible = true;
         }

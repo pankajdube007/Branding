@@ -141,14 +141,14 @@ namespace GoldMedal.Branding.Admin.Master.FabricatorQuotation
 
         protected void columnhide()
         {
-            ASPxGridView1.Columns[2].Visible = false;
             ASPxGridView1.Columns[3].Visible = false;
+            ASPxGridView1.Columns[4].Visible = false;
         }
 
         protected void columnshow()
         {
-            ASPxGridView1.Columns[1].Visible = true;
-            ASPxGridView1.Columns[2].Visible = true;
+            ASPxGridView1.Columns[3].Visible = true;
+            ASPxGridView1.Columns[4].Visible = true;
         }
 
         protected string GetFileName()

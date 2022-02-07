@@ -573,7 +573,7 @@
                                                                         </div>
                                                                        
                                                                         <div class="col-md-3">
-                                                                            <label>Email:<strong class="redmark">*</strong></label>
+                                                                            <label>Email:<strong class="redmark"></strong></label>
                                                                             <dx:ASPxComboBox runat="server" ID="cmbemail" ClientInstanceName="cmbemail" DropDownStyle="DropDownList" 
                                                                                 TextField="email" ValueField="email" IncrementalFilteringMode="StartsWith" EnableSynchronization="False" CssClass="form-control">
 

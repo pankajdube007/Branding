@@ -119,6 +119,20 @@ namespace GoldMedal.Branding.Service.AssigntoPrinter
             }
             return recid;
         }
+        public static DataTable GetPrinterPOAgingReportServiceMethod(GoldMedal.Branding.Data.AssigntoPrinter.AssigntoPrinter.GetGenaratePrinterPO dtsingle, string DatabaseType)
+        {
+            DataTable recid = null;
+            AssignToPrinterDataAccess objselectall = new AssignToPrinterDataAccess();
+            if (string.Equals(DatabaseType, "MSSQLSERVER"))
+            {
+                recid = objselectall.GetPrinterPOAgingReportDA(dtsingle);
+            }
+            else
+            {
+                recid = null;
+            }
+            return recid;
+        }
         public static DataTable DetailOfJobToReopenPrinterForUserServiceMethod(GoldMedal.Branding.Data.AssigntoPrinter.AssigntoPrinter.AssigntoPrinterProperty dtsingle, string DatabaseType)
         {
             DataTable recid = null;

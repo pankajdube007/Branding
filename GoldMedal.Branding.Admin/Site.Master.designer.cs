@@ -294,6 +294,33 @@ namespace GoldMedal.Branding.Admin
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu22;
 
         /// <summary>
+        /// ReportMenuJobAging control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenuJobAging;
+
+        /// <summary>
+        /// ReportMenuPrinterPOAging control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenuPrinterPOAging;
+
+        /// <summary>
+        /// ReportMenuFabricatorPOAging control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenuFabricatorPOAging;
+
+        /// <summary>
         /// AuditReportMenuMaster control.
         /// </summary>
         /// <remarks>

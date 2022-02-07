@@ -80,6 +80,9 @@ namespace GoldMedal.Branding.Admin
                                 ReportMenu22.Style.Add("display", "block");
                                 ReportMenu3.Style.Add("display", "block");
                                 ReportMenu4.Style.Add("display", "block");
+                                ReportMenuJobAging.Style.Add("display", "block");
+                                ReportMenuPrinterPOAging.Style.Add("display", "block");
+                                ReportMenuFabricatorPOAging.Style.Add("display", "block");
                                 ReportMenu10.Style.Add("display", "block");
                                 ReportMenu11.Style.Add("display", "block");
                                 //  ReportMenu12.Style.Add("display", "block");
@@ -136,6 +139,9 @@ namespace GoldMedal.Branding.Admin
                                 //ReportMenu2.Style.Add("display", "none");
                                 ReportMenu3.Style.Add("display", "block");
                                 ReportMenu4.Style.Add("display", "block");
+                                ReportMenuJobAging.Style.Add("display", "block");
+                                ReportMenuPrinterPOAging.Style.Add("display", "block");
+                                ReportMenuFabricatorPOAging.Style.Add("display", "block");
                                 ReportMenu10.Style.Add("display", "block");
                                 ReportMenu11.Style.Add("display", "block");
                                 //  ReportMenu12.Style.Add("display", "block");

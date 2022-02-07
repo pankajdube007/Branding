@@ -79,6 +79,21 @@ namespace GoldMedal.Branding.Service.AssignToFabricator
             return recid;
         }
 
+        public static DataTable GetFabricatorPOAgingReportServiceMethod(GoldMedal.Branding.Data.AssignFabricator.AssignToFabricator.GetGenarateFabricatorPO dtsingle, string DatabaseType)
+        {
+            DataTable recid = null;
+            AssignToFabricatorDataAccess objselectall = new AssignToFabricatorDataAccess();
+            if (string.Equals(DatabaseType, "MSSQLSERVER"))
+            {
+                recid = objselectall.GetFabricatorPOAgingReportDA(dtsingle);
+            }
+            else
+            {
+                recid = null;
+            }
+            return recid;
+        }
+
         public static DataTable ListOfJobForAssignToFabricatorSendByPrinterServiceMethod(GoldMedal.Branding.Data.AssignFabricator.AssignToFabricator.AssigntoFabricatorProperty dtsingle, string DatabaseType)
         {
             DataTable recid = null;

@@ -46,6 +46,13 @@ namespace GoldMedal.Branding.Data.AssignFabricator
 
             return (objDataAccess.ReturnDataTableWithParameters("GetFabricatorPOwithoutValueHOReport", objParameter));
         }
+        public DataTable GetFabricatorPOAgingReportDA(AssignFabricator.AssignToFabricator.GetGenarateFabricatorPO Objsingle)
+        {
+            SqlParameter[] objParameter = new SqlParameter[1];
+            objParameter[0] = new SqlParameter("@uid", Objsingle.userid);
+
+            return (objDataAccess.ReturnDataTableWithParameters("GetFabricatorPOAgingReport", objParameter));
+        }
 
         public DataTable ListOfJobForAssignToFabricatorSendByPrinter(AssignFabricator.AssignToFabricator.AssigntoFabricatorProperty Objsingle)
         {

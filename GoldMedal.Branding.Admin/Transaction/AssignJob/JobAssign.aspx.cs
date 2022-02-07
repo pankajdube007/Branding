@@ -405,8 +405,8 @@ namespace GoldMedal.Branding.Admin.Transaction.AssignJob
         {
             //gvHead.Columns[11].Visible = false;
             //gvHead.Columns[11].Visible = false;
-            gvHead.Columns[16].Visible = false;
-            gvHead.Columns[20].Visible = false;
+            gvHead.Columns[18].Visible = false;
+            gvHead.Columns[23].Visible = false;
             
         }
 
@@ -417,8 +417,8 @@ namespace GoldMedal.Branding.Admin.Transaction.AssignJob
         {
             //gvHead.Columns[11].Visible = true;
             //gvHead.Columns[11].Visible = true;
-            gvHead.Columns[16].Visible = true;
-            gvHead.Columns[20].Visible = true;
+            gvHead.Columns[18].Visible = true;
+            gvHead.Columns[23].Visible = true;
             
         }
 

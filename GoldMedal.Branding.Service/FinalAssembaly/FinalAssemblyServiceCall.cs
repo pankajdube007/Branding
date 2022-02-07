@@ -534,6 +534,21 @@ namespace GoldMedal.Branding.Service.FinalAssembaly
             }
             return recid;
         }
+
+        public static DataTable GetJobAgingReportServiceMethod(GoldMedal.Branding.Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty dtsingle, string DatabaseType)
+        {
+            DataTable recid = null;
+            FinalAssemblyDataAccess objselectall = new FinalAssemblyDataAccess();
+            if (string.Equals(DatabaseType, "MSSQLSERVER"))
+            {
+                recid = objselectall.GetJobAgingReportDA(dtsingle);
+            }
+            else
+            {
+                recid = null;
+            }
+            return recid;
+        }
         public static DataTable ListOfCancelledJobForJobHistoryServiceMethod(GoldMedal.Branding.Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty dtsingle, string DatabaseType)
         {
             DataTable recid = null;

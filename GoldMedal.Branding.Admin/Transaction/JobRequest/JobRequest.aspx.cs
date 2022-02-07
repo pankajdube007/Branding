@@ -1924,7 +1924,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                     var givenby = HttpUtility.HtmlEncode(txtGivenByOther.Text);
                     var givenbyid = Convert.ToInt32(cmbSalesExecutive.Value);
 
-                    var wallsizeheadslno = Convert.ToInt32(cmbWallSizeJobs.Value);
+                    var wallsizechildslno = Convert.ToInt32(cmbWallSizeJobs.Value);
                     var wallsizeheadreqno = HttpUtility.HtmlEncode(cmbWallSizeJobs.Text);
 
                     if (cmbGivenBy.SelectedItem != null && cmbGivenBy.SelectedItem.Value != null)
@@ -2010,8 +2010,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                     Headdst.finyear = finYear;
                     Headdst.Statecheck = IsSubnameIdstaterightswise;
                     Headdst.IsWallSize = IsWallSize;
-                    Headdst.Wallsizejobheadid = wallsizeheadslno;
-                    Headdst.WallsizejobheadReqNo = wallsizeheadreqno;
+                   
                     Core.JobRequest.JobRequest objinsert = new Core.JobRequest.JobRequest();
                     result = objinsert.AddUpdateJobRequesHeadtDACore(Headdst);
                     deleteFiles(hfVisitingImageDelete.Text, slno, slno);
@@ -2340,6 +2339,8 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                             Childdst.Link = Link;
                             Childdst.CdrFile = CFileName;
                             Childdst.UseAddressType = Convert.ToInt16(rduseaddress.SelectedValue);
+                            Childdst.WallSizeJobChildSlno = wallsizechildslno;
+                            Childdst.WallsizejobheadReqNo = wallsizeheadreqno;
                             Core.JobRequest.JobRequest objinsertChild = new Core.JobRequest.JobRequest();
                             finalresult = objinsertChild.AddUpdateJobRequestChildDACore(Childdst);
                             if (finalresult == -1)
@@ -2746,9 +2747,31 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
             DataTable dtHead = objdataHead.JobRequestHeadSelectParticularCore(paramHead);
             if (dtHead.Rows.Count > 0)
             {
+                
+               
+
+
                 txtRequestNo.Text = Convert.ToString(dtHead.Rows[0]["reqno"]);
                 cmbNameType.Text = Convert.ToString(dtHead.Rows[0]["NameType"]);
                 cmbNameType.Value = Convert.ToString(dtHead.Rows[0]["NameTypeId"]);
+                if (Convert.ToString(dtHead.Rows[0]["MappedWallSizeJob"]) == "True")
+                {
+                    chkmapjob.Checked = true;
+                }
+                else
+                {
+                    chkmapjob.Checked = false;
+                }
+                LoadWallSizeJobs(Convert.ToInt32(lbslno.Text));
+                cmbWallSizeJobs.Value = Convert.ToString(dtHead.Rows[0]["WallSizeJobChildSlno"]);
+                cmbWallSizeJobs.Text = Convert.ToString(dtHead.Rows[0]["WallSizeJobHeadReqNo"]);
+                
+
+                cmbWallSizeJobs.Enabled = false;
+                chkmapjob.Enabled = false;
+                chkwallsize.Enabled = false;
+
+
 
                 if (cmbNameType.Value.ToString() != "4")
                 {
@@ -4720,25 +4743,9 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
         {
             if(chkmapjob.Checked==true)
             {
-                Data.JobRequest.JobRequestModel.JobRequestProperties param = new Data.JobRequest.JobRequestModel.JobRequestProperties();
+                LoadWallSizeJobs(0);
 
-               
-                param.userbranchid = Convert.ToInt32(cmbbranch.Value);
-                Core.JobRequest.JobRequest objselectsingleselect = new Core.JobRequest.JobRequest();
-                DataSet dsaselect = objselectsingleselect.AllWallSizeJobRequestBranchHeadDACore(param);
-               
-                if(dsaselect.Tables[0].Rows.Count > 0 )
-                {
-                    cmbWallSizeJobs.Items.Clear();
-                    cmbWallSizeJobs.Value = null;
-                    cmbWallSizeJobs.DataSource = dsaselect.Tables[0];
-                    cmbWallSizeJobs.TextField = "reqno";
-                    cmbWallSizeJobs.ValueField = "slno";
-                    cmbWallSizeJobs.DataBind();
 
-                }
-
-               
             }
             else
             {
@@ -4747,5 +4754,31 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                 cmbWallSizeJobs.Text = null;
             }
         }
+
+        public void LoadWallSizeJobs(int headslno)
+        {
+            Data.JobRequest.JobRequestModel.JobRequestProperties param = new Data.JobRequest.JobRequestModel.JobRequestProperties();
+
+            param.slno = Convert.ToInt32(headslno);
+            param.userbranchid = Convert.ToInt32(cmbbranch.Value);
+            Core.JobRequest.JobRequest objselectsingleselect = new Core.JobRequest.JobRequest();
+            DataSet dsaselect = objselectsingleselect.AllWallSizeJobRequestBranchHeadDACore(param);
+
+            if (dsaselect.Tables[0].Rows.Count > 0)
+            {
+                cmbWallSizeJobs.Items.Clear();
+                cmbWallSizeJobs.Value = null;
+                cmbWallSizeJobs.DataSource = dsaselect.Tables[0];
+                cmbWallSizeJobs.TextField = "reqno";
+                cmbWallSizeJobs.ValueField = "slno";
+                cmbWallSizeJobs.DataBind();
+
+            }
+
+
+        }
+
+
+
     }
 }

@@ -277,6 +277,12 @@ namespace GoldMedal.Branding.Core.FinalAssembaly
             recid = FinalAssemblyServiceCall.ListOfJobForJobHistoryServiceMethod(dtsingle, "MSSQLSERVER");
             return recid;
         }
+        public DataTable GetJobAgingReport(GoldMedal.Branding.Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty dtsingle)
+        {
+            DataTable recid = new DataTable();
+            recid = FinalAssemblyServiceCall.GetJobAgingReportServiceMethod(dtsingle, "MSSQLSERVER");
+            return recid;
+        }
         public DataTable ListOfCancelledJobForJobHistory(GoldMedal.Branding.Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty dtsingle)
         {
             DataTable recid = new DataTable();

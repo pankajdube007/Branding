@@ -155,7 +155,7 @@
                                                                                 <br />
                                                                                 <dx:ASPxGridView Settings-ShowGroupPanel="true" SettingsBehavior-AllowDragDrop="true"
                                                                                     SettingsBehavior-AllowGroup="true" SettingsBehavior-AllowSort="true" ID="gvDisapprovedJobs"
-                                                                                    align="left" KeyFieldName="slno" CssClass="listin" Theme="Default" Width="100%"
+                                                                                    align="left" KeyFieldName="slno" CssClass="listin" Theme="Default" Width="100%" Settings-HorizontalScrollBarMode="Visible"
                                                                                     runat="server" EnablePagingCallbackAnimation="True" OnDataBinding="gvDisapprovedJobs_DataBinding"
                                                                                     AutoGenerateColumns="False">
                                                                                     <Columns>
@@ -188,7 +188,7 @@
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="Address" Caption="Address" VisibleIndex="4">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="200px" FieldName="Address" Caption="Address" VisibleIndex="4">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
@@ -206,7 +206,7 @@
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="subaddress" Caption="Retailer Address" VisibleIndex="8">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="200px" FieldName="subaddress" Caption="Retailer Address" VisibleIndex="8">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 

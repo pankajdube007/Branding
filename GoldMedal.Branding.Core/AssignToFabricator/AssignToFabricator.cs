@@ -38,6 +38,13 @@ namespace GoldMedal.Branding.Core.AssignToFabricator
             return recid;
         }
 
+        public DataTable GetFabricatorPOAgingReport(GoldMedal.Branding.Data.AssignFabricator.AssignToFabricator.GetGenarateFabricatorPO dtsingle)
+        {
+            DataTable recid = new DataTable();
+            recid = AssignToFabricatorServiceCall.GetFabricatorPOAgingReportServiceMethod(dtsingle, "MSSQLSERVER");
+            return recid;
+        }
+
         public DataTable ListOfJobForAssignToFabricatorSendByPrinter(GoldMedal.Branding.Data.AssignFabricator.AssignToFabricator.AssigntoFabricatorProperty dtsingle)
         {
             DataTable recid = new DataTable();

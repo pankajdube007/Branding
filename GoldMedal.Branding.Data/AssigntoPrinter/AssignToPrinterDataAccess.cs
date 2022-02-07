@@ -77,6 +77,14 @@ namespace GoldMedal.Branding.Data.AssigntoPrinter
 
             return (objDataAccess.ReturnDataTableWithParameters("GetPrinterPOwithoutValueHOReport", objParameter));
         }
+
+        public DataTable GetPrinterPOAgingReportDA(AssigntoPrinter.GetGenaratePrinterPO Objsingle)
+        {
+            SqlParameter[] objParameter = new SqlParameter[1];
+            objParameter[0] = new SqlParameter("@uid", Objsingle.userid);
+
+            return (objDataAccess.ReturnDataTableWithParameters("GetPrinterPOAgingReport", objParameter));
+        }
         public DataTable DetailOfJobToReopenPrinter(AssigntoPrinter.AssigntoPrinterProperty Objsingle)
         {
             SqlParameter[] objParameter = new SqlParameter[2];

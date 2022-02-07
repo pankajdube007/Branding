@@ -292,7 +292,7 @@ input::-webkit-inner-spin-button {
                                                                                                 CssClass="listin" Theme="Default" OnClick="btnXlsxExport_Click" />
                                                                                         </td>
                                                                                         <td style="padding-right: 4px">
-                                                                                            <dx:ASPxButton ID="btnRtfExport" runat="server" Text="Export to RTF" UseSubmitBehavior="False"
+                                                                                            <dx:ASPxButton ID="btnRtfExport" Visible="false" runat="server" Text="Export to RTF" UseSubmitBehavior="False"
                                                                                                 CssClass="listin" Theme="Default" OnClick="btnRtfExport_Click" />
                                                                                         </td>
                                                                                         <td>

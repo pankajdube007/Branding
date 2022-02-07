@@ -16,13 +16,14 @@ using DevExpress.XtraPivotGrid.Data;
 
 namespace GoldMedal.Branding.Admin.Transaction.Reports
 {
-    public partial class PartyApprovalPendingJobsReport : System.Web.UI.Page
+    public partial class JobAgingReport : System.Web.UI.Page
     {
         private string FileName = string.Empty;
         private IExport xpt = null;
         string childslno = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
+
             string usertype = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieString("usertype", Convert.ToBoolean(1));
             if (!IsPostBack)
             {
@@ -40,23 +41,26 @@ namespace GoldMedal.Branding.Admin.Transaction.Reports
         protected void ASPxGridView1_DataBinding(object sender, EventArgs e)
         {
             ASPxGridView1.DataSource = GetTable2();
-            
+
         }
 
         private DataTable GetTable2()
         {
 
             DataTable dt4 = new DataTable();
-            Data.DesignSubmit.DesignSubmit.DesignSubmitProperty dsp = new Data.DesignSubmit.DesignSubmit.DesignSubmitProperty();
-            dsp.createuid = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("userlogid");
-            Core.DesignSubmit.DesignSubmit objselectall = new Core.DesignSubmit.DesignSubmit();
+           
 
-            dt4 = objselectall.GetPartyApprovalPendingJobs(dsp);
+            Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty dsp = new Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty();
+           
+            dsp.userid = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("userlogid");
+           
+            Core.FinalAssembaly.FinalAssembly objselectall = new Core.FinalAssembaly.FinalAssembly();
+            dt4 = objselectall.GetJobAgingReport(dsp);
             return dt4;
         }
         protected string GetFileName()
         {
-            return string.Format("Party_Approval_Pending_Jobs_{0}", DateTime.Now.ToString());
+            return string.Format("Job_Aging_Report_{0}", DateTime.Now.ToString());
         }
         #region Export
         /// <summary>

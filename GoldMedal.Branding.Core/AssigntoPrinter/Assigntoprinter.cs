@@ -64,6 +64,12 @@ namespace GoldMedal.Branding.Core.AssigntoPrinter
             recid = AssignToPrinterServiceCall.GetPrinterPOwithoutValueHoReportServiceMethod(dtsingle, "MSSQLSERVER");
             return recid;
         }
+        public DataTable GetPrinterPOAgingReport(GoldMedal.Branding.Data.AssigntoPrinter.AssigntoPrinter.GetGenaratePrinterPO dtsingle)
+        {
+            DataTable recid = new DataTable();
+            recid = AssignToPrinterServiceCall.GetPrinterPOAgingReportServiceMethod(dtsingle, "MSSQLSERVER");
+            return recid;
+        }
         public DataTable DetailOfJobToReassignPrinter(GoldMedal.Branding.Data.AssigntoPrinter.AssigntoPrinter.AssigntoPrinterProperty dtsingle)
         {
             DataTable recid = new DataTable();

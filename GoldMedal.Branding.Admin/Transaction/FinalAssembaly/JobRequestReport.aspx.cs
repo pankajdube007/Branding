@@ -40,7 +40,7 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
                 }
                 else
                 {
-                    txtFrmDate.Text = "01/04/2020";
+                    txtFrmDate.Text = DateTime.Now.AddDays(-30).Date.ToString("dd/MM/yyyy");
                     txtToDate.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
                     BindBranch();
                     lbActiveTab.Text = "1";

@@ -1349,21 +1349,21 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
                 if (txtqty.Text != string.Empty && CmbItem.Value != string.Empty)
                 {
                     DataRow row = dtss.NewRow();
-
-                    if (Session[ViewState["_PageID"].ToString() + "Scheme"] != null)
-                    {
-                        DataTable dt2 = (DataTable)Session[ViewState["_PageID"].ToString() + "Scheme"];
-                        for (int i = 0; i < dt2.Rows.Count; i++)
-                        {
-                            if (Convert.ToString(dt2.Rows[i]["Item"]) == CmbItem.Text)
-                            {
-                                matchdata = true;
-                                lblMsg2.Text = "Opps! duplicate value";
-                                lblMsg2.Style.Add("color", "red");
-                                break;
-                            }
-                        }
-                    }
+                    //Commented on 07022022 Need to Single Item add in Multiple Times.
+                    //if (Session[ViewState["_PageID"].ToString() + "Scheme"] != null)
+                    //{
+                    //    DataTable dt2 = (DataTable)Session[ViewState["_PageID"].ToString() + "Scheme"];
+                    //    for (int i = 0; i < dt2.Rows.Count; i++)
+                    //    {
+                    //        if (Convert.ToString(dt2.Rows[i]["Item"]) == CmbItem.Text)
+                    //        {
+                    //            matchdata = true;
+                    //            lblMsg2.Text = "Opps! duplicate value";
+                    //            lblMsg2.Style.Add("color", "red");
+                    //            break;
+                    //        }
+                    //    }
+                    //}
 
                     if (matchdata == false)
                     {

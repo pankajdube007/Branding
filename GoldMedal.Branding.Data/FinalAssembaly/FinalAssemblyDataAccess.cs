@@ -395,6 +395,15 @@ namespace GoldMedal.Branding.Data.FinalAssembaly
             objParameter[3] = new SqlParameter("@ToDate", Objsingle.ToDate);
             return (objDataAccess.ReturnDataTableWithParameters("getJobdetailforthejobhistory", objParameter));
         }
+
+        public DataTable GetJobAgingReportDA(FinalAssembaly.FinalAssembly.FinalAssemblyProperty Objsingle)
+        {
+            SqlParameter[] objParameter = new SqlParameter[1];
+           
+            objParameter[0] = new SqlParameter("@uid", Objsingle.userid);
+            
+            return (objDataAccess.ReturnDataTableWithParameters("GetJobAgingReport", objParameter));
+        }
         public DataTable ListOfCancelledJobForJobHistory(FinalAssembaly.FinalAssembly.FinalAssemblyProperty Objsingle)
         {
             SqlParameter[] objParameter = new SqlParameter[4];
