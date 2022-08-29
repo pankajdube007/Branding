@@ -50,5 +50,20 @@ namespace GoldMedal.Branding.Service.CancelJob
             }
             return recid;
         }
+
+        public static DataTable ListOfJobForCancelServiceMethodDateWise(string Fromdate, string ToDate, string BranchIDs, string DatabaseType)
+        {
+            DataTable recid = null;
+            CancelJobDataAccess objselectall = new CancelJobDataAccess();
+            if (string.Equals(DatabaseType, "MSSQLSERVER"))
+            {
+                recid = objselectall.GetJobdetailforthejobcancelDateWise(Fromdate, ToDate, BranchIDs);
+            }
+            else
+            {
+                recid = null;
+            }
+            return recid;
+        }
     }
 }

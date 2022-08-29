@@ -102,8 +102,11 @@
                                                     <button id="Button" onserverclick="Button1_Click" type="submit" runat="server"
                                                         class="btn btn-success btn-block">
                                                         <span class="glyphicon glyphicon-off"></span>Login</button>
+                                                     <div onclick="ASPxPopupControlID.Show();" class="signup" style="text-align:right;color:red">FORGOT PASSWORD</div>
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
+                                            
+                                             
                                             <br />
                                             <asp:UpdatePanel ID="UpdatePanel5" runat="server">
                                                 <ContentTemplate>
@@ -218,6 +221,50 @@
                 Close
             </div>
 
+        </div>
+        <div >
+          <asp:UpdatePanel ID="UpdatePanel7" runat="server">
+                                            <ContentTemplate>
+        <dx:ASPxPopupControl ID="ASPxPopupControlID" runat="server" ClientInstanceName="ASPxPopupControlID"
+            Height="240px" Modal="True" CloseAction="CloseButton" Width="400px" AllowDragging="True"
+            PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" HeaderText="Send Password To Your Email Address"
+            HeaderStyle-CssClass="PopupHeader CyanHeader">
+            <ContentCollection>
+                <dx:PopupControlContentControl runat="server" SupportsDisabledAttribute="True">
+                    <div class="popup-content-main">
+                        <div class="row" style="padding-top: 10px;">
+                                <div class="col-md-12">
+                                    <asp:DropDownList ID="ddlCategory" runat="server" CssClass="form-control clsText" TabIndex="1">
+                                        <asp:ListItem Value="0" Text="Select Category" Selected="True"></asp:ListItem>
+                                        <asp:ListItem Value="1" Text="Internal User"></asp:ListItem>
+                                        <asp:ListItem Value="2" Text="Printer"></asp:ListItem>
+                                        <asp:ListItem Value="3" Text="Fabricator"></asp:ListItem>
+                                        <asp:ListItem Value="4" Text="Dispatch Team"></asp:ListItem>
+                                        <asp:ListItem Value="5" Text="Vendor Team"></asp:ListItem>
+                                        <asp:ListItem Value="6" Text="Self Installation Team"></asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+                        <div class="row" style="padding-top: 20px;">
+                            <div class="col-md-12">
+                                <asp:HiddenField ID="hfCode" runat="server" />
+                                <label>Enter Your Email ID</label>
+                                <asp:TextBox runat="server" ID="txtEmailID" TabIndex="2" CssClass="form-control clsText"></asp:TextBox>
+                            </div>
+                        </div>
+                         <br />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <dx:ASPxButton ID="SubmitButton" runat="server" Text="Send Password" Width="100%" OnClick="SubmitButton_Click" CssClass="form-control clsbtn" BackColor="#cc0000" ForeColor="White" />
+
+                            </div>
+                        </div>
+                    </div>
+                </dx:PopupControlContentControl>
+            </ContentCollection>
+        </dx:ASPxPopupControl>
+             </ContentTemplate>
+                </asp:UpdatePanel>
         </div>
     </form>
 </body>

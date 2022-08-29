@@ -777,6 +777,7 @@
     <Content Include="Master\Printer\PrinterFabricatorMapping.aspx" />
     <Content Include="Master\Printer\PrinterPricingMaster.aspx" />
     <Content Include="Master\Product\ProductType.aspx" />
+    <Content Include="Master\RegionalLang\RegionalLang.aspx" />
     <Content Include="Master\SelfInstallationTeam\AddUpdateSelfInstallationTeam.aspx" />
     <Content Include="Master\SubJobTypeMaping\SubJobTypeMaping.aspx" />
     <Content Include="Master\SubJobType\SubJobType.aspx" />
@@ -981,6 +982,7 @@
     <Content Include="PrintGeneratedFabricatorPOWithoutAmount.aspx" />
     <Content Include="PrintGeneratedPrinterPO.aspx" />
     <Content Include="PrintGeneratedPrinterPOWithoutAmount.aspx" />
+    <Content Include="PrintJobDC.aspx" />
     <Content Include="PrintPrinterDC_WithAmount.aspx" />
     <Content Include="Scripts\additional-methods.js" />
     <Content Include="Scripts\additional-methods.min.js" />
@@ -1093,11 +1095,16 @@
     <Content Include="Transaction\AssigntoPrinter\reassigntoprinter.aspx" />
     <Content Include="Transaction\AssigntoPrinter\reopenassigntoprinter.aspx" />
     <Content Include="Transaction\AssigntoPrinter\WallsizeJobsApproval.aspx" />
+    <Content Include="Transaction\BillFileUpload\BillUpload.aspx" />
+    <Content Include="Transaction\BillFileUpload\BillUploadApproval.aspx" />
+    <Content Include="Transaction\BillFileUpload\BillUploadReport.aspx" />
     <Content Include="Transaction\CancelJob\JobCancel.aspx" />
+    <Content Include="Transaction\DCGeneration\DCGeneration.aspx" />
     <Content Include="Transaction\DesignSubmit\DesignSubmit.aspx" />
     <Content Include="Transaction\Disapproved\DisapprovedList.aspx" />
     <Content Include="Transaction\FabricatorDesignSubmit\FabricatorDesignSubmit.aspx" />
     <Content Include="Transaction\FabricatorDesignSubmit\FabricatorJobDC.aspx" />
+    <Content Include="Transaction\FinalAssembaly\ConsolidatedconsumRpt.aspx" />
     <Content Include="Transaction\FinalAssembaly\FabricatorCreditDebitNoteJobsApproval1.aspx" />
     <Content Include="Transaction\FinalAssembaly\FabricatorCreditDebitNoteJobsApproval2.aspx" />
     <Content Include="Transaction\FinalAssembaly\FabricatorReceiveJob.aspx" />
@@ -1114,6 +1121,7 @@
     <Content Include="Transaction\PrinterDesignSubmit\printerdesignsubmit.aspx" />
     <Content Include="Transaction\PrinterDesignSubmit\PrinterJobDC.aspx" />
     <Content Include="JobDetails.aspx" />
+    <Content Include="Transaction\Reports\CancelledPrinterPoReport.aspx" />
     <Content Include="Transaction\Reports\DisapprovedJobReport.aspx" />
     <Content Include="Transaction\Reports\FabricatorAccountReportAudit.aspx" />
     <Content Include="Transaction\Reports\FabricatorAccountReportHO.aspx" />
@@ -1125,6 +1133,7 @@
     <Content Include="Transaction\Reports\FabricatorRejectedJobsReport.aspx" />
     <Content Include="Transaction\Reports\FabricatorSupplierReport.aspx" />
     <Content Include="Transaction\Reports\JobAgingReport.aspx" />
+    <Content Include="Transaction\Reports\JobRequestAgingReport.aspx" />
     <Content Include="Transaction\Reports\JobTypeImageReport.aspx" />
     <Content Include="Transaction\Reports\LiveProductJobStatusBranchwiseReport.aspx" />
     <Content Include="Transaction\Reports\LiveProductJobStatusDesignerwiseReport.aspx" />
@@ -1222,6 +1231,12 @@
     <Compile Include="GeneratePrinterPO.Designer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="JobDC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="JobDC.Designer.cs">
+      <DependentUpon>JobDC.cs</DependentUpon>
     </Compile>
     <Compile Include="logout.aspx.cs">
       <DependentUpon>logout.aspx</DependentUpon>
@@ -1363,6 +1378,13 @@
     <Compile Include="Master\Product\ProductType.aspx.designer.cs">
       <DependentUpon>ProductType.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Master\RegionalLang\RegionalLang.aspx.cs">
+      <DependentUpon>RegionalLang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\RegionalLang\RegionalLang.aspx.designer.cs">
+      <DependentUpon>RegionalLang.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Master\SelfInstallationTeam\AddUpdateSelfInstallationTeam.aspx.cs">
       <DependentUpon>AddUpdateSelfInstallationTeam.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1465,6 +1487,13 @@
     </Compile>
     <Compile Include="PrintGeneratedPrinterPOWithoutAmount.aspx.designer.cs">
       <DependentUpon>PrintGeneratedPrinterPOWithoutAmount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintJobDC.aspx.cs">
+      <DependentUpon>PrintJobDC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintJobDc.aspx.designer.cs">
+      <DependentUpon>PrintJobDC.aspx</DependentUpon>
     </Compile>
     <Compile Include="PrintPrinterDC_WithAmount.aspx.cs">
       <DependentUpon>PrintPrinterDC_WithAmount.aspx</DependentUpon>
@@ -1664,12 +1693,40 @@
     <Compile Include="Transaction\AssigntoPrinter\WallsizeJobsApproval.aspx.designer.cs">
       <DependentUpon>WallsizeJobsApproval.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Transaction\BillFileUpload\BillUpload.aspx.cs">
+      <DependentUpon>BillUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transaction\BillFileUpload\BillUpload.aspx.designer.cs">
+      <DependentUpon>BillUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\BillFileUpload\BillUploadApproval.aspx.cs">
+      <DependentUpon>BillUploadApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transaction\BillFileUpload\BillUploadApproval.aspx.designer.cs">
+      <DependentUpon>BillUploadApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\BillFileUpload\BillUploadReport.aspx.cs">
+      <DependentUpon>BillUploadReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transaction\BillFileUpload\BillUploadReport.aspx.designer.cs">
+      <DependentUpon>BillUploadReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Transaction\CancelJob\JobCancel.aspx.cs">
       <DependentUpon>JobCancel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Transaction\CancelJob\JobCancel.aspx.designer.cs">
       <DependentUpon>JobCancel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\DCGeneration\DCGeneration.aspx.cs">
+      <DependentUpon>DCGeneration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transaction\DCGeneration\DCGeneration.aspx.designer.cs">
+      <DependentUpon>DCGeneration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Transaction\DesignSubmit\DesignSubmit.aspx.cs">
       <DependentUpon>DesignSubmit.aspx</DependentUpon>
@@ -1698,6 +1755,13 @@
     </Compile>
     <Compile Include="Transaction\FabricatorDesignSubmit\FabricatorJobDC.aspx.designer.cs">
       <DependentUpon>FabricatorJobDC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\FinalAssembaly\ConsolidatedconsumRpt.aspx.cs">
+      <DependentUpon>ConsolidatedconsumRpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transaction\FinalAssembaly\ConsolidatedconsumRpt.aspx.designer.cs">
+      <DependentUpon>ConsolidatedconsumRpt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Transaction\FinalAssembaly\FabricatorCreditDebitNoteJobsApproval1.aspx.cs">
       <DependentUpon>FabricatorCreditDebitNoteJobsApproval1.aspx</DependentUpon>
@@ -1811,6 +1875,13 @@
     <Compile Include="JobDetails.aspx.designer.cs">
       <DependentUpon>JobDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Transaction\Reports\CancelledPrinterPoReport.aspx.cs">
+      <DependentUpon>CancelledPrinterPoReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transaction\Reports\CancelledPrinterPoReport.aspx.designer.cs">
+      <DependentUpon>CancelledPrinterPoReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Transaction\Reports\DisapprovedJobReport.aspx.cs">
       <DependentUpon>DisapprovedJobReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1887,6 +1958,13 @@
     </Compile>
     <Compile Include="Transaction\Reports\JobAgingReport.aspx.designer.cs">
       <DependentUpon>JobAgingReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\Reports\JobRequestAgingReport.aspx.cs">
+      <DependentUpon>JobRequestAgingReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transaction\Reports\JobRequestAgingReport.aspx.designer.cs">
+      <DependentUpon>JobRequestAgingReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Transaction\Reports\JobTypeImageReport.aspx.cs">
       <DependentUpon>JobTypeImageReport.aspx</DependentUpon>
@@ -2134,6 +2212,9 @@
     <EmbeddedResource Include="GeneratedFabricatorPOWithoutAmount.resx" />
     <EmbeddedResource Include="GeneratedPrinterPOWithoutAmount.resx" />
     <EmbeddedResource Include="GeneratePrinterPO.resx" />
+    <EmbeddedResource Include="JobDC.resx">
+      <DependentUpon>JobDC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PrinterDC_WithAmount.resx" />
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="XtraReport1.resx" />

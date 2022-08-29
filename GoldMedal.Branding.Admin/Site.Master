@@ -323,7 +323,9 @@
                                          <li><a href="../../Master/VendorTeam/AddUpdateVendorTeam.aspx">
                                                     <img src="../../images/user.png" width="16" height="16" />
                                                     Vendor Team</a></li>
-
+                                       <li><a href="../../Master/RegionalLang/RegionalLang.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Regional Language</a></li>
                                     </ul>
 
                                 </li>
@@ -487,9 +489,13 @@
                                         <li><a href="../../transaction/FinalAssembaly/FinalAssembaly.aspx">
                                             <img src="../../images/user.png" width="16" height="16" />
                                             Final Assembly</a></li>
+                                        
                                         <li><a href="../../transaction/FinalAssembaly/FinalAssembalyModeOfDispatch.aspx">
                                             <img src="../../images/user.png" width="16" height="16" />
                                             Final Assembly Dispatch Mode Update</a></li>
+                                        <li><a href="../../transaction/DCGeneration/DCGeneration.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            DC Generation</a></li>
                                       <%--  <li><a href="../../transaction/FinalAssembaly/FinalAssembalyDispatchDetails.aspx">
                                             <img src="../../images/user.png" width="16" height="16" />
                                             Final Assembly Dispatch Details Update</a></li>
@@ -660,6 +666,11 @@
                                          <li id="ReportMenuFabricatorPOAging" runat="server"><a href="../../transaction/Reports/FabricatorPOAgingReport.aspx">
                                             <img src="../../images/user.png" width="16" height="16" />
                                             Fabricator PO Aging Report</a></li>
+                                         <li id="ReportMenuPrinterPOCancelled" runat="server"><a href="../../transaction/Reports/CancelledPrinterPoReport.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Printer Cancelled PO Report</a></li>
+
+                                         
                                        
                                     </ul>
                                 </li>
@@ -697,6 +708,10 @@
                                         <li id="ReportMenu26" runat="server"><a href="../../transaction/Reports/FabricatorAccountReportAudit.aspx">
                                             <img src="../../images/user.png" width="16" height="16" />
                                             Fabricator Account Report Audit</a></li>
+
+                                          <li id="ReportMenuConsolidated" runat="server"><a href="../../transaction/FinalAssembaly/ConsolidatedconsumRpt.aspx">
+                                            <img src="../../images/user.png" width="16" height="16" />
+                                            Consolidated Consumption Report</a></li>
                                       
                                     </ul>
                                 </li>

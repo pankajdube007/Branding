@@ -23,7 +23,7 @@ namespace GoldMedal.Branding.Admin.Transaction.Reports
             string usertype = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieString("usertype", Convert.ToBoolean(1));
             if (!IsPostBack)
             {
-                if (GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("designationid") == 46)
+                if (GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("designationid") == 46 || GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("designationid") == 44)
                 {
                     ASPxGridView1.DataBind();
                 }

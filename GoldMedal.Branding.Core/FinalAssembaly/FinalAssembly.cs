@@ -39,6 +39,12 @@ namespace GoldMedal.Branding.Core.FinalAssembaly
             recid = FinalAssemblyServiceCall.ListOfJobForFinlaAssemblyModeUpdateServiceMethod(dtsingle, "MSSQLSERVER");
             return recid;
         }
+        public DataTable DispatchListOfJobForFinlaAssemblyModeUpdate(GoldMedal.Branding.Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty dtsingle)
+        {
+            DataTable recid = new DataTable();
+            recid = FinalAssemblyServiceCall.DispatchListOfJobForFinlaAssemblyModeUpdateServiceMethod(dtsingle, "MSSQLSERVER");
+            return recid;
+        }
         public DataTable ListOfJobForFinlaAssemblyDispatchMode(GoldMedal.Branding.Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty dtsingle)
         {
             DataTable recid = new DataTable();
@@ -277,6 +283,14 @@ namespace GoldMedal.Branding.Core.FinalAssembaly
             recid = FinalAssemblyServiceCall.ListOfJobForJobHistoryServiceMethod(dtsingle, "MSSQLSERVER");
             return recid;
         }
+
+        public DataTable ConsolidatedConsumptionRpt(string FromDate, string ToDate)
+        {
+            DataTable recid = new DataTable();
+            recid = FinalAssemblyServiceCall.ConsolidatedConsumptionRpt(FromDate, ToDate, "MSSQLSERVER");
+            return recid;
+        }
+
         public DataTable GetJobAgingReport(GoldMedal.Branding.Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty dtsingle)
         {
             DataTable recid = new DataTable();
@@ -341,6 +355,13 @@ namespace GoldMedal.Branding.Core.FinalAssembaly
         {
             DataTable recid = new DataTable();
             recid = FinalAssemblyServiceCall.UserLoginDetailsServiceMethod("MSSQLSERVER",Fromdate);
+            return recid;
+        }
+
+        public DataTable GetPassword(string Username,string NewPassword, int Category)
+        {
+            DataTable recid = new DataTable();
+            recid = FinalAssemblyServiceCall.GetPasswordServiceMethod("MSSQLSERVER",Username, NewPassword, Category);
             return recid;
         }
     }

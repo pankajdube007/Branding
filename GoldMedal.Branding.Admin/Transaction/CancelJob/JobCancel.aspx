@@ -30,6 +30,72 @@
                     <h2 style="text-align: center;">Job Cancel</h2>
                 </div>
             </div>
+
+               <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label>From Date:</label>
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>
+                                <dx:ASPxDateEdit ID="txtFrmDate" runat="server" CssClass="form-control" Theme="DevEx" EditFormat="Custom" EditFormatString="dd/MM/yyyy" TabIndex="1">
+                                </dx:ASPxDateEdit>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </div>
+                    <div class="col-md-2">
+                        <label>To Date:</label>
+                        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                            <ContentTemplate>
+                                <dx:ASPxDateEdit ID="txtToDate" runat="server" CssClass="form-control" Theme="DevEx" EditFormat="Custom" EditFormatString="dd/MM/yyyy" TabIndex="2">
+                                </dx:ASPxDateEdit>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Branch Name*</label>
+                        <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                            <ContentTemplate>
+                                <dx:ASPxListBox ID="lbBranch" runat="server" TextField="locnm" ClientInstanceName="lbBranch" 
+                                    ValueField="SlNo" Width="500px" JS-Filter="True" CssClass="form-control js-filter-class" ValueType="System.String"
+                                    TabIndex="1" SelectionMode="CheckColumn" Theme="Glass" Height="120px" Style="overflow: hidden; padding: 0 !important; margin: 0 !important;">
+                                    <CaptionSettings Position="Top" />
+                                   <%-- <ClientSideEvents SelectedIndexChanged="function(s,e){
+                                                        if(e.index == 0 && e.isSelected == true)
+                                                        {
+                                                        lbBranch.SelectAll();
+                                                        }
+
+                                                        if(e.index == 0 && e.isSelected == false)
+                                                        {
+                                                        lbBranch.UnselectAll();
+                                                        }
+                                }" />--%>
+                                </dx:ASPxListBox>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </div>
+                    <div class="col-md-2">
+                        <label></label>
+                        <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+                            <ContentTemplate>
+                                <dx:ASPxButton ID="CmdSearch" runat="server" OnClick="CmdSearch_Click" AutoPostBack="False" Text="Search" ClientInstanceName="CmdSearch" CssClass="btn btn-info">
+                                    <ClientSideEvents Click="function(s, e) { lp.Show(); ASPxCallback1.PerformCallback(); }" />
+                                </dx:ASPxButton>
+
+                                <dx:ASPxCallback ID="ASPxCallback2" runat="server" ClientInstanceName="ASPxCallback1"
+                                    OnCallback="ASPxCallback1_Callback">
+                                    <ClientSideEvents CallbackComplete="function(s, e) { lp.Hide(); }" />
+                                </dx:ASPxCallback>
+
+                                <dx:ASPxLoadingPanel ID="ASPxLoadingPanel2" runat="server" ClientInstanceName="lp" Modal="true">
+                                </dx:ASPxLoadingPanel>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="row">
                 <div class="col-md-12">
                     <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="ASPxGridView1">

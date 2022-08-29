@@ -27,35 +27,38 @@
                 <div class="col-md-12">
                     <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server" GridViewID="gvHead">
                     </dx:ASPxGridViewExporter>
-                   
+
+                    <dx:ASPxGridViewExporter ID="ASPxGridViewExporter2" runat="server" GridViewID="ASPxGridView2">
+                    </dx:ASPxGridViewExporter>
+
                     <asp:UpdatePanel runat="server">
                         <ContentTemplate>
 
-                                <asp:Label ID="lbslno" Visible="false" Text="0" runat="server"></asp:Label>
-                                <asp:Label ID="lbldslno" Visible="false" Text="0" runat="server"></asp:Label>
-                                <asp:Label ID="lblchildid" Visible="false" ClientIDMode="Static" Text="0" runat="server"></asp:Label>
-                                <asp:Label ID="lbprilrequestno" Visible="false" runat="server"></asp:Label>
-                                <asp:Label ID="lblsizetype" Visible="false" Text="0" runat="server"></asp:Label>
+                            <asp:Label ID="lbslno" Visible="false" Text="0" runat="server"></asp:Label>
+                            <asp:Label ID="lbldslno" Visible="false" Text="0" runat="server"></asp:Label>
+                            <asp:Label ID="lblchildid" Visible="false" ClientIDMode="Static" Text="0" runat="server"></asp:Label>
+                            <asp:Label ID="lbprilrequestno" Visible="false" runat="server"></asp:Label>
+                            <asp:Label ID="lblsizetype" Visible="false" Text="0" runat="server"></asp:Label>
 
-                                <asp:Label ID="lblDSSlno" Visible="false" Text="0" runat="server"></asp:Label>
-                                 <asp:Label ID="lblBranchID" Visible="false" Text="0" runat="server"></asp:Label>
-                                 <asp:Label ID="lblBranch" Visible="false" Text="0" runat="server"></asp:Label>
-                                 <asp:Label ID="lnkvisible" Visible="false" Text="0" runat="server"></asp:Label>
-                                 <asp:Label ID="lbIsListShow" Visible="false" Text="0" runat="server"></asp:Label>
-                                 <asp:Label ID="lblPrintLocationID" Visible="false" Text="0" runat="server"></asp:Label>
-                                 <asp:Label ID="lblFabLocationID" Visible="false" Text="0" runat="server"></asp:Label>
+                            <asp:Label ID="lblDSSlno" Visible="false" Text="0" runat="server"></asp:Label>
+                            <asp:Label ID="lblBranchID" Visible="false" Text="0" runat="server"></asp:Label>
+                            <asp:Label ID="lblBranch" Visible="false" Text="0" runat="server"></asp:Label>
+                            <asp:Label ID="lnkvisible" Visible="false" Text="0" runat="server"></asp:Label>
+                            <asp:Label ID="lbIsListShow" Visible="false" Text="0" runat="server"></asp:Label>
+                            <asp:Label ID="lblPrintLocationID" Visible="false" Text="0" runat="server"></asp:Label>
+                            <asp:Label ID="lblFabLocationID" Visible="false" Text="0" runat="server"></asp:Label>
 
-                                <asp:HiddenField ID="hfPopupImageFlag" Value="0" runat="server" />
-                                <asp:HiddenField ID="hfAllowSubmit" Value="0" runat="server" />
-                                <asp:HiddenField ID="hfAllowSubmit2" Value="0" runat="server" />
-                                <asp:HiddenField ID="hfIsFabSend" Value="0" runat="server" />
-                                <asp:HiddenField ID="hfFabPricingAvailable" Value="0" runat="server" />
+                            <asp:HiddenField ID="hfPopupImageFlag" Value="0" runat="server" />
+                            <asp:HiddenField ID="hfAllowSubmit" Value="0" runat="server" />
+                            <asp:HiddenField ID="hfAllowSubmit2" Value="0" runat="server" />
+                            <asp:HiddenField ID="hfIsFabSend" Value="0" runat="server" />
+                            <asp:HiddenField ID="hfFabPricingAvailable" Value="0" runat="server" />
 
 
-                             <asp:HiddenField ID="hfNameId" Value="0" runat="server" />
-                             <asp:HiddenField ID="hfNameTypeId" Value="0" runat="server" />
-                             <asp:HiddenField ID="hfSubNameId" Value="0" runat="server" />
-                             <asp:HiddenField ID="hfUseAddressType" Value="0" runat="server" />
+                            <asp:HiddenField ID="hfNameId" Value="0" runat="server" />
+                            <asp:HiddenField ID="hfNameTypeId" Value="0" runat="server" />
+                            <asp:HiddenField ID="hfSubNameId" Value="0" runat="server" />
+                            <asp:HiddenField ID="hfUseAddressType" Value="0" runat="server" />
 
                             <asp:HiddenField ID="hfsendto" Value="0" runat="server" />
 
@@ -70,9 +73,9 @@
                                 ActiveTabIndex="0" CssClass="tabsB" EnableTheming="True" Theme="Default" OnTabClick="ASPxPageControl1_TabClick">
                                 <ClientSideEvents TabClick="function(s, e) { lp.Show(); ASPxCallback1.PerformCallback(); }" />
                                 <TabPages>
-                                  
+
                                     <%--.Start of Tab-1--%>
-                                 <dx:TabPage Text="Print Job Approved List">
+                                    <dx:TabPage Text="Print Job Approved List">
                                         <ContentCollection>
                                             <dx:ContentControl ID="ContentControl3" runat="server">
                                                 <div class="row">
@@ -80,11 +83,36 @@
                                                         <div class="box">
                                                             <div class="box-body table-responsive">
                                                                 <asp:UpdatePanel ID="UpdatePanel49" runat="server">
+                                                                    <Triggers>
+                                                                        <asp:PostBackTrigger ControlID="btnXlsExport" />
+                                                                        <asp:PostBackTrigger ControlID="btnXlsxExport" />
+                                                                        <asp:PostBackTrigger ControlID="btnCsvExport" />
+                                                                    </Triggers>
                                                                     <ContentTemplate>
                                                                         <br />
                                                                         <asp:UpdatePanel ID="UpdatePanel50" runat="server">
 
                                                                             <ContentTemplate>
+                                                                                <table class="BottomMargin">
+                                                                                    <tr>
+                                                                                        <td style="padding-right: 4px">
+                                                                                            <dx:ASPxButton ID="btnXlsExport" runat="server" Text="Export to XLS" UseSubmitBehavior="False"
+                                                                                                CssClass="listin" Theme="Default" OnClick="btnXlsExport_Click" />
+                                                                                        </td>
+                                                                                        <td style="padding-right: 4px">
+                                                                                            <dx:ASPxButton ID="btnXlsxExport" runat="server" Text="Export to XLSX" UseSubmitBehavior="False"
+                                                                                                CssClass="listin" Theme="Default" OnClick="btnXlsxExport_Click" />
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <dx:ASPxButton ID="btnCsvExport" runat="server" Text="Export to CSV" UseSubmitBehavior="False"
+                                                                                                CssClass="listin" Theme="Default" OnClick="btnCsvExport_Click" />
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                                <br />
+
+
+
                                                                                 <dx:ASPxGridView Settings-ShowGroupPanel="true" SettingsBehavior-AllowDragDrop="true"
                                                                                     SettingsBehavior-AllowGroup="true" SettingsBehavior-AllowSort="true" ID="ASPxGridView2"
                                                                                     align="left" KeyFieldName="slno" CssClass="listin" Theme="Default" Width="100%"
@@ -100,12 +128,12 @@
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataDateColumn>
 
-                                                                                       
+
 
                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="nametype" Caption="Type" VisibleIndex="3">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
-                                                                                        
+
                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="Distributor" Caption="Dealer Name" VisibleIndex="4">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
@@ -163,29 +191,29 @@
                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="Height" Caption="Height" VisibleIndex="18">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True"  Width="150px" FieldName="DesignerName" Caption="Designer Name" VisibleIndex="19">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="150px" FieldName="DesignerName" Caption="Designer Name" VisibleIndex="19">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
-                                                                                         <dx:GridViewDataDateColumn Settings-AllowDragDrop="True" Width="160px" FieldName="designsubmitdate" Caption="Design Submit Date" VisibleIndex="20">
+                                                                                        <dx:GridViewDataDateColumn Settings-AllowDragDrop="True" Width="160px" FieldName="designsubmitdate" Caption="Design Submit Date" VisibleIndex="20">
                                                                                             <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy hh:mm:ss tt" DisplayFormatInEditMode="True"></PropertiesDateEdit>
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataDateColumn>
-                                                                                      
+
                                                                                         <dx:GridViewDataDateColumn Settings-AllowDragDrop="True" Width="160px" FieldName="approve2dt" Caption="Design Approve Date" VisibleIndex="21">
                                                                                             <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy hh:mm:ss tt" DisplayFormatInEditMode="True"></PropertiesDateEdit>
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataDateColumn>
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True"  Width="150px" FieldName="PrintLocation" Caption="Print Location" VisibleIndex="22">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="150px" FieldName="PrintLocation" Caption="Print Location" VisibleIndex="22">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True"  Width="150px" FieldName="FabricatorLocation" Caption="Fabricator Location" VisibleIndex="23">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="150px" FieldName="FabricatorLocation" Caption="Fabricator Location" VisibleIndex="23">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                        <dx:GridViewDataTextColumn FieldName="LiveProductImg"  Visible="false">
+                                                                                        <dx:GridViewDataTextColumn FieldName="LiveProductImg" Visible="false">
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                       <%-- <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Caption="Live Product Image" Visible="false" ReadOnly="True" VisibleIndex="24">
+                                                                                        <%-- <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Caption="Live Product Image" Visible="false" ReadOnly="True" VisibleIndex="24">
                                                                                             <Settings AllowDragDrop="True" />
                                                                                              <DataItemTemplate>
 
@@ -197,7 +225,7 @@
                                                                                         </dx:GridViewDataTextColumn>--%>
 
 
-                                                                                      <%--  <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Caption="View" ReadOnly="True" VisibleIndex="25">
+                                                                                        <%--  <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Caption="View" ReadOnly="True" VisibleIndex="25">
                                                                                             <Settings AllowDragDrop="True" />
                                                                                             <DataItemTemplate>
                                                                                                 <asp:LinkButton ID="CmdEdit" OnClientClick="lp.Show()" EnableViewState="false" CausesValidation="False" runat="server" CommandArgument='<%# Eval("designsubmitslno") %>'
@@ -205,7 +233,7 @@
                                                                                             </DataItemTemplate>
                                                                                         </dx:GridViewDataTextColumn>--%>
 
-                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Caption="Reopen" ReadOnly="True" VisibleIndex="24">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Caption="Reopen" ReadOnly="True" VisibleIndex="24">
                                                                                             <Settings AllowDragDrop="True" />
                                                                                             <DataItemTemplate>
                                                                                                 <asp:LinkButton ID="CmdReopen" EnableViewState="false" CausesValidation="False" runat="server" CommandArgument='<%# Eval("designsubmitslno") %>'
@@ -243,7 +271,7 @@
                                             </dx:ContentControl>
                                         </ContentCollection>
                                     </dx:TabPage>
-                                   
+
                                 </TabPages>
                             </dx:ASPxPageControl>
                         </ContentTemplate>

@@ -62,6 +62,14 @@ namespace GoldMedal.Branding.Data.AssigntoPrinter
             return (objDataAccess.ReturnDataTableWithParameters("GetGeneratedPrinterPOForCancelList", objParameter));
         }
 
+        public DataTable GetCancelledPrinterPOListDA(AssigntoPrinter.GetGenaratePrinterPO Objsingle)
+        {
+            SqlParameter[] objParameter = new SqlParameter[1];
+            objParameter[0] = new SqlParameter("@uid", Objsingle.userid);
+
+            return (objDataAccess.ReturnDataTableWithParameters("GetCancelledPrinterPOForList", objParameter));
+        }
+
         public DataTable GetPrinterPOwithValueAuditReportDA(AssigntoPrinter.GetGenaratePrinterPO Objsingle)
         {
             SqlParameter[] objParameter = new SqlParameter[1];

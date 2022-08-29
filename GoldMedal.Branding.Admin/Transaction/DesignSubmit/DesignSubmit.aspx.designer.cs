@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
-{
-
-
-    public partial class DesignSubmit
-    {
-
+namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit {
+    
+    
+    public partial class DesignSubmit {
+        
         /// <summary>
         /// tsm control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager tsm;
-
+        
         /// <summary>
         /// ASPxGridViewExporter1 control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGridViewExporter ASPxGridViewExporter1;
-
+        
         /// <summary>
         /// lnkvisible control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lnkvisible;
-
+        
         /// <summary>
         /// lbslno control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbslno;
-
+        
         /// <summary>
         /// lblchildid control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblchildid;
-
+        
         /// <summary>
         /// lbldslno control.
         /// </summary>
@@ -67,7 +65,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbldslno;
-
+        
         /// <summary>
         /// lblrefid control.
         /// </summary>
@@ -76,7 +74,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblrefid;
-
+        
         /// <summary>
         /// lblismailsnd control.
         /// </summary>
@@ -85,7 +83,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblismailsnd;
-
+        
         /// <summary>
         /// lblisplace control.
         /// </summary>
@@ -94,7 +92,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblisplace;
-
+        
         /// <summary>
         /// lblsizetype control.
         /// </summary>
@@ -103,7 +101,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblsizetype;
-
+        
         /// <summary>
         /// lbIsListShow control.
         /// </summary>
@@ -112,7 +110,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbIsListShow;
-
+        
         /// <summary>
         /// lblHeadSlno control.
         /// </summary>
@@ -121,7 +119,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblHeadSlno;
-
+        
         /// <summary>
         /// lblstatue control.
         /// </summary>
@@ -130,7 +128,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblstatue;
-
+        
         /// <summary>
         /// lblImageSlno control.
         /// </summary>
@@ -139,7 +137,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblImageSlno;
-
+        
         /// <summary>
         /// hfPopupImageFlag control.
         /// </summary>
@@ -148,7 +146,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfPopupImageFlag;
-
+        
         /// <summary>
         /// ASPxLoadingPanel1 control.
         /// </summary>
@@ -157,7 +155,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLoadingPanel ASPxLoadingPanel1;
-
+        
         /// <summary>
         /// ASPxPageControl1 control.
         /// </summary>
@@ -166,7 +164,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPageControl ASPxPageControl1;
-
+        
         /// <summary>
         /// ContentControl1 control.
         /// </summary>
@@ -175,7 +173,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ContentControl ContentControl1;
-
+        
         /// <summary>
         /// LblRequestNo control.
         /// </summary>
@@ -184,7 +182,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblRequestNo;
-
+        
         /// <summary>
         /// lblDate control.
         /// </summary>
@@ -193,7 +191,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDate;
-
+        
         /// <summary>
         /// lblNameType control.
         /// </summary>
@@ -202,7 +200,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNameType;
-
+        
         /// <summary>
         /// lblName control.
         /// </summary>
@@ -211,7 +209,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblName;
-
+        
         /// <summary>
         /// lblCinNo control.
         /// </summary>
@@ -220,7 +218,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCinNo;
-
+        
         /// <summary>
         /// lblAddress control.
         /// </summary>
@@ -229,7 +227,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAddress;
-
+        
         /// <summary>
         /// lblContactPerson control.
         /// </summary>
@@ -238,7 +236,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblContactPerson;
-
+        
         /// <summary>
         /// lblContact control.
         /// </summary>
@@ -247,7 +245,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblContact;
-
+        
         /// <summary>
         /// lblEmail control.
         /// </summary>
@@ -256,7 +254,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEmail;
-
+        
         /// <summary>
         /// lblVisitingCard control.
         /// </summary>
@@ -265,7 +263,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblVisitingCard;
-
+        
         /// <summary>
         /// lbVisitingCardImg control.
         /// </summary>
@@ -274,7 +272,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbVisitingCardImg;
-
+        
         /// <summary>
         /// lblReferSheet control.
         /// </summary>
@@ -283,7 +281,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblReferSheet;
-
+        
         /// <summary>
         /// lbReferSheetImg control.
         /// </summary>
@@ -292,7 +290,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbReferSheetImg;
-
+        
         /// <summary>
         /// lblJobRemark control.
         /// </summary>
@@ -301,7 +299,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblJobRemark;
-
+        
         /// <summary>
         /// lblAprrovalRemark control.
         /// </summary>
@@ -310,7 +308,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAprrovalRemark;
-
+        
         /// <summary>
         /// lblAssignRemark control.
         /// </summary>
@@ -319,7 +317,16 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAssignRemark;
-
+        
+        /// <summary>
+        /// lnkRegionalCDRFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkRegionalCDRFile;
+        
         /// <summary>
         /// lblSubName control.
         /// </summary>
@@ -328,7 +335,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSubName;
-
+        
         /// <summary>
         /// lblFirmName control.
         /// </summary>
@@ -337,7 +344,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFirmName;
-
+        
         /// <summary>
         /// lblSubAddress control.
         /// </summary>
@@ -346,7 +353,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSubAddress;
-
+        
         /// <summary>
         /// lblSubContact control.
         /// </summary>
@@ -355,7 +362,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSubContact;
-
+        
         /// <summary>
         /// lblGivenBy control.
         /// </summary>
@@ -364,7 +371,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblGivenBy;
-
+        
         /// <summary>
         /// lblUnit control.
         /// </summary>
@@ -373,7 +380,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUnit;
-
+        
         /// <summary>
         /// txtbheight control.
         /// </summary>
@@ -382,7 +389,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbheight;
-
+        
         /// <summary>
         /// txtbwidth control.
         /// </summary>
@@ -391,7 +398,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbwidth;
-
+        
         /// <summary>
         /// sizelbl control.
         /// </summary>
@@ -400,7 +407,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl sizelbl;
-
+        
         /// <summary>
         /// txtNewHeight control.
         /// </summary>
@@ -409,7 +416,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNewHeight;
-
+        
         /// <summary>
         /// txtNewWidth control.
         /// </summary>
@@ -418,7 +425,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNewWidth;
-
+        
         /// <summary>
         /// lblPlaceSize control.
         /// </summary>
@@ -427,7 +434,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPlaceSize;
-
+        
         /// <summary>
         /// lblqty control.
         /// </summary>
@@ -436,7 +443,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblqty;
-
+        
         /// <summary>
         /// lblPriority control.
         /// </summary>
@@ -445,7 +452,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPriority;
-
+        
         /// <summary>
         /// jobtype control.
         /// </summary>
@@ -454,7 +461,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label jobtype;
-
+        
         /// <summary>
         /// subjobtype control.
         /// </summary>
@@ -463,7 +470,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label subjobtype;
-
+        
         /// <summary>
         /// subsubjobtype control.
         /// </summary>
@@ -472,7 +479,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label subsubjobtype;
-
+        
         /// <summary>
         /// designtyp control.
         /// </summary>
@@ -481,7 +488,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label designtyp;
-
+        
         /// <summary>
         /// lblBoardType control.
         /// </summary>
@@ -490,7 +497,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblBoardType;
-
+        
         /// <summary>
         /// lblPrintLocation control.
         /// </summary>
@@ -499,7 +506,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPrintLocation;
-
+        
         /// <summary>
         /// lblFabricatorLocation control.
         /// </summary>
@@ -508,7 +515,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFabricatorLocation;
-
+        
         /// <summary>
         /// lbCDRFile control.
         /// </summary>
@@ -517,7 +524,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbCDRFile;
-
+        
         /// <summary>
         /// lnkFiles2 control.
         /// </summary>
@@ -526,7 +533,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkFiles2;
-
+        
         /// <summary>
         /// ImgLink control.
         /// </summary>
@@ -535,7 +542,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink ImgLink;
-
+        
         /// <summary>
         /// lnkAllFiles control.
         /// </summary>
@@ -544,7 +551,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkAllFiles;
-
+        
         /// <summary>
         /// lnkFilesShop control.
         /// </summary>
@@ -553,7 +560,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkFilesShop;
-
+        
         /// <summary>
         /// otherlinks control.
         /// </summary>
@@ -562,7 +569,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl otherlinks;
-
+        
         /// <summary>
         /// UpdatePanel1 control.
         /// </summary>
@@ -571,7 +578,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-
+        
         /// <summary>
         /// Label1 control.
         /// </summary>
@@ -580,7 +587,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-
+        
         /// <summary>
         /// gvSizeChild control.
         /// </summary>
@@ -589,7 +596,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvSizeChild;
-
+        
         /// <summary>
         /// UpdatePanel16 control.
         /// </summary>
@@ -598,7 +605,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel16;
-
+        
         /// <summary>
         /// cmbProductType control.
         /// </summary>
@@ -607,7 +614,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox cmbProductType;
-
+        
         /// <summary>
         /// UpdatePanel5 control.
         /// </summary>
@@ -616,7 +623,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel5;
-
+        
         /// <summary>
         /// cmbItemDivision control.
         /// </summary>
@@ -625,7 +632,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox cmbItemDivision;
-
+        
         /// <summary>
         /// UpdatePanel18 control.
         /// </summary>
@@ -634,7 +641,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel18;
-
+        
         /// <summary>
         /// CmbItem control.
         /// </summary>
@@ -643,7 +650,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox CmbItem;
-
+        
         /// <summary>
         /// UpdatePanel20 control.
         /// </summary>
@@ -652,7 +659,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel20;
-
+        
         /// <summary>
         /// txtmrp control.
         /// </summary>
@@ -661,7 +668,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtmrp;
-
+        
         /// <summary>
         /// UpdatePanel22 control.
         /// </summary>
@@ -670,7 +677,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel22;
-
+        
         /// <summary>
         /// txtqty control.
         /// </summary>
@@ -679,7 +686,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtqty;
-
+        
         /// <summary>
         /// UpdatePanel21 control.
         /// </summary>
@@ -688,7 +695,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel21;
-
+        
         /// <summary>
         /// txtDiscount control.
         /// </summary>
@@ -697,7 +704,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDiscount;
-
+        
         /// <summary>
         /// UpdatePanel24 control.
         /// </summary>
@@ -706,7 +713,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel24;
-
+        
         /// <summary>
         /// txtamt control.
         /// </summary>
@@ -715,7 +722,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtamt;
-
+        
         /// <summary>
         /// UpdatePanel27 control.
         /// </summary>
@@ -724,7 +731,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel27;
-
+        
         /// <summary>
         /// btnadditem control.
         /// </summary>
@@ -733,7 +740,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton btnadditem;
-
+        
         /// <summary>
         /// UpdatePanel28 control.
         /// </summary>
@@ -742,7 +749,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel28;
-
+        
         /// <summary>
         /// lblMsg2 control.
         /// </summary>
@@ -751,7 +758,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMsg2;
-
+        
         /// <summary>
         /// gvSchemeChild control.
         /// </summary>
@@ -760,7 +767,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvSchemeChild;
-
+        
         /// <summary>
         /// UpdatePanel25 control.
         /// </summary>
@@ -769,7 +776,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel25;
-
+        
         /// <summary>
         /// txttotalamt control.
         /// </summary>
@@ -778,7 +785,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txttotalamt;
-
+        
         /// <summary>
         /// Label2 control.
         /// </summary>
@@ -787,7 +794,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-
+        
         /// <summary>
         /// UpdatePanel17 control.
         /// </summary>
@@ -796,7 +803,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel17;
-
+        
         /// <summary>
         /// hfReferSheetDelete control.
         /// </summary>
@@ -805,7 +812,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox hfReferSheetDelete;
-
+        
         /// <summary>
         /// hfReferSheet control.
         /// </summary>
@@ -814,7 +821,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox hfReferSheet;
-
+        
         /// <summary>
         /// fuPhoto control.
         /// </summary>
@@ -823,7 +830,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fuPhoto;
-
+        
         /// <summary>
         /// lnkFiles3 control.
         /// </summary>
@@ -832,7 +839,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkFiles3;
-
+        
         /// <summary>
         /// UpdatePanel4 control.
         /// </summary>
@@ -841,7 +848,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel4;
-
+        
         /// <summary>
         /// txtLink control.
         /// </summary>
@@ -850,7 +857,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLink;
-
+        
         /// <summary>
         /// UpdatePanel31 control.
         /// </summary>
@@ -859,7 +866,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel31;
-
+        
         /// <summary>
         /// txtremark control.
         /// </summary>
@@ -868,7 +875,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtremark;
-
+        
         /// <summary>
         /// partyremark control.
         /// </summary>
@@ -877,7 +884,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl partyremark;
-
+        
         /// <summary>
         /// UpdatePanel40 control.
         /// </summary>
@@ -886,7 +893,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel40;
-
+        
         /// <summary>
         /// lblPartyRemarks control.
         /// </summary>
@@ -895,7 +902,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPartyRemarks;
-
+        
         /// <summary>
         /// btnShowPopup3 control.
         /// </summary>
@@ -904,7 +911,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnShowPopup3;
-
+        
         /// <summary>
         /// UpdatePanel7 control.
         /// </summary>
@@ -913,7 +920,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel7;
-
+        
         /// <summary>
         /// btnOverWrite control.
         /// </summary>
@@ -922,7 +929,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnOverWrite;
-
+        
         /// <summary>
         /// btnSubmit control.
         /// </summary>
@@ -931,7 +938,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton btnSubmit;
-
+        
         /// <summary>
         /// ASPxCallback1 control.
         /// </summary>
@@ -940,7 +947,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCallback ASPxCallback1;
-
+        
         /// <summary>
         /// btnCancel control.
         /// </summary>
@@ -949,7 +956,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton btnCancel;
-
+        
         /// <summary>
         /// lbmsg control.
         /// </summary>
@@ -958,7 +965,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel lbmsg;
-
+        
         /// <summary>
         /// lblfilename control.
         /// </summary>
@@ -967,7 +974,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblfilename;
-
+        
         /// <summary>
         /// ContentControl2 control.
         /// </summary>
@@ -976,7 +983,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ContentControl ContentControl2;
-
+        
         /// <summary>
         /// UpdatePanel19 control.
         /// </summary>
@@ -985,7 +992,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel19;
-
+        
         /// <summary>
         /// UpdatePanel23 control.
         /// </summary>
@@ -994,7 +1001,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel23;
-
+        
         /// <summary>
         /// ASPxGridView1 control.
         /// </summary>
@@ -1003,7 +1010,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGridView ASPxGridView1;
-
+        
         /// <summary>
         /// ContentControl3 control.
         /// </summary>
@@ -1012,7 +1019,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ContentControl ContentControl3;
-
+        
         /// <summary>
         /// UpdatePanel29 control.
         /// </summary>
@@ -1021,7 +1028,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel29;
-
+        
         /// <summary>
         /// UpdatePanel30 control.
         /// </summary>
@@ -1030,7 +1037,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel30;
-
+        
         /// <summary>
         /// gvdesignsubmit control.
         /// </summary>
@@ -1039,7 +1046,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGridView gvdesignsubmit;
-
+        
         /// <summary>
         /// btnResumeShowUp control.
         /// </summary>
@@ -1048,7 +1055,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnResumeShowUp;
-
+        
         /// <summary>
         /// upModal control.
         /// </summary>
@@ -1057,7 +1064,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel upModal;
-
+        
         /// <summary>
         /// lblModalTitle control.
         /// </summary>
@@ -1066,7 +1073,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblModalTitle;
-
+        
         /// <summary>
         /// lblModalBody control.
         /// </summary>
@@ -1075,7 +1082,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblModalBody;
-
+        
         /// <summary>
         /// btnShowPopup1 control.
         /// </summary>
@@ -1084,7 +1091,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnShowPopup1;
-
+        
         /// <summary>
         /// mpeImage1 control.
         /// </summary>
@@ -1093,7 +1100,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ModalPopupExtender mpeImage1;
-
+        
         /// <summary>
         /// pnlpopup1 control.
         /// </summary>
@@ -1102,7 +1109,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlpopup1;
-
+        
         /// <summary>
         /// UpdatePanel3 control.
         /// </summary>
@@ -1111,7 +1118,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel3;
-
+        
         /// <summary>
         /// rptImages1 control.
         /// </summary>
@@ -1120,7 +1127,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptImages1;
-
+        
         /// <summary>
         /// hdNoRecord1 control.
         /// </summary>
@@ -1129,7 +1136,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl hdNoRecord1;
-
+        
         /// <summary>
         /// btnCloseMPE1 control.
         /// </summary>
@@ -1138,7 +1145,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCloseMPE1;
-
+        
         /// <summary>
         /// btnShowImgPopup control.
         /// </summary>
@@ -1147,7 +1154,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnShowImgPopup;
-
+        
         /// <summary>
         /// mpeAll control.
         /// </summary>
@@ -1156,7 +1163,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ModalPopupExtender mpeAll;
-
+        
         /// <summary>
         /// pnlpopupAll control.
         /// </summary>
@@ -1165,7 +1172,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlpopupAll;
-
+        
         /// <summary>
         /// UpdatePanel38 control.
         /// </summary>
@@ -1174,7 +1181,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel38;
-
+        
         /// <summary>
         /// rptAllImages control.
         /// </summary>
@@ -1183,7 +1190,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptAllImages;
-
+        
         /// <summary>
         /// hdAllNoRecord control.
         /// </summary>
@@ -1192,7 +1199,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl hdAllNoRecord;
-
+        
         /// <summary>
         /// btnClosempeAll control.
         /// </summary>

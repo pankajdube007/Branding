@@ -52,6 +52,12 @@ namespace GoldMedal.Branding.Core.AssigntoPrinter
             recid = AssignToPrinterServiceCall.GetGenaratePrinterForCancelListPOServiceMethod(dtsingle, "MSSQLSERVER");
             return recid;
         }
+        public DataTable GetCancelledPrinterPOList(GoldMedal.Branding.Data.AssigntoPrinter.AssigntoPrinter.GetGenaratePrinterPO dtsingle)
+        {
+            DataTable recid = new DataTable();
+            recid = AssignToPrinterServiceCall.GetCancelledPrinterPOListPOServiceMethod(dtsingle, "MSSQLSERVER");
+            return recid;
+        }
         public DataTable GetPrinterPOwithValueAuditReport(GoldMedal.Branding.Data.AssigntoPrinter.AssigntoPrinter.GetGenaratePrinterPO dtsingle)
         {
             DataTable recid = new DataTable();

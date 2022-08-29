@@ -37,9 +37,9 @@ namespace GoldMedal.Branding.Admin
                 mm.From = new MailAddress("software.support@goldmedalindia.com", "GoldBranding: Alert(Error)");
                 mm.ReplyToList.Add(new MailAddress("it@goldmedalindia.com"));
                 mm.CC.Add(new MailAddress("it@goldmedalindia.com"));
-                mm.CC.Add(new MailAddress("gaurav.goldmedalindia@gmail.com"));
+                mm.CC.Add(new MailAddress("Pankaj.goldmedalindia@gmail.com"));
                 mm.Bcc.Add(new MailAddress("santanu.goldmedalindia@gmail.com"));
-                mm.To.Add(new MailAddress("prasad.goldmedalindia@gmail.com"));
+                mm.To.Add(new MailAddress("sikandar.goldmedalindia@gmail.com"));
 
                 mm.IsBodyHtml = true;
                 mm.Priority = MailPriority.High;

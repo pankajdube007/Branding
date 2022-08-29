@@ -1,4 +1,5 @@
 ﻿using DevExpress.Web;
+using GoldMedal.Branding.Core.Export;
 using GoldMedal.Branding.Data.AssigntoPrinter;
 using GoldMedal.Branding.Data.DesignSubmit;
 using GoldMedal.Branding.Data.JobRequest;
@@ -18,6 +19,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
     public partial class reopenassigntoprinter : System.Web.UI.Page
     {
         private DataTable dts = new DataTable();
+        private IExport xpt = null;
         private int result = 0;
         private int result2 = 0;
         private int result3 = 0;
@@ -38,7 +40,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
             string usertype = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieString("usertype", Convert.ToBoolean(1));
             if (!IsPostBack)
             {
-                if (GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("designationid") == 46)
+                if (GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("designationid") == 46 || GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("designationid") == 44)
                 {
                     ViewState["_PageID"] = (new Random()).Next().ToString();
                     ViewState["_SizePageID"] = (new Random()).Next().ToString();
@@ -172,6 +174,74 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
             int FieldTripID = Convert.ToInt32(e.CommandArgument);
             lbslno.Text = FieldTripID.ToString();
             Reopen();
+        }
+
+
+
+        private void Download(string path, string fileName = "", ContentDispositionType _contentDispositionType = ContentDispositionType.Attachement)
+        {
+            if (string.IsNullOrWhiteSpace(fileName))
+            {
+                fileName = path.Split('/').Last();
+            }
+            var dispositionType = "";
+            switch (_contentDispositionType)
+            {
+                case ContentDispositionType.Attachement:
+                    dispositionType = "1";
+                    break;
+                default:
+                    dispositionType = "0";
+                    break;
+            }
+            string url = string.Format("../../Download/Download.aspx?path={0}&contentDispositionType={1}&filename={2}", path, dispositionType, fileName);
+            var sb = new StringBuilder();
+            sb.Append("<script type = 'text/javascript'>");
+            sb.Append("window.open('");
+            sb.Append(url);
+            sb.Append("');");
+            sb.Append("</script>");
+            ScriptManager.RegisterStartupScript(this, GetType(), "script", sb.ToString(), false);
+            sb.Clear();
+        }
+
+        protected void btnCsvExport_Click(object sender, EventArgs e)
+        {
+            columnhide();
+            xpt = new Export();
+            xpt.GoldGridExportToCsv(ASPxGridViewExporter2, GetFileName(), true);
+            columnshow();
+        }
+
+        protected void btnXlsExport_Click(object sender, EventArgs e)
+        {
+            columnhide();
+            xpt = new Export();
+            xpt.GoldGridExportToXls(ASPxGridViewExporter2, GetFileName(), true);
+            columnshow();
+        }
+
+        protected void btnXlsxExport_Click(object sender, EventArgs e)
+        {
+            columnhide();
+            xpt = new Export();
+            xpt.GoldGridExportToXlsx(ASPxGridViewExporter2, GetFileName(), true);
+            columnshow();
+        }
+        protected void columnhide()
+        {
+           
+
+        }
+        protected void columnshow()
+        {
+           
+
+        }
+
+        protected string GetFileName()
+        {
+            return string.Format("JobReopenAssignToprinter_{0}", DateTime.Now.ToString());
         }
     }
 }

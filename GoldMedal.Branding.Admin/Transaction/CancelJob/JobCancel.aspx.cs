@@ -38,6 +38,9 @@ namespace GoldMedal.Branding.Admin.Transaction.CancelJob
                 if (CheckUserRightsForMaster(userID))
                 {
                     lblFabricatorAssignID.Text = "0";
+                    txtFrmDate.Text = DateTime.Now.AddDays(-30).Date.ToString("dd/MM/yyyy");
+                    txtToDate.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
+                    BindBranch();
                     ASPxPageControl1.ActiveTabIndex = 1;
                     ASPxGridView1.DataBind();
                 }
@@ -47,6 +50,30 @@ namespace GoldMedal.Branding.Admin.Transaction.CancelJob
                 }
                 }
         }
+
+        protected void BindBranch()
+        {
+            Data.JobRequest.JobRequestModel.JobRequestProperties param = new Data.JobRequest.JobRequestModel.JobRequestProperties();
+
+            param.userid = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("userlogid");
+            Core.JobRequest.JobRequest objselectsingleselect = new Core.JobRequest.JobRequest();
+            DataSet dsaselect = objselectsingleselect.AllBranchSelected(param);
+
+            lbBranch.Items.Clear();
+            lbBranch.Value = null;
+            lbBranch.DataSource = dsaselect.Tables[1];
+            lbBranch.TextField = "locnm";
+            lbBranch.ValueField = "branchid";
+            lbBranch.DataBind();
+            //lbBranch.Items.Insert(0, new ListEditItem("Select all", 0));
+
+            if (dsaselect.Tables[0].Rows.Count > 0)
+            {
+                lbBranch.SelectedItem = lbBranch.Items.FindByValue(dsaselect.Tables[0].Rows[0]["homebranchid"].ToString());
+            }
+        }
+
+
         #endregion PageEvent
         private bool CheckUserRightsForMaster(int UserID)
         {
@@ -106,11 +133,94 @@ namespace GoldMedal.Branding.Admin.Transaction.CancelJob
         {
             DataTable dt5 = new DataTable();
 
-            Data.CancelJob.CancelJob.CancelJobProperty dsp = new Data.CancelJob.CancelJob.CancelJobProperty();
+            string branchIDs = "";
+
+            for (int i = 0; i < lbBranch.Items.Count; i++)
+            {
+                if (lbBranch.Items[i].Selected == true)
+                {
+                    branchIDs += lbBranch.Items[i].Value.ToString() + ",";
+                }
+            }
+
+            branchIDs = branchIDs.TrimEnd(',');
+
+            string frmDate = txtFrmDate.Date.ToString("yyyy-MM-dd");
+            if (frmDate == "0001-01-01")
+            {
+                frmDate = "";
+            }
+            string toDate = txtToDate.Date.ToString("yyyy-MM-dd");
+            if (toDate == "0001-01-01")
+            {
+                toDate = "";
+            }
+
+            if (frmDate != "" && toDate != "")
+            {
+                Data.CancelJob.CancelJob.CancelJobProperty dsp = new Data.CancelJob.CancelJob.CancelJobProperty();
+
+                Core.CancelJob.CancelJob objselectall = new Core.CancelJob.CancelJob();
+                dt5 = objselectall.ListOfJobForCancelDateWise(frmDate, toDate, branchIDs);
+            }
+
+
+
            
-            Core.CancelJob.CancelJob objselectall = new Core.CancelJob.CancelJob();
-            dt5 = objselectall.ListOfJobForCancel(dsp);
             return dt5;
+        }
+
+        protected void CmdSearch_Click(object sender, EventArgs e)
+        {
+            string branchIDs = "";
+
+            for (int i = 0; i < lbBranch.Items.Count; i++)
+            {
+                if (lbBranch.Items[i].Selected == true)
+                {
+                    branchIDs += lbBranch.Items[i].Value.ToString() + ",";
+                }
+            }
+
+            branchIDs = branchIDs.TrimEnd(',');
+
+            if (branchIDs == "")
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "showDialog('Warning','Please select atleast one branch !','warning',3);", true);
+                return;
+            }
+
+
+            string frmDate = txtFrmDate.Date.ToString("yyyy-MM-dd");
+            if (frmDate == "0001-01-01")
+            {
+                frmDate = "";
+            }
+
+            string toDate = txtToDate.Date.ToString("yyyy-MM-dd");
+            if (toDate == "0001-01-01")
+            {
+                toDate = "";
+            }
+
+            if (frmDate != "" && toDate != "")
+            {
+                DateTime dtFrm = Convert.ToDateTime(txtFrmDate.Date.ToString("yyyy-MM-dd"));
+                DateTime dtTo = Convert.ToDateTime(txtToDate.Date.ToString("yyyy-MM-dd"));
+
+                if (dtFrm <= dtTo)
+                {
+                    ASPxGridView1.DataBind();
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('From Date should be less than To Date.');", true);
+                }
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select both the dates.');", true);
+            }
         }
 
         protected void show2()

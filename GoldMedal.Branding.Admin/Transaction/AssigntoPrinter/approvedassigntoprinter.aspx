@@ -1083,6 +1083,11 @@
                                                                                         <dx:GridViewDataTextColumn FieldName="LiveProductImg"  Visible="false">
                                                                                         </dx:GridViewDataTextColumn>
 
+                                                                                          <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="Priority" Caption="Priority" VisibleIndex="25">
+                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                        </dx:GridViewDataTextColumn>
+
+
                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Caption="Live Product Image" Visible="false" ReadOnly="True" VisibleIndex="25">
                                                                                             <Settings AllowDragDrop="True" />
                                                                                              <DataItemTemplate>

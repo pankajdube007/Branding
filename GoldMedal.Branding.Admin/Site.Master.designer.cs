@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GoldMedal.Branding.Admin
-{
-
-
-    public partial class Site
-    {
-
+namespace GoldMedal.Branding.Admin {
+    
+    
+    public partial class Site {
+        
         /// <summary>
         /// PlaceHolder1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder1;
-
+        
         /// <summary>
         /// HeadContent control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
-
+        
         /// <summary>
         /// topmenu control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl topmenu;
-
+        
         /// <summary>
         /// helpmenu control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl helpmenu;
-
+        
         /// <summary>
         /// DbMenu control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DbMenu;
-
+        
         /// <summary>
         /// lbnm15 control.
         /// </summary>
@@ -67,7 +65,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbnm15;
-
+        
         /// <summary>
         /// lbnm16 control.
         /// </summary>
@@ -76,7 +74,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbnm16;
-
+        
         /// <summary>
         /// mainmenu control.
         /// </summary>
@@ -85,7 +83,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl mainmenu;
-
+        
         /// <summary>
         /// homemenu control.
         /// </summary>
@@ -94,7 +92,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl homemenu;
-
+        
         /// <summary>
         /// MasterMenu control.
         /// </summary>
@@ -103,7 +101,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl MasterMenu;
-
+        
         /// <summary>
         /// TransactionMenu control.
         /// </summary>
@@ -112,7 +110,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl TransactionMenu;
-
+        
         /// <summary>
         /// ChangeAssignMenu control.
         /// </summary>
@@ -121,7 +119,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ChangeAssignMenu;
-
+        
         /// <summary>
         /// BranchMenuReopenSendForPrint control.
         /// </summary>
@@ -130,7 +128,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl BranchMenuReopenSendForPrint;
-
+        
         /// <summary>
         /// BranchMenu1 control.
         /// </summary>
@@ -139,7 +137,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl BranchMenu1;
-
+        
         /// <summary>
         /// PrinterMenu control.
         /// </summary>
@@ -148,7 +146,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl PrinterMenu;
-
+        
         /// <summary>
         /// FabricatorMenu control.
         /// </summary>
@@ -157,7 +155,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl FabricatorMenu;
-
+        
         /// <summary>
         /// DispatchTeamMenu control.
         /// </summary>
@@ -166,7 +164,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DispatchTeamMenu;
-
+        
         /// <summary>
         /// SelfInstallationTeamMenu control.
         /// </summary>
@@ -175,7 +173,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl SelfInstallationTeamMenu;
-
+        
         /// <summary>
         /// VendorTeamMenu control.
         /// </summary>
@@ -184,7 +182,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl VendorTeamMenu;
-
+        
         /// <summary>
         /// AssemblyMenu control.
         /// </summary>
@@ -193,7 +191,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl AssemblyMenu;
-
+        
         /// <summary>
         /// Li1 control.
         /// </summary>
@@ -202,7 +200,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Li1;
-
+        
         /// <summary>
         /// ReportMenuMaster control.
         /// </summary>
@@ -211,7 +209,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenuMaster;
-
+        
         /// <summary>
         /// ReportMenu1 control.
         /// </summary>
@@ -220,7 +218,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu1;
-
+        
         /// <summary>
         /// ReportMenu2 control.
         /// </summary>
@@ -229,7 +227,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu2;
-
+        
         /// <summary>
         /// ReportMenu3 control.
         /// </summary>
@@ -238,7 +236,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu3;
-
+        
         /// <summary>
         /// ReportMenu4 control.
         /// </summary>
@@ -247,7 +245,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu4;
-
+        
         /// <summary>
         /// ReportMenu10 control.
         /// </summary>
@@ -256,7 +254,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu10;
-
+        
         /// <summary>
         /// ReportMenu11 control.
         /// </summary>
@@ -265,7 +263,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu11;
-
+        
         /// <summary>
         /// ReportMenu20 control.
         /// </summary>
@@ -274,7 +272,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu20;
-
+        
         /// <summary>
         /// ReportMenu21 control.
         /// </summary>
@@ -283,7 +281,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu21;
-
+        
         /// <summary>
         /// ReportMenu22 control.
         /// </summary>
@@ -292,7 +290,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu22;
-
+        
         /// <summary>
         /// ReportMenuJobAging control.
         /// </summary>
@@ -301,7 +299,16 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenuJobAging;
-
+        
+        /// <summary>
+        /// Li2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Li2;
+        
         /// <summary>
         /// ReportMenuPrinterPOAging control.
         /// </summary>
@@ -310,7 +317,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenuPrinterPOAging;
-
+        
         /// <summary>
         /// ReportMenuFabricatorPOAging control.
         /// </summary>
@@ -319,7 +326,16 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenuFabricatorPOAging;
-
+        
+        /// <summary>
+        /// ReportMenuPrinterPOCancelled control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenuPrinterPOCancelled;
+        
         /// <summary>
         /// AuditReportMenuMaster control.
         /// </summary>
@@ -328,7 +344,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl AuditReportMenuMaster;
-
+        
         /// <summary>
         /// ReportMenu5 control.
         /// </summary>
@@ -337,7 +353,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu5;
-
+        
         /// <summary>
         /// ReportMenu8 control.
         /// </summary>
@@ -346,7 +362,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu8;
-
+        
         /// <summary>
         /// ReportMenu9 control.
         /// </summary>
@@ -355,7 +371,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu9;
-
+        
         /// <summary>
         /// ReportMenu12 control.
         /// </summary>
@@ -364,7 +380,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu12;
-
+        
         /// <summary>
         /// ReportMenu14 control.
         /// </summary>
@@ -373,7 +389,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu14;
-
+        
         /// <summary>
         /// ReportMenu17 control.
         /// </summary>
@@ -382,7 +398,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu17;
-
+        
         /// <summary>
         /// ReportMenu19 control.
         /// </summary>
@@ -391,7 +407,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu19;
-
+        
         /// <summary>
         /// ReportMenu25 control.
         /// </summary>
@@ -400,7 +416,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu25;
-
+        
         /// <summary>
         /// ReportMenu26 control.
         /// </summary>
@@ -409,7 +425,16 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu26;
-
+        
+        /// <summary>
+        /// ReportMenuConsolidated control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenuConsolidated;
+        
         /// <summary>
         /// HOReportMenuMaster control.
         /// </summary>
@@ -418,7 +443,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl HOReportMenuMaster;
-
+        
         /// <summary>
         /// ReportMenu6 control.
         /// </summary>
@@ -427,7 +452,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu6;
-
+        
         /// <summary>
         /// ReportMenu7 control.
         /// </summary>
@@ -436,7 +461,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu7;
-
+        
         /// <summary>
         /// ReportMenu13 control.
         /// </summary>
@@ -445,7 +470,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu13;
-
+        
         /// <summary>
         /// ReportMenu15 control.
         /// </summary>
@@ -454,7 +479,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu15;
-
+        
         /// <summary>
         /// ReportMenu16 control.
         /// </summary>
@@ -463,7 +488,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu16;
-
+        
         /// <summary>
         /// ReportMenu18 control.
         /// </summary>
@@ -472,7 +497,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu18;
-
+        
         /// <summary>
         /// ReportMenu23 control.
         /// </summary>
@@ -481,7 +506,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu23;
-
+        
         /// <summary>
         /// ReportMenu24 control.
         /// </summary>
@@ -490,7 +515,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu24;
-
+        
         /// <summary>
         /// ReportMenu27 control.
         /// </summary>
@@ -499,7 +524,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu27;
-
+        
         /// <summary>
         /// ReportMenu28 control.
         /// </summary>
@@ -508,7 +533,7 @@ namespace GoldMedal.Branding.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportMenu28;
-
+        
         /// <summary>
         /// MainContent control.
         /// </summary>

@@ -344,7 +344,20 @@ namespace GoldMedal.Branding.Service.JobRequestService
             }
             return recid;
         }
-
+        public static DataTable JobRequestRegionalLangBranchDAServiceMethod(GoldMedal.Branding.Data.JobRequest.JobRequestModel.JobRequestProperties alldata, string DatabaseType)
+        {
+            DataTable recid = null;
+            JobRequestDataAccess objdata = new JobRequestDataAccess();
+            if (string.Equals(DatabaseType, "MSSQLSERVER"))
+            {
+                recid = objdata.JobRequestRegionallangBranchFilesDA(alldata);
+            }
+            else
+            {
+                recid = null;
+            }
+            return recid;
+        }
         public static DataTable LiveProductFilesDAServiceMethod(GoldMedal.Branding.Data.JobRequest.JobRequestModel.JobRequestProperties alldata, string DatabaseType)
         {
             DataTable recid = null;

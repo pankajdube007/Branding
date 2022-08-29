@@ -52,6 +52,7 @@ namespace GoldMedal.Branding.Data.JobRequest
             public bool ispalce { get; set; }
             public string ImageName { get; set; }
             public string VisitingCardImg { get; set; }
+            public string RegionalLangCDRFile { get; set; }
             public string Shopphoto { get; set; }
             
             public string ReferSheet { get; set; }

@@ -53,30 +53,30 @@ namespace GoldMedal.Branding.Admin.Master.Printer
         {
             int userID = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("userlogid");
             Session.Timeout = 7200;
-           // totval = gvSchemeChild.Rows.Count;
+            // totval = gvSchemeChild.Rows.Count;
 
             if (!IsPostBack)
             {
                 if (CheckUserRightsForMaster(userID))
                 {
                     LoadArea();
-                BindBranch();
-                LoadUnit();
-                Loadmaterial();
-                loadareadetail();
-                BindSuppliers();
-                ASPxGridView1.DataBind();
+                    BindBranch();
+                    LoadUnit();
+                    Loadmaterial();
+                    loadareadetail();
+                    BindSuppliers();
+                    ASPxGridView1.DataBind();
 
-                ViewState["_PageID"] = (new Random()).Next().ToString();
-
-                lbslno.Text = "0";
+                    ViewState["_PageID"] = (new Random()).Next().ToString();
+                    cmbSupplier.ReadOnly = false;
+                    lbslno.Text = "0";
                 }
                 else
                 {
                     Response.Redirect("~/logout.aspx");
                 }
             }
-           // createSessionData();
+            // createSessionData();
         }
 
         #endregion Page Event
@@ -227,13 +227,14 @@ namespace GoldMedal.Branding.Admin.Master.Printer
             lbBranch.Items.Clear();
             cmbSupplier.SelectedIndex = -1;
             cmbSupplier.Items.Clear();
+            cmbSupplier.ReadOnly = false;
             LoadArea();
             BindBranch();
             BindSuppliers();
             loadareadetail();
 
             dts.Clear();
-           // gvSchemeChild.DataBind();
+            // gvSchemeChild.DataBind();
         }
 
         protected void childclean()
@@ -258,7 +259,7 @@ namespace GoldMedal.Branding.Admin.Master.Printer
         protected void columnhide()
         {
             ASPxGridView1.Columns[4].Visible = false;
-         //   ASPxGridView1.Columns[5].Visible = false;
+            //   ASPxGridView1.Columns[5].Visible = false;
         }
 
         /// <summary>
@@ -267,7 +268,7 @@ namespace GoldMedal.Branding.Admin.Master.Printer
         protected void columnshow()
         {
             ASPxGridView1.Columns[4].Visible = true;
-           // ASPxGridView1.Columns[5].Visible = true;
+            // ASPxGridView1.Columns[5].Visible = true;
         }
 
         /// <summary>
@@ -291,17 +292,17 @@ namespace GoldMedal.Branding.Admin.Master.Printer
             int result = 0;
             int result2 = 0;
             int errorresulr = 0;
-            bool status ;
+            bool status;
             string error = string.Empty;
             Data.Printer.PrinterModel.PrinterInsert dst = new Data.Printer.PrinterModel.PrinterInsert();
             // var code = HttpUtility.HtmlEncode(txtcode.Text.Trim());
-           // var name = HttpUtility.HtmlEncode(txtname.Text.Trim());
+            // var name = HttpUtility.HtmlEncode(txtname.Text.Trim());
             var name = HttpUtility.HtmlEncode(cmbSupplier.SelectedItem.Text);
             var area = HttpUtility.HtmlEncode(cmbArea.Value);
 
             var branch = "";
 
-          
+
 
             for (int i = 0; i < lbBranch.Items.Count; i++)
             {
@@ -395,7 +396,7 @@ namespace GoldMedal.Branding.Admin.Master.Printer
                 }
                 else
                 {
-                   
+
                     if (!username.Contains("pri_"))
                     {
                         dst.usernm = "pri_" + username;
@@ -621,6 +622,28 @@ namespace GoldMedal.Branding.Admin.Master.Printer
 
                                 cmbSupplier.SelectedItem = cmbSupplier.Items.FindByValue(Convert.ToString(dt.Rows[0]["SupplierID"]));
 
+
+                                String ValueSupplier = "";
+                                if (cmbSupplier.Items.FindByValue(Convert.ToString(dt.Rows[0]["SupplierID"])) != null)
+                                {
+                                    ValueSupplier = cmbSupplier.Items.FindByValue(Convert.ToString(dt.Rows[0]["SupplierID"])).ToString();
+                                    cmbSupplier_SelectedIndexChanged(null, null);
+                                }
+
+
+                                if (dt.Rows[0]["SupplierID"].ToString().Trim() != "")
+                                {
+                                    if (dt.Rows[0]["SupplierID"].ToString().Trim() != "0")
+                                    {
+                                        if (ValueSupplier != "")
+                                        {
+                                            cmbSupplier.ReadOnly = true;
+                                        }
+                                    }
+                                }
+
+
+
                                 //if (cmbSupplier.SelectedItem != null)
                                 //{
                                 //    GetSupplierDetails(Convert.ToInt32(cmbSupplier.SelectedItem.Value));
@@ -647,9 +670,9 @@ namespace GoldMedal.Branding.Admin.Master.Printer
                                     }
                                 }
 
-                                
 
-                               // loadchild();
+
+                                // loadchild();
                             }
                         }
                         else
@@ -879,7 +902,7 @@ namespace GoldMedal.Branding.Admin.Master.Printer
 
         protected void cmbSupplier_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // lblAddress.Text = "";
+            // lblAddress.Text = "";
             txtAddress.Text = "";
             txtcontactperson.Text = "";
             lblEmail.Text = "";

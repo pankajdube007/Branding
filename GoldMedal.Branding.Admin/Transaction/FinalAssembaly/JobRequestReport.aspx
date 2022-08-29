@@ -599,23 +599,26 @@
                                                                                          <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="PrinterPONumber" Caption="Printer PO Number" VisibleIndex="11">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
-                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="PrinterDCNumber" Caption="Printer DC Number" VisibleIndex="12">
+                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="PrinterPOCancelRemark" Caption="Printer PO Cancel Remark" VisibleIndex="12">
+                                                                                            <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
+                                                                                        </dx:GridViewDataTextColumn>
+                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="PrinterDCNumber" Caption="Printer DC Number" VisibleIndex="13">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="PrinterJobApprBy" Caption="Printer Job Approve By" Visible="false" VisibleIndex="13">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="PrinterJobApprBy" Caption="Printer Job Approve By" Visible="false" VisibleIndex="14">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
 
-                                                                                         <dx:GridViewDataDateColumn Settings-AllowDragDrop="True" Width="160px" FieldName="PrinterJobApprdt" Visible="false" Caption="Printer Job Approve Date" VisibleIndex="14">
+                                                                                         <dx:GridViewDataDateColumn Settings-AllowDragDrop="True" Width="160px" FieldName="PrinterJobApprdt" Visible="false" Caption="Printer Job Approve Date" VisibleIndex="15">
                                                                                             <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy hh:mm:ss tt" DisplayFormatInEditMode="True"></PropertiesDateEdit>
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataDateColumn>
 
                                                                                        
 
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="PrinterApprStatus" Caption="Printer Approve Status" Visible="false" VisibleIndex="15">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="PrinterApprStatus" Caption="Printer Approve Status" Visible="false" VisibleIndex="16">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 

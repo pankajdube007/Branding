@@ -1044,6 +1044,17 @@
                                                                         <asp:LinkButton ID="lnkFiles4" OnClientClick="lp.Show()" runat="server" OnClick="lnkFiles4_Click"></asp:LinkButton>
                                                                     </div>
                                                                 </div>
+                                                                 <div class="col-md-3">
+                                                                    <label>
+                                                                        Upload Regional Lang.(<asp:Label ID="lblRegionalLang" runat="server" ForeColor="Maroon">CDR* < 25MB</asp:Label>
+                                                                        ):</label>
+                                                                    <asp:TextBox ID="hfRegionalLangDelete" runat="server" Visible="false"></asp:TextBox>
+                                                                    <asp:TextBox ID="hfRegionalLang" runat="server" Visible="false"></asp:TextBox>
+                                                                    <asp:FileUpload ID="fuRegionalLang" runat="server" AllowMultiple="True" CssClass="form-control" TabIndex="6" />
+                                                                    <div>
+                                                                        <asp:LinkButton ID="lnkFiles5" OnClientClick="lp.Show()" runat="server" OnClick="lnkFiles5_Click"></asp:LinkButton>
+                                                                    </div>
+                                                                </div>
                                                                  </div>
                                                             <br />
                                                         </div>

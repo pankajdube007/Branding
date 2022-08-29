@@ -319,24 +319,32 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveByParty
             //  {
             string link = txtlink.Text;
 
-            Data.DesignSubmit.DesignSubmit.DesignSubmitProperty designsub = new Data.DesignSubmit.DesignSubmit.DesignSubmitProperty();
-            designsub.slno = Convert.ToInt32(lbslno.Text);
-            designsub.uplodepartyimg = FileNameVC;
-            designsub.link = link;
-            designsub.remark = txtRemarks.Text;
-            designsub.Action = 1;
 
-            Core.DesignSubmit.DesignSubmit cdsub = new Core.DesignSubmit.DesignSubmit();
-            int resultemail = 0;
-            resultemail = cdsub.ApproveByParty(designsub);
-            if (resultemail == 1)
+            if (FileNameVC != "")
             {
-                loaddetails();
-                Label1.Text = "Approved successfully.";
+                Data.DesignSubmit.DesignSubmit.DesignSubmitProperty designsub = new Data.DesignSubmit.DesignSubmit.DesignSubmitProperty();
+                designsub.slno = Convert.ToInt32(lbslno.Text);
+                designsub.uplodepartyimg = FileNameVC;
+                designsub.link = link;
+                designsub.remark = txtRemarks.Text;
+                designsub.Action = 1;
+
+                Core.DesignSubmit.DesignSubmit cdsub = new Core.DesignSubmit.DesignSubmit();
+                int resultemail = 0;
+                resultemail = cdsub.ApproveByParty(designsub);
+                if (resultemail == 1)
+                {
+                    loaddetails();
+                    Label1.Text = "Approved successfully.";
+                }
+                if (resultemail != 1)
+                {
+                    Label1.Text = "Some Error Please Try Again After Some Time";
+                }
             }
-            if (resultemail != 1)
+            else
             {
-                Label1.Text = "Some Error Please Try Again After Some Time";
+                Label1.Text = "Please Upload Mandatory File";
             }
             // }
         }
@@ -379,24 +387,32 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveByParty
 
             string link = txtlink.Text;
 
-            Data.DesignSubmit.DesignSubmit.DesignSubmitProperty designsub = new Data.DesignSubmit.DesignSubmit.DesignSubmitProperty();
-            designsub.slno = Convert.ToInt32(lbslno.Text);
-            designsub.uplodepartyimg = FileNameVC;
-            designsub.link = link;
-            designsub.remark = txtRemarks.Text;
-            designsub.Action = 2;
+            if (FileNameVC != "")
+            {
 
-            Core.DesignSubmit.DesignSubmit cdsub = new Core.DesignSubmit.DesignSubmit();
-            int resultemail = 0;
-            resultemail = cdsub.ApproveByParty(designsub);
-            if (resultemail == 1)
-            {
-                loaddetails();
-                Label1.Text = "Disapproved successfully.";
+                Data.DesignSubmit.DesignSubmit.DesignSubmitProperty designsub = new Data.DesignSubmit.DesignSubmit.DesignSubmitProperty();
+                designsub.slno = Convert.ToInt32(lbslno.Text);
+                designsub.uplodepartyimg = FileNameVC;
+                designsub.link = link;
+                designsub.remark = txtRemarks.Text;
+                designsub.Action = 2;
+
+                Core.DesignSubmit.DesignSubmit cdsub = new Core.DesignSubmit.DesignSubmit();
+                int resultemail = 0;
+                resultemail = cdsub.ApproveByParty(designsub);
+                if (resultemail == 1)
+                {
+                    loaddetails();
+                    Label1.Text = "Disapproved successfully.";
+                }
+                if (resultemail != 1)
+                {
+                    Label1.Text = "Some Error Please Try Again After Some Time";
+                }
             }
-            if (resultemail != 1)
+            else
             {
-                Label1.Text = "Some Error Please Try Again After Some Time";
+                Label1.Text = "Please Upload Mandatory File";
             }
         }
 

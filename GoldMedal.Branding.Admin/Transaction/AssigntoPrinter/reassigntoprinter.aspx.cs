@@ -39,7 +39,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         {
             if (!IsPostBack)
             {
-                 if (GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("designationid") == 46)
+                 if (GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("designationid") == 46 || GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("designationid") == 44)
                // if (GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("designationid") == 46 || GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("designationid") == 132)
                 {
                     ViewState["_PageID"] = (new Random()).Next().ToString();

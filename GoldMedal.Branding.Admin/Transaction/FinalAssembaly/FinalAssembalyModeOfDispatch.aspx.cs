@@ -44,11 +44,12 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
                 }
                 else
                 {
-                   
+
                     lblFabricatorAssignID.Text = "0";
                     ASPxPageControl1.ActiveTabIndex = 1;
                     ASPxGridView1.DataBind();
-                    
+                    ASPxGridView2.DataBind();
+
                 }
             }
         }
@@ -72,6 +73,7 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
             if (ASPxPageControl1.ActiveTabIndex == 0)
             {
                 ASPxGridView1.DataBind();
+                ASPxGridView2.DataBind();
             }
         }
         protected void CmdEdit_Command(object sender, CommandEventArgs e)
@@ -85,11 +87,15 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
         {
             ASPxGridView1.DataSource = GetTable1();
         }
+        protected void ASPxGridView2_DataBinding(object sender, EventArgs e)
+        {
+            ASPxGridView2.DataSource = GetTable2();
+        }
         protected void btnCancel_Click1(object sender, EventArgs e)
         {
             clean();
         }
-       
+
         protected void btnOverWrite_Click(object sender, EventArgs e)
         {
         }
@@ -105,7 +111,7 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "showDialog('Error','Oops ! some error occured !','error',3);", true);
             }
-            else if(Convert.ToInt32(cmbMode.SelectedItem.Value) == 0  || cmbDispatchBy.Value == null)
+            else if (Convert.ToInt32(cmbMode.SelectedItem.Value) == 0 || cmbDispatchBy.Value == null)
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "showDialog('Warning','Please Select Mode !','warning',3);", true);
             }
@@ -143,6 +149,15 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
             dt5 = objselectall.ListOfJobForFinlaAssemblyModeUpdate(dsp);
             return dt5;
         }
+        private DataTable GetTable2()
+        {
+            DataTable dt5 = new DataTable();
+            Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty dsp = new Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty();
+            dsp.userid = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("userlogid");
+            Core.FinalAssembaly.FinalAssembly objselectall = new Core.FinalAssembaly.FinalAssembly();
+            dt5 = objselectall.DispatchListOfJobForFinlaAssemblyModeUpdate(dsp);
+            return dt5;
+        }
         protected void show2()
         {
             Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty dsp = new Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty();
@@ -162,7 +177,7 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
                 lblFabricatorAssignID.Text = Convert.ToString(dt.Rows[0]["FabricatorAssignID"]);
                 lblFabricatorID.Text = Convert.ToString(dt.Rows[0]["FabricatorID"]);
 
-               
+
                 //Job Request Details
                 //   lblBranch.Text = Convert.ToString(dt.Rows[0]["BranchName"]);
                 LblRequestNo.Text = Convert.ToString(dt.Rows[0]["reqno"]);
@@ -394,14 +409,14 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
                     }
                     if (Convert.ToString(dt.Rows[0]["FinalAssemblyImage"]) != "")
                     {
-                       
+
                         lbFinalAssembly.Visible = true;
                     }
                 }
             }
 
             loadchild();
-           
+
 
             ASPxPageControl1.ActiveTabIndex = 0;
         }
@@ -416,7 +431,7 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
             dst.slno = Convert.ToInt32(lblFabricatorAssignID.Text);
             Core.FinalAssembaly.FinalAssembly objselectall = new Core.FinalAssembaly.FinalAssembly();
             dt6 = objselectall.DetailOfItemListForFinalAssembly(dst);
-            
+
             gvSchemeChild.DataSource = dt6;
             gvSchemeChild.DataBind();
         }
@@ -443,6 +458,7 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
             //lblApprovedBy.Text = "";
             //lblJobStatus.Text = "";
             ASPxGridView1.DataBind();
+            ASPxGridView2.DataBind();
             lblName.Text = "";
             lblAddress.Text = "";
             lblContactPerson.Text = "";
@@ -579,7 +595,7 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
             lbFinalAssembly.Visible = false;
 
             loadchild();
-            
+
 
             ASPxPageControl1.ActiveTabIndex = 1;
         }
@@ -591,7 +607,7 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
 
             hfPopupImageFlag.Value = flag.ToString();
 
-           
+
 
             param.slno = slno;
             param.flag = flag;

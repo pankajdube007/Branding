@@ -286,6 +286,9 @@ namespace GoldMedal.Branding.Admin
                 lblJobRemark.Text = Convert.ToString(dt.Rows[0]["JobRemark"]);
                 lblApproveRemark.Text = Convert.ToString(dt.Rows[0]["ApproveRemark"]);
                 lblAssignRemark.Text = Convert.ToString(dt.Rows[0]["AssignRemark"]);
+               // lbOtherJobImage.Text = Convert.ToString(dt.Rows[0]["JobImage"]);
+                
+
 
                 if (Convert.ToString(dt.Rows[0]["VisitingCardImg"]) != "")
                 {
@@ -304,7 +307,7 @@ namespace GoldMedal.Branding.Admin
                 {
                     lbCDRFile.Visible = true;
                 }
-                if (Convert.ToInt32(dt.Rows[0]["JobCount"]) > 1)
+                if (Convert.ToInt32(dt.Rows[0]["JobCount"]) >= 1)
                 {
                     lbOtherJobImage.Visible = true;
                     lbOtherJobImage.Visible = true;
@@ -789,6 +792,12 @@ namespace GoldMedal.Branding.Admin
                     Download(path);
                     GetUploadedJobRequestFiles(Convert.ToInt32(lblFinalAssemblyID.Text), 7);
                 }
+                else if (hfPopupImageFlag.Value == "11")
+                {
+                    path = string.Format("{0}/{1}", FILE_DIRECTORY_NAME3, hfPImgName.Value);
+                    Download(path);
+                    GetUploadedJobRequestFiles(Convert.ToInt32(lblFinalAssemblyID.Text), 11);
+                }
             }
         }
         protected void rptAllImages_ItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -855,7 +864,11 @@ namespace GoldMedal.Branding.Admin
                 PictureIDPath = string.Format("../../Download/ImageHandler.aspx?PictureID={0}/{1}", FILE_DIRECTORY_NAME7, hfPImgName.Value);
                 FileIdPath = string.Format("../../Download/ImageHandler.aspx?FileId={0}/{1}", FILE_DIRECTORY_NAME7, hfPImgName.Value);
             }
-
+            else if (hfPopupImageFlag.Value == "11")
+            {
+                PictureIDPath = string.Format("../../Download/ImageHandler.aspx?PictureID={0}/{1}", FILE_DIRECTORY_NAME3, hfPImgName.Value);
+                FileIdPath = string.Format("../../Download/ImageHandler.aspx?FileId={0}/{1}", FILE_DIRECTORY_NAME3, hfPImgName.Value);
+            }
 
             if (hfPImgName.Value.Contains(".jpg") || hfPImgName.Value.Contains(".png") || hfPImgName.Value.Contains(".jpeg"))
             {

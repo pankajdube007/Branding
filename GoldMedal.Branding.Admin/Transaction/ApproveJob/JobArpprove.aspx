@@ -14,7 +14,7 @@
 
     <script type="text/javascript">
         function myFunction() {
-          
+
             var txt;
             var count = document.getElementById('ctl00_MainContent_lblacount').innerText;
             if (count > 0) {
@@ -61,7 +61,7 @@
                             <asp:Label ID="lblacount" Style="display: none" Text="0" runat="server"></asp:Label>
                             <asp:Label ID="lblImageSlno" Style="display: none" Text="0" runat="server"></asp:Label>
                             <asp:HiddenField ID="hfPopupImageFlag" Value="0" runat="server" />
-                             <asp:HiddenField ID="popupcount" Value="0" runat="server" />
+                            <asp:HiddenField ID="popupcount" Value="0" runat="server" />
 
                             <dx:ASPxPageControl EnableHierarchyRecreation="False" ID="ASPxPageControl1" runat="server"
                                 ActiveTabIndex="0" CssClass="tabsB" EnableTheming="True" Theme="Default" OnTabClick="ASPxPageControl1_TabClick">
@@ -175,8 +175,8 @@
                                                                                 <asp:LinkButton ID="lnkFiles3" OnClientClick="lp.Show()" runat="server" OnClick="lnkFiles3_Click"></asp:LinkButton>
                                                                             </div>
                                                                         </div>
-                                                                         <div class="col-md-3">
-                                                                            <label style="margin-top:20px;">
+                                                                        <div class="col-md-3">
+                                                                            <label style="margin-top: 20px;">
                                                                                 Given By:</label>
                                                                             <asp:UpdatePanel ID="UpdatePanel10" runat="server">
                                                                                 <ContentTemplate>
@@ -185,7 +185,7 @@
                                                                             </asp:UpdatePanel>
                                                                         </div>
                                                                         <div class="col-md-3">
-                                                                            <label style="margin-top:20px;">
+                                                                            <label style="margin-top: 20px;">
                                                                                 Submitted By:</label>
                                                                             <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                                                                                 <ContentTemplate>
@@ -194,10 +194,10 @@
                                                                             </asp:UpdatePanel>
                                                                         </div>
 
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-md-3">
-                                                                            <label style="margin-top:20px;">
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-3">
+                                                                            <label style="margin-top: 20px;">
                                                                                 Approved By:</label>
                                                                             <asp:UpdatePanel ID="UpdatePanel17" runat="server">
                                                                                 <ContentTemplate>
@@ -206,7 +206,7 @@
                                                                             </asp:UpdatePanel>
                                                                         </div>
                                                                         <div class="col-md-3">
-                                                                            <label style="margin-top:20px;">
+                                                                            <label style="margin-top: 20px;">
                                                                                 Shop Photo:
                                                                             </label>
                                                                             <asp:TextBox ID="hfShopPhotoDelete" runat="server" Visible="false" />
@@ -215,15 +215,15 @@
                                                                                 <asp:LinkButton ID="lnkFilesShop" OnClientClick="lp.Show()" runat="server" OnClick="lnkFilesShop_Click"></asp:LinkButton>
                                                                             </div>
                                                                         </div>
-                                                                            <div class="col-md-3">
-                                                                       <label style="margin-top:20px;">CDR File:</label>
-                                                                 <asp:LinkButton ID="lbCDRFile" OnClientClick="lp.Show()" runat="server"  Text="View File" OnClick="lbCDRFile_Click"></asp:LinkButton>
-                                                                  </div>
-                                                                            </div>
+                                                                        <div class="col-md-3">
+                                                                            <label style="margin-top: 20px;">CDR File:</label>
+                                                                            <asp:LinkButton ID="lbCDRFile" OnClientClick="lp.Show()" runat="server" Text="View File" OnClick="lbCDRFile_Click"></asp:LinkButton>
+                                                                        </div>
+                                                                    </div>
 
-                                                                    
+
                                                                     <br />
-                                                                   
+
 
                                                                     <div class="row">
                                                                         <div class="cls-sub-topic">
@@ -273,81 +273,81 @@
                                                                             </asp:UpdatePanel>
                                                                         </div>
 
-                                                                       
+
                                                                     </div>
                                                                     <br />
 
-                                                                    <div id="dhbretdet" runat="server" style="display:none;">
+                                                                    <div id="dhbretdet" runat="server" style="display: none;">
                                                                         <div class="row">
-                                                                        <div class="cls-sub-topic">
-                                                                            <i aria-hidden="true" class="fa fa-tasks"></i>
-                                                                            <h2>Dhanbarse Retailer Details</h2>
+                                                                            <div class="cls-sub-topic">
+                                                                                <i aria-hidden="true" class="fa fa-tasks"></i>
+                                                                                <h2>Dhanbarse Retailer Details</h2>
+                                                                            </div>
                                                                         </div>
+                                                                        <br />
+                                                                        <div class="row">
+                                                                            <div class="col-md-3">
+                                                                                <label>
+                                                                                    Dhanbarse Registration Date:</label>
+                                                                                <asp:UpdatePanel ID="UpdatePanel13" runat="server">
+                                                                                    <ContentTemplate>
+                                                                                        <asp:Label ID="lblRegisterDate" runat="server" />
+                                                                                    </ContentTemplate>
+                                                                                </asp:UpdatePanel>
+                                                                            </div>
+
+                                                                            <div class="col-md-3">
+                                                                                <label>Approval Status:</label>
+                                                                                <asp:UpdatePanel ID="UpdatePanel12" runat="server">
+                                                                                    <ContentTemplate>
+                                                                                        <asp:Label ID="lblApprovalStatus" runat="server" />
+                                                                                    </ContentTemplate>
+                                                                                </asp:UpdatePanel>
+                                                                                <br />
+                                                                                <label>Approval Date:</label>
+                                                                                <asp:UpdatePanel ID="UpdatePanel22" runat="server">
+                                                                                    <ContentTemplate>
+                                                                                        <asp:Label ID="lblApprovalDate" runat="server" Text="51" />
+                                                                                    </ContentTemplate>
+                                                                                </asp:UpdatePanel>
+                                                                            </div>
+
+                                                                            <div class="col-md-3">
+                                                                                <label>Total Points Earn:</label>
+                                                                                <asp:UpdatePanel ID="UpdatePanel15" runat="server">
+                                                                                    <ContentTemplate>
+                                                                                        <asp:Label ID="lblTotalPoints" runat="server" Text="5151" />
+                                                                                    </ContentTemplate>
+                                                                                </asp:UpdatePanel>
+                                                                                <br />
+                                                                                <label>Last 6 Months Avarage Points Earn:</label>
+                                                                                <asp:UpdatePanel ID="UpdatePanel20" runat="server">
+                                                                                    <ContentTemplate>
+                                                                                        <asp:Label ID="lblAvaragePoint" runat="server" Text="51" />
+                                                                                    </ContentTemplate>
+                                                                                </asp:UpdatePanel>
+                                                                            </div>
+
+                                                                            <div class="col-md-3">
+                                                                                <label>Total Scan:</label>
+                                                                                <asp:UpdatePanel ID="UpdatePanel16" runat="server">
+                                                                                    <ContentTemplate>
+                                                                                        <asp:Label ID="lblTotalScan" runat="server" Text="554141" />
+                                                                                    </ContentTemplate>
+                                                                                </asp:UpdatePanel>
+                                                                                <br />
+                                                                                <label>Last 6 Months Avarage Scan:</label>
+                                                                                <asp:UpdatePanel ID="UpdatePanel21" runat="server">
+                                                                                    <ContentTemplate>
+                                                                                        <asp:Label ID="lblAvarageScan" runat="server" Text="51" />
+                                                                                    </ContentTemplate>
+                                                                                </asp:UpdatePanel>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <br />
                                                                     </div>
-                                                                    <br />
-                                                                    <div class="row">
-                                                                        <div class="col-md-3">
-                                                                            <label>
-                                                                                Dhanbarse Registration Date:</label>
-                                                                            <asp:UpdatePanel ID="UpdatePanel13" runat="server">
-                                                                                <ContentTemplate>
-                                                                                    <asp:Label ID="lblRegisterDate" runat="server" />
-                                                                                </ContentTemplate>
-                                                                            </asp:UpdatePanel>
-                                                                        </div>
 
-                                                                        <div class="col-md-3">
-                                                                            <label>Approval Status:</label>
-                                                                            <asp:UpdatePanel ID="UpdatePanel12" runat="server">
-                                                                                <ContentTemplate>
-                                                                                    <asp:Label ID="lblApprovalStatus" runat="server" />
-                                                                                </ContentTemplate>
-                                                                            </asp:UpdatePanel>
-                                                                            <br />
-                                                                            <label>Approval Date:</label>
-                                                                            <asp:UpdatePanel ID="UpdatePanel22" runat="server">
-                                                                                <ContentTemplate>
-                                                                                    <asp:Label ID="lblApprovalDate" runat="server" Text="51" />
-                                                                                </ContentTemplate>
-                                                                            </asp:UpdatePanel>
-                                                                        </div>
-
-                                                                        <div class="col-md-3">
-                                                                            <label>Total Points Earn:</label>
-                                                                            <asp:UpdatePanel ID="UpdatePanel15" runat="server">
-                                                                                <ContentTemplate>
-                                                                                    <asp:Label ID="lblTotalPoints" runat="server" Text="5151" />
-                                                                                </ContentTemplate>
-                                                                            </asp:UpdatePanel>
-                                                                            <br />
-                                                                            <label>Last 6 Months Avarage Points Earn:</label>
-                                                                            <asp:UpdatePanel ID="UpdatePanel20" runat="server">
-                                                                                <ContentTemplate>
-                                                                                    <asp:Label ID="lblAvaragePoint" runat="server" Text="51" />
-                                                                                </ContentTemplate>
-                                                                            </asp:UpdatePanel>
-                                                                        </div>
-
-                                                                        <div class="col-md-3">
-                                                                            <label>Total Scan:</label>
-                                                                            <asp:UpdatePanel ID="UpdatePanel16" runat="server">
-                                                                                <ContentTemplate>
-                                                                                    <asp:Label ID="lblTotalScan" runat="server" Text="554141" />
-                                                                                </ContentTemplate>
-                                                                            </asp:UpdatePanel>
-                                                                            <br />
-                                                                            <label>Last 6 Months Avarage Scan:</label>
-                                                                            <asp:UpdatePanel ID="UpdatePanel21" runat="server">
-                                                                                <ContentTemplate>
-                                                                                    <asp:Label ID="lblAvarageScan" runat="server" Text="51" />
-                                                                                </ContentTemplate>
-                                                                            </asp:UpdatePanel>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <br />
-                                                                    </div>
-                                                                    
                                                                 </ContentTemplate>
                                                             </asp:UpdatePanel>
                                                         </div>
@@ -361,8 +361,8 @@
                                                             <asp:HiddenField runat="server" ID="hfchildslno" Value='0' />
                                                             <div class="row">
                                                                 <div class="col-md-12">
-                                                                    <asp:GridView runat="server" Width="100%" ID="gvDetails" HeaderStyle-Height="30px" EmptyDataText="" 
-                                                                         AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" PageSize="20" AllowPaging="false"
+                                                                    <asp:GridView runat="server" Width="100%" ID="gvDetails" HeaderStyle-Height="30px" EmptyDataText=""
+                                                                        AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" PageSize="20" AllowPaging="false"
                                                                         OnRowDataBound="gvDetails_RowDataBound" DataKeyNames="slno" CssClass="myGridView">
                                                                         <Columns>
                                                                             <asp:TemplateField HeaderText="Task" Visible="false">
@@ -370,7 +370,7 @@
                                                                                     <asp:Label Text="<%#Container.DataItemIndex+1 %>" ID="txtTaskID" CssClass="form-control-grid" runat="server" />
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
-                                                                             <asp:TemplateField HeaderText="Unit">
+                                                                            <asp:TemplateField HeaderText="Unit">
                                                                                 <ItemTemplate>
                                                                                     <asp:Label ID="lblUnit" runat="server" Text='<%# Eval("unit") %>' />
                                                                                 </ItemTemplate>
@@ -418,12 +418,21 @@
                                                                             </asp:TemplateField>
                                                                             <asp:TemplateField HeaderText="Printer Location">
                                                                                 <ItemTemplate>
-                                                                                    <asp:Label ID="lblPrintLocation" runat="server" Text='<%# Eval("PrintLocation") %>' />
+                                                                                    <asp:HiddenField ID="hfIsPrintReq" ClientIDMode="Static" runat="server" />
+                                                                                    <asp:TextBox Style="display: none;" ID="lblPrinterLocation" CssClass="lbprintloc" runat="server" Text='<%# Eval("PrintLocation") %>' />
+                                                                                    <asp:DropDownList Width="140px" ID="ddlPrintLocation" ToolTip="Printer Location" runat="server" onchange="printlocchange(this.id);" CssClass="form-control-grid fntsize"
+                                                                                        DataTextField="locnm" DataValueField="slno">
+                                                                                    </asp:DropDownList>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
+
                                                                             <asp:TemplateField HeaderText="Fabricator Location">
                                                                                 <ItemTemplate>
-                                                                                    <asp:Label ID="lblFabricatorLocation" runat="server" Text='<%# Eval("FabricatorLocation") %>' />
+                                                                                    <asp:HiddenField ID="hfIsFabReq" ClientIDMode="Static" runat="server" />
+                                                                                    <asp:TextBox Style="display: none;" ID="lblFabricatorLocation" CssClass="lbfabloc" runat="server" Text='<%# Eval("FabricatorLocation") %>' />
+                                                                                    <asp:DropDownList Width="140px" ID="ddlFabricatorLocation" ToolTip="Fabricator Location" runat="server" onchange="fablocchange(this.id);" CssClass="form-control-grid fntsize"
+                                                                                        DataTextField="locnm" DataValueField="slno">
+                                                                                    </asp:DropDownList>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
                                                                             <asp:TemplateField HeaderText="Qty">
@@ -456,12 +465,13 @@
                                                                                     </div>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
-                                                                             <asp:TemplateField HeaderText="Image Link">
+                                                                            <asp:TemplateField HeaderText="Image Link">
                                                                                 <ItemTemplate>
-                                                                                    
-                                                                                     <asp:HyperLink runat="server"  NavigateUrl='<%# Eval("ImageLink") %>' text='<%# Eval("ImageLink") %>' target="_blank"></asp:HyperLink>
+
+                                                                                    <asp:HyperLink runat="server" NavigateUrl='<%# Eval("ImageLink") %>' Text='<%# Eval("ImageLink") %>' Target="_blank"></asp:HyperLink>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
+
                                                                             <asp:TemplateField HeaderText="Select">
                                                                                 <ItemTemplate>
                                                                                     <asp:RadioButtonList ID="rdisapprave" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rdisapprave_SelectedIndexChanged" AutoPostBack="true">
@@ -469,6 +479,18 @@
                                                                                         <asp:ListItem Value="2" Text="DisApprove"></asp:ListItem>
                                                                                         <asp:ListItem Value="3" Text="None" Selected="True"></asp:ListItem>
                                                                                     </asp:RadioButtonList>
+                                                                                </ItemTemplate>
+                                                                            </asp:TemplateField>
+                                                                            <asp:TemplateField HeaderText="Images(PNG*JPEG*JPG) Size < 20MB">
+                                                                                <ItemTemplate>
+                                                                                    <asp:TextBox ID="hfnewImagenameDelete" runat="server" Text="" Visible="false" />
+                                                                                    <asp:TextBox ID="hfnewImagename" Text='<%#Eval("Image")%>' runat="server" Visible="false" />
+                                                                                    <div style="float: left; overflow: hidden; padding-top: 20px">
+                                                                                        <asp:FileUpload ID="fuPhoto" ToolTip="Images(PNG*JPEG*JPG) Size < 20MB" AllowMultiple="true" CssClass="form-control-grid filecls" Width="200px" runat="server" TabIndex="6" EnableViewState="true" />
+                                                                                    </div>
+                                                                                    <%--<div>
+                                                                                                    <asp:TextBox ID="txtlink" ToolTip="Image Link" Style="font-size: 12px;" Width="200px" runat="server" CssClass="form-control-grid flink" Text='<%# Eval("ImageLink") %>'></asp:TextBox>
+                                                                                                </div>--%>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
                                                                             <asp:TemplateField HeaderText="Remark">
@@ -538,10 +560,13 @@
                                                                     </dx:ASPxButton>
                                                                     <dx:ASPxLabel ID="lbmsg" runat="server" ForeColor="Red">
                                                                     </dx:ASPxLabel>
-                                                                       <asp:Label ID="lblfilename" Visible="false" runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblfilename" Visible="false" runat="server"></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </ContentTemplate>
+                                                        <Triggers>
+                                                            <asp:PostBackTrigger ControlID="btnSubmit" />
+                                                        </Triggers>
                                                     </asp:UpdatePanel>
                                                 </div>
                                             </dx:ContentControl>
@@ -603,7 +628,7 @@
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="250px" FieldName="Address" Caption="Dealer Address" VisibleIndex="3">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="250px" FieldName="Address" Caption="Dealer Address" VisibleIndex="3">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
@@ -616,7 +641,7 @@
                                                                                         </dx:GridViewDataTextColumn>
 
 
-                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="subpname" Caption="Retailer Name" VisibleIndex="6">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="subpname" Caption="Retailer Name" VisibleIndex="6">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
@@ -630,7 +655,7 @@
                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="RetApprovalStatus" Caption="Retailer Approval Status" VisibleIndex="9">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
-                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="RetActiveStatus" Caption="Retailer Active Status" VisibleIndex="10">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="RetActiveStatus" Caption="Retailer Active Status" VisibleIndex="10">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
@@ -651,13 +676,13 @@
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                        
 
-                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="SubJobType" Caption="Sub Job Type" VisibleIndex="15">
+
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="SubJobType" Caption="Sub Job Type" VisibleIndex="15">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="Remark" Width="160px" Caption="Remarks" VisibleIndex="16">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="Remark" Width="160px" Caption="Remarks" VisibleIndex="16">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
@@ -671,22 +696,22 @@
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataDateColumn>
 
-                                                                                       
+
 
                                                                                         <%--<dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="subname" Caption="Sub Name" VisibleIndex="11">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>--%>
 
-                                                                                        <dx:GridViewDataTextColumn FieldName="VisitingCardImg"  Visible="false">
+                                                                                        <dx:GridViewDataTextColumn FieldName="VisitingCardImg" Visible="false">
                                                                                         </dx:GridViewDataTextColumn>
 
                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Caption="Visiting Card Image" ReadOnly="True" VisibleIndex="19">
                                                                                             <Settings AllowDragDrop="True" />
-                                                                                             <DataItemTemplate>
+                                                                                            <DataItemTemplate>
 
-                                                                                                   <asp:LinkButton ID="lnkShowImg" EnableViewState="false" runat="server" OnClientClick="lp.Show()"
-                                                                                                        CommandArgument='<%# Eval("slno") %>' Text='View File' 
-                                                                                                        Style="text-decoration: underline;" OnCommand="lnkShowImg_Command"></asp:LinkButton>
+                                                                                                <asp:LinkButton ID="lnkShowImg" EnableViewState="false" runat="server" OnClientClick="lp.Show()"
+                                                                                                    CommandArgument='<%# Eval("slno") %>' Text='View File'
+                                                                                                    Style="text-decoration: underline;" OnCommand="lnkShowImg_Command"></asp:LinkButton>
 
                                                                                             </DataItemTemplate>
                                                                                         </dx:GridViewDataTextColumn>
@@ -695,25 +720,25 @@
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                          <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="submittedby" Caption="Submitted By" VisibleIndex="21">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="submittedby" Caption="Submitted By" VisibleIndex="21">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                          <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="approvedby" Caption="Approved By" VisibleIndex="22">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="approvedby" Caption="Approved By" VisibleIndex="22">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="headstatus" Caption="Status" VisibleIndex="23">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
-                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="JobCount" Caption="Job Count" VisibleIndex="24">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="JobCount" Caption="Job Count" VisibleIndex="24">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Caption="View" ReadOnly="True" VisibleIndex="25">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Caption="Edit" ReadOnly="True" VisibleIndex="25">
                                                                                             <Settings AllowDragDrop="True" />
                                                                                             <DataItemTemplate>
                                                                                                 <asp:LinkButton ID="CmdEdit" EnableViewState="false" OnClientClick="lp.Show()" CausesValidation="False" runat="server" CommandArgument='<%# Eval("slno") %>'
-                                                                                                    Text='View' OnCommand="CmdEdit_Command"></asp:LinkButton>
+                                                                                                    Text='Edit' OnCommand="CmdEdit_Command"></asp:LinkButton>
                                                                                             </DataItemTemplate>
                                                                                         </dx:GridViewDataTextColumn>
                                                                                     </Columns>
@@ -768,18 +793,18 @@
                                                                             <ContentTemplate>
 
                                                                                 <div class="row">
-                                                                                   
+
                                                                                     <div class="col-md-3">
-                                                                                         <label>From Date:<strong class="redmark">*</strong></label>   
-                                                                                         <dx:ASPxDateEdit ID="txtFromDate" EditFormat="Date" runat="server" CssClass="form-control" TabIndex="1"></dx:ASPxDateEdit>             
+                                                                                        <label>From Date:<strong class="redmark">*</strong></label>
+                                                                                        <dx:ASPxDateEdit ID="txtFromDate" EditFormat="Date" runat="server" CssClass="form-control" TabIndex="1"></dx:ASPxDateEdit>
                                                                                     </div>
                                                                                     <div class="col-md-3">
-                                                                                         <label>To Date:<strong class="redmark">*</strong></label>   
-                                                                                         <dx:ASPxDateEdit ID="txtToDate" EditFormat="Date" runat="server" CssClass="form-control" TabIndex="1"></dx:ASPxDateEdit>             
+                                                                                        <label>To Date:<strong class="redmark">*</strong></label>
+                                                                                        <dx:ASPxDateEdit ID="txtToDate" EditFormat="Date" runat="server" CssClass="form-control" TabIndex="1"></dx:ASPxDateEdit>
                                                                                     </div>
 
                                                                                     <div class="col-md-3">
-                                                                                        <div style="height:15px;"></div>
+                                                                                        <div style="height: 15px;"></div>
                                                                                         <dx:ASPxButton ID="btnSearch" runat="server" ClientIDMode="Static" OnClick="btnSearch_Click" AutoPostBack="False"
                                                                                             Text="Search" CssClass="btn btn-success btn-space" ClientInstanceName="btnSearch" TabIndex="6">
                                                                                             <ClientSideEvents Click="function(s, e) { lp.Show(); ASPxCallback1.PerformCallback(); }" />
@@ -825,11 +850,11 @@
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="180px" FieldName="AllName" Caption="Dealer Name" VisibleIndex="3">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="180px" FieldName="AllName" Caption="Dealer Name" VisibleIndex="3">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="250px" FieldName="Address" Caption="Dealer Address" VisibleIndex="4">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="250px" FieldName="Address" Caption="Dealer Address" VisibleIndex="4">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
@@ -837,12 +862,12 @@
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True"  Width="250px" FieldName="subaddress" Caption="Retailer Address" VisibleIndex="6">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="250px" FieldName="subaddress" Caption="Retailer Address" VisibleIndex="6">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
 
-                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="subpname" Caption="Retailer Name" VisibleIndex="7">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="subpname" Caption="Retailer Name" VisibleIndex="7">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
@@ -860,7 +885,7 @@
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True"  Width="180px" FieldName="Email" Caption="Email" VisibleIndex="11">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="180px" FieldName="Email" Caption="Email" VisibleIndex="11">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
@@ -872,7 +897,7 @@
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
-                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="Remark" Width="160px" Caption="Remarks" VisibleIndex="14">
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="Remark" Width="160px" Caption="Remarks" VisibleIndex="14">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
@@ -881,22 +906,22 @@
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataDateColumn>
 
-                                                                                        
+
 
                                                                                         <%--<dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="subname" Caption="Sub Name" VisibleIndex="11">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>--%>
 
-                                                                                        <dx:GridViewDataTextColumn FieldName="VisitingCardImg"  Visible="false">
+                                                                                        <dx:GridViewDataTextColumn FieldName="VisitingCardImg" Visible="false">
                                                                                         </dx:GridViewDataTextColumn>
 
                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Caption="Visiting Card Image" ReadOnly="True" VisibleIndex="16">
                                                                                             <Settings AllowDragDrop="True" />
-                                                                                             <DataItemTemplate>
+                                                                                            <DataItemTemplate>
 
-                                                                                                   <asp:LinkButton ID="lnkShowImg" EnableViewState="false" runat="server" OnClientClick="lp.Show()"
-                                                                                                        CommandArgument='<%# Eval("slno") %>' Text='View File' 
-                                                                                                        Style="text-decoration: underline;" OnCommand="lnkShowImg1_Command"></asp:LinkButton>
+                                                                                                <asp:LinkButton ID="lnkShowImg" EnableViewState="false" runat="server" OnClientClick="lp.Show()"
+                                                                                                    CommandArgument='<%# Eval("slno") %>' Text='View File'
+                                                                                                    Style="text-decoration: underline;" OnCommand="lnkShowImg1_Command"></asp:LinkButton>
 
                                                                                             </DataItemTemplate>
                                                                                         </dx:GridViewDataTextColumn>
@@ -907,16 +932,16 @@
                                                                                         <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" FieldName="childstatus1" Caption="Status" VisibleIndex="18">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
-                                                                                      
+
 
                                                                                         <dx:GridViewDataDateColumn Settings-AllowDragDrop="True" Width="180px" FieldName="apdisdt" Caption="Approve/Disapprove Date" VisibleIndex="19">
                                                                                             <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy hh:mm:ss tt" DisplayFormatInEditMode="True"></PropertiesDateEdit>
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataDateColumn>
 
-                                                                                     
 
-                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True"  Width="180px" FieldName="apdisapby" Caption="Approve/Disapprove By" VisibleIndex="20">
+
+                                                                                        <dx:GridViewDataTextColumn Settings-AllowDragDrop="True" Width="180px" FieldName="apdisapby" Caption="Approve/Disapprove By" VisibleIndex="20">
                                                                                             <Settings ShowFilterRowMenu="True" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" AutoFilterCondition="Contains" />
                                                                                         </dx:GridViewDataTextColumn>
 
@@ -983,7 +1008,7 @@
             </asp:UpdatePanel>
         </div>
     </div>
-   
+
 
     <div>
 
@@ -993,7 +1018,8 @@
         </asp:ModalPopupExtender>
         <asp:Panel ID="pnlpopupAll" runat="server" BackColor="White" Height="500px" Width="960px" Style="display: none">
             <div class="row">
-                <br /><br />
+                <br />
+                <br />
                 <div class="col-lg-12">
                     <div class="box" style="text-align: center;">
                         <asp:UpdatePanel ID="UpdatePanel38" runat="server" style="display: inline-block;">
@@ -1027,7 +1053,8 @@
                     <!-- /.box -->
                 </div>
             </div>
-            <br /><br />
+            <br />
+            <br />
             <div class="row">
                 <div class="col-lg-12">
                     <asp:UpdatePanel runat="server">
@@ -1053,39 +1080,50 @@
         </asp:ModalPopupExtender>
         <asp:Panel ID="pnlConfirmPopup" runat="server" BackColor="White" Height="300px" Width="560px" Style="display: none">
             <div class="row">
-                <br /> <br /><br />
+                <br />
+                <br />
+                <br />
                 <div class="col-lg-12">
                     <div class="box" style="text-align: center;">
                         <asp:UpdatePanel ID="UpdatePanel47" runat="server" style="display: inline-block;">
                             <ContentTemplate>
-                                <p id="printmsg" runat="server" style="color:orange;font-weight:bold;">Dhanbarse Status Of the Retailer - <asp:Label ID="lblApprovalStatuspopup" runat="server" />  / <asp:Label ID="lblCurrentStatuspopup" runat="server" /> .<br /><br />Do you still you want to continue ?</p>
-                              
-                                <asp:Button ID="btnYes" runat="server" Width="100" Height="30" Text="Yes" OnClick="btnYes_Click" 
+                                <p id="printmsg" runat="server" style="color: orange; font-weight: bold;">
+                                    Dhanbarse Status Of the Retailer -
+                                    <asp:Label ID="lblApprovalStatuspopup" runat="server" />
+                                    /
+                                    <asp:Label ID="lblCurrentStatuspopup" runat="server" />
+                                    .<br />
+                                    <br />
+                                    Do you still you want to continue ?
+                                </p>
+
+                                <asp:Button ID="btnYes" runat="server" Width="100" Height="30" Text="Yes" OnClick="btnYes_Click"
                                     OnClientClick="lp.Show(); ASPxCallback1.PerformCallback();" CssClass="btn btn-success" />
                                 <asp:Button ID="btnNo" runat="server" Width="100" Height="30" Text="No" OnClick="btnNo_Click" OnClientClick="lp.Show(); ASPxCallback1.PerformCallback();" CssClass="btn btn-danger" />
                             </ContentTemplate>
                             <Triggers>
-                                 <asp:PostBackTrigger ControlID="btnYes" />
-                                 <asp:PostBackTrigger ControlID="btnNo" />
+                                <asp:PostBackTrigger ControlID="btnYes" />
+                                <asp:PostBackTrigger ControlID="btnNo" />
                             </Triggers>
                         </asp:UpdatePanel>
                     </div>
                     <!-- /.box -->
                 </div>
             </div>
-            <br /> <br />
+            <br />
+            <br />
             <div class="row">
                 <div class="col-lg-12">
-                 <asp:UpdatePanel runat="server">
-                    <ContentTemplate>
-                        <div class="row" align="center">
-                            <asp:Button ID="btnCloseConfirmPopup" runat="server" Width="100" Height="30" Text="Close"  CssClass="btn btn-info btn-space" />
-                        </div>
-                    </ContentTemplate>
-                    <Triggers>
-                        <asp:PostBackTrigger ControlID="btnCloseConfirmPopup" />
-                    </Triggers>
-                </asp:UpdatePanel>
+                    <asp:UpdatePanel runat="server">
+                        <ContentTemplate>
+                            <div class="row" align="center">
+                                <asp:Button ID="btnCloseConfirmPopup" runat="server" Width="100" Height="30" Text="Close" CssClass="btn btn-info btn-space" />
+                            </div>
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:PostBackTrigger ControlID="btnCloseConfirmPopup" />
+                        </Triggers>
+                    </asp:UpdatePanel>
                 </div>
             </div>
         </asp:Panel>

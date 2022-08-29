@@ -33,6 +33,20 @@ namespace GoldMedal.Branding.Service.FinalAssembaly
             }
             return recid;
         }
+        public static DataTable DispatchListOfJobForFinlaAssemblyModeUpdateServiceMethod(GoldMedal.Branding.Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty dtsingle, string DatabaseType)
+        {
+            DataTable recid = null;
+            FinalAssemblyDataAccess objselectall = new FinalAssemblyDataAccess();
+            if (string.Equals(DatabaseType, "MSSQLSERVER"))
+            {
+                recid = objselectall.DispatchListOfJobForFinlaAssemblyModeUpdateDA(dtsingle);
+            }
+            else
+            {
+                recid = null;
+            }
+            return recid;
+        }
         public static DataTable ListOfJobForFinlaAssemblyDispatchModeServiceMethod(GoldMedal.Branding.Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty dtsingle, string DatabaseType)
         {
             DataTable recid = null;
@@ -535,6 +549,21 @@ namespace GoldMedal.Branding.Service.FinalAssembaly
             return recid;
         }
 
+        public static DataTable ConsolidatedConsumptionRpt(string FromDate, string ToDate, string DatabaseType)
+        {
+            DataTable recid = null;
+            FinalAssemblyDataAccess objselectall = new FinalAssemblyDataAccess();
+            if (string.Equals(DatabaseType, "MSSQLSERVER"))
+            {
+                recid = objselectall.ConsolidatedConsumptionRpt(FromDate, ToDate);
+            }
+            else
+            {
+                recid = null;
+            }
+            return recid;
+        }
+
         public static DataTable GetJobAgingReportServiceMethod(GoldMedal.Branding.Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty dtsingle, string DatabaseType)
         {
             DataTable recid = null;
@@ -728,6 +757,22 @@ namespace GoldMedal.Branding.Service.FinalAssembaly
             else
             {
                 recid = "0";
+            }
+            return recid;
+        }
+
+
+        public static DataTable GetPasswordServiceMethod(string DatabaseType, string Username,string NewPassword, int Category)
+        {
+            DataTable recid = null;
+            FinalAssemblyDataAccess objselectall = new FinalAssemblyDataAccess();
+            if (string.Equals(DatabaseType, "MSSQLSERVER"))
+            {
+                recid = objselectall.GetPasswordDA(Username, NewPassword, Category);
+            }
+            else
+            {
+                recid = null;
             }
             return recid;
         }

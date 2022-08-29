@@ -31,7 +31,8 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
         public string party = string.Empty;
         private int rows = 0;
         private string flagImg = string.Empty;
-
+        private int regionalresult = 0;
+        private int regionalblock = 0;
         JobRequestDataAccess da = new JobRequestDataAccess();
 
         #endregion Initialization
@@ -47,6 +48,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
         private const string FILE_DIRECTORY_NAME2 = "jobrequest/brandimage";
         private const string FILE_DIRECTORY_NAME3 = "jobrequest/cdrfile";
         private const string FILE_DIRECTORY_NAME4 = "jobrequest/shopphoto";
+        private const string FILE_DIRECTORY_NAME5 = "jobrequest/regionallangcdr";
 
         private readonly IGoldMedia _goldMedia;
         private readonly string finYear = string.Empty;
@@ -328,7 +330,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                 Data.JobRequest.JobRequestModel.JobRequestProperties param = new Data.JobRequest.JobRequestModel.JobRequestProperties();
                 param.nametype = Convert.ToInt32(cmbNameType.Value);
                 param.userbranchid = Convert.ToInt32(cmbbranch.Value);
-               param.userid= Convert.ToInt32(GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("userlogid"));
+                param.userid = Convert.ToInt32(GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("userlogid"));
                 if (chkStatecheck.Checked == true)
                 {
                     status = Convert.ToBoolean(1);
@@ -379,7 +381,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
         public void LoadSubAddress()
         {
             Data.JobRequest.JobRequestModel.JobRequestProperties param = new Data.JobRequest.JobRequestModel.JobRequestProperties();
-           
+
             int lineNumber = (new System.Diagnostics.StackFrame(0, true)).GetFileLineNumber();
             da.SavePageLog(Convert.ToString(cmbSubName.Value), Request.RawUrl + "#" + lineNumber);
 
@@ -440,7 +442,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
 
 
 
-            
+
 
         }
 
@@ -525,7 +527,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
             }
 
 
-           
+
 
         }
 
@@ -1079,6 +1081,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                 }
             }
 
+
             #endregion validation On Head
 
 
@@ -1170,6 +1173,32 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
 
                 string lblPrinterLocation = (row.FindControl("lblPrinterLocation") as TextBox).Text;
                 string lblFabricatorLocation = (row.FindControl("lblFabricatorLocation") as TextBox).Text;
+
+                //string hfRegionalLang = ((TextBox)row.FindControl("hfRegionalLang")).Text;
+                // string hfRegionalLang = (row.FindControl("hfRegionalLang") as TextBox).Text;
+                //string hfFilename = (row.FindControl("hfRegionalLang") as TextBox).Text;
+                ///FileUpload fuRegionalLang = (FileUpload)row.FindControl("fuRegionalLang");
+
+
+                if (selectedJobSubType == "10" || selectedJobSubType == "15" || selectedJobSubType == "17" || selectedJobSubType == "18")
+                {
+                    foreach (var file in fuRegionalLang.PostedFiles)
+                    {
+                        if (file.FileName == "")
+                        {
+                            //regionalresult = 1;
+                            if (!string.IsNullOrEmpty(hfRegionalLang.Text))
+                            {
+                                regionalresult = 0;
+                            }
+                            else
+                            {
+                                regionalresult = 1;
+                            }
+                        }
+                    }
+                }
+
 
                 #endregion Set value for validation On Child
 
@@ -1364,6 +1393,8 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
 
                     #endregion email valid
 
+
+
                     #region insertcase
 
                     if (isimgreq.Text == "True" && gvslno == "0")
@@ -1448,6 +1479,17 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
 
             #endregion For Shop photo
 
+            #region For Regional Lang
+
+            lnkFiles5.Text = string.Empty;
+            string hfRegional = hfRegionalLang.Text.Replace(",", string.Empty);
+            if (!string.IsNullOrEmpty(hfimf))
+            {
+                lnkFiles5.Text = "View Files";
+            }
+
+            #endregion For Regional Lang
+
             #region For ReferSheet
 
             lnkFiles3.Text = string.Empty;
@@ -1475,6 +1517,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
             int errorresulr = 0;
             string FileNameVC = string.Empty;
             string FileNameSP = string.Empty;
+            string FileNameRL = string.Empty;
             string strFileTypeVC = string.Empty;
             string strFileTypeSP = string.Empty;
             string FolderName = string.Empty;
@@ -1635,7 +1678,6 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                         Core.JobTypeMaping.JobTypeMaping objBoard = new Core.JobTypeMaping.JobTypeMaping();
                         DataTable dtboardTypes = objBoard.GetAllBoardTypeForJobType(Convert.ToInt32(lblCJobTypeId));
 
-
                         string boardselected = string.Empty;
                         string hfddlBoardType = (row.FindControl("hfddlBoardType") as TextBox).Text;
 
@@ -1734,628 +1776,692 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                     }
                 }
                 else
-                {
-
-                    #region Insert Head
-
-                    Data.JobRequest.JobRequestModel.JobRequestProperties Headdst = new Data.JobRequest.JobRequestModel.JobRequestProperties();
-
-                    #region Visiting card
-
-                    foreach (var file in fuVisitingCard.PostedFiles)
+                {                   
+                    if (regionalresult == 1)
                     {
-                        if (file.FileName != "")
+                        ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "showDialog('Warning','Please Upload Regional Lang CDR File.!','warning',3);showbuttons();", true);
+                        return;
+                    }
+                    else
+                    {
+                        GetRegionalLangBlock(cmbbranch.SelectedItem.Value.ToString());
+                        if (regionalblock == 1)
                         {
-                            bool rtnVallpost = false;
-                            string uploadedFileName = "";
-                            strFileTypeVC = Path.GetExtension(file.FileName).ToLower();
-                            if (strFileTypeVC == ".jpg" || strFileTypeVC == ".jpeg" || strFileTypeVC == ".png")
+                            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "showDialog('Warning','Please Upload Regional Lang CDR File.!','warning',3);showbuttons();", true);
+                            return;
+                        }
+                        else
+                        {
+                            #region Insert Head
+
+                            Data.JobRequest.JobRequestModel.JobRequestProperties Headdst = new Data.JobRequest.JobRequestModel.JobRequestProperties();
+
+                            #region Visiting card
+
+                            foreach (var file in fuVisitingCard.PostedFiles)
                             {
-
-                                SavePostedFile(out rtnVallpost, file, out uploadedFileName, FILE_DIRECTORY_NAME);
-                                if (rtnVallpost)
+                                if (file.FileName != "")
                                 {
-
+                                    bool rtnVallpost = false;
+                                    string uploadedFileName = "";
                                     strFileTypeVC = Path.GetExtension(file.FileName).ToLower();
-
-                                    if (FileNameVC == "")
-                                    {
-                                        FileNameVC = uploadedFileName;
-                                    }
-                                    else
-                                    {
-                                        FileNameVC = FileNameVC + ',' + uploadedFileName;
-                                    }
-
-                                }
-                            }
-                            else
-                            {
-                                FileNameVC = string.Empty;
-                                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Invalid file. Please note Only JPG, jpg, jpeg and png of max size 5MB is allowed.');showbuttons();", true);
-                                return;
-                            }
-                        }
-                    }
-
-
-                    if (lbslno.Text == "0")
-                    {
-                        FileNameVC = FileNameVC.TrimEnd(',');
-                    }
-                    else
-                    {
-                        FileNameVC = FileNameVC.TrimEnd(',') + ',' + hfVisitingImage.Text;
-                    }
-                    #endregion Visiting card
-
-                    #region Shop Photo
-
-                    foreach (var file in fuShopPhoto.PostedFiles)
-                    {
-                        if (file.FileName != "")
-                        {
-                            bool rtnVallpost = false;
-                            string uploadedFileName = "";
-                            strFileTypeSP = Path.GetExtension(file.FileName).ToLower();
-                            if (strFileTypeSP == ".jpg" || strFileTypeSP == ".jpeg" || strFileTypeSP == ".png")
-                            {
-
-                                SavePostedFile(out rtnVallpost, file, out uploadedFileName, FILE_DIRECTORY_NAME4);
-                                if (rtnVallpost)
-                                {
-
-                                    strFileTypeSP = Path.GetExtension(file.FileName).ToLower();
-
-                                    if (FileNameSP == "")
-                                    {
-                                        FileNameSP = uploadedFileName;
-                                    }
-                                    else
-                                    {
-                                        FileNameSP = FileNameSP + ',' + uploadedFileName;
-                                    }
-
-                                }
-                            }
-                            else
-                            {
-                                FileNameSP = string.Empty;
-                                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Invalid file. Please note Only JPG, jpg, jpeg and png of max size 5MB is allowed.');showbuttons();", true);
-                                return;
-                            }
-                        }
-                    }
-
-
-                    if (lbslno.Text == "0")
-                    {
-                        FileNameSP = FileNameSP.TrimEnd(',');
-                    }
-                    else
-                    {
-                        FileNameSP = FileNameSP.TrimEnd(',') + ',' + hfShopPhoto.Text;
-                    }
-                    #endregion Shop Photo
-
-                    #region Refersheet
-
-                    string strFileTypeRS = "";
-                    string FileNameRS = string.Empty;
-                    foreach (var file in fuReferSheet.PostedFiles)
-                    {
-                        if (file.FileName != "")
-                        {
-                            bool rtnVallpost = false;
-                            string uploadedFileName = "";
-
-                            strFileTypeRS = Path.GetExtension(file.FileName).ToLower();
-                            if (strFileTypeRS == ".xlx" || strFileTypeRS == ".xlsx" || strFileTypeRS == ".ppt" || strFileTypeRS == ".pptx")
-                            {
-                                SavePostedFile(out rtnVallpost, file, out uploadedFileName, FILE_DIRECTORY_NAME1);
-                                if (rtnVallpost)
-                                {
-
-
-
-                                    if (FileNameRS == "")
-                                    {
-                                        FileNameRS = uploadedFileName;
-                                    }
-                                    else
-                                    {
-                                        FileNameRS = FileNameRS + ',' + uploadedFileName;
-                                    }
-
-                                }
-                            }
-                            else
-                            {
-                                FileNameRS = string.Empty;
-                                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "showDialog('Warning','Invalid file. Please note Only Excel Sheet, Power Point document of max size 20MB is allowed.','warning',3);showbuttons();", true);
-                                return;
-                            }
-                        }
-                    }
-                    if (lbslno.Text == "0")
-                    {
-                        FileNameRS = FileNameRS.TrimEnd(',');
-                    }
-                    else
-                    {
-                        FileNameRS = FileNameRS.TrimEnd(',') + ',' + hfReferSheet.Text;
-                    }
-
-
-
-                    #endregion Refersheet
-
-                    if (lbslno.Text == "0")
-                    {
-                        //    getrequestno();
-                    }
-
-                    // var reqno = txtRequestNo.Text;
-                    var nametypeid = HttpUtility.HtmlEncode(cmbNameType.Value);
-                    var nameid = HttpUtility.HtmlEncode(CmbName.SelectedItem.Value.ToString());
-                    var address = HttpUtility.HtmlEncode(cmbAddress.SelectedItem.Value.ToString());
-                    var contactperson = HttpUtility.HtmlEncode(cmbcontactperson.Value);
-                    var email = HttpUtility.HtmlEncode(cmbemail.Text);
-                    var contactnumber = HttpUtility.HtmlEncode(cmbcontact.Text);
-                    //var requestdate = HttpUtility.HtmlEncode(txtDate.Text);
-                    var requestdate = DateTime.Now.ToString();
-                    //var subnameid = HttpUtility.HtmlEncode(cmbSubName.Value);
-                    var subnameid = "";
-                    if (HttpUtility.HtmlEncode(hdfsubname.Text) == "")
-                    {
-                        subnameid = "0";
-                    }
-                    else
-                    {
-                        subnameid = HttpUtility.HtmlEncode(hdfsubname.Text); 
-                    }
-
-                    var subaddress = HttpUtility.HtmlEncode(cmbSubAddress.Text);
-                    var subcontact = HttpUtility.HtmlEncode(cmbSubContact.Text);
-                    var subemail = HttpUtility.HtmlEncode(cmbsubmail.Text);
-                    var submittedby = HttpUtility.HtmlEncode(cmbSubmitby.Text);
-                    var approvedby = HttpUtility.HtmlEncode(txtapproveby.Text);
-
-                    var givenby = HttpUtility.HtmlEncode(txtGivenByOther.Text);
-                    var givenbyid = Convert.ToInt32(cmbSalesExecutive.Value);
-
-                    var wallsizechildslno = Convert.ToInt32(cmbWallSizeJobs.Value);
-                    var wallsizeheadreqno = HttpUtility.HtmlEncode(cmbWallSizeJobs.Text);
-
-                    if (cmbGivenBy.SelectedItem != null && cmbGivenBy.SelectedItem.Value != null)
-                    {
-                        if (cmbGivenBy.SelectedItem.Value.ToString() == "1")
-                        {
-                            givenby = HttpUtility.HtmlEncode(cmbSalesExecutive.Text);
-                        }
-                        if (cmbGivenBy.SelectedItem.Value.ToString() == "2")
-                        {
-                            givenby = HttpUtility.HtmlEncode(txtGivenByOther.Text);
-                            givenbyid = 0;
-                        }
-                    }
-
-
-
-                    string gstno = HttpUtility.HtmlEncode(cmbgst.Value);
-
-                    if (string.IsNullOrEmpty(gstno))
-                    {
-                        gstno = "";
-                    }
-
-                    string slno = lbslno.Text;
-                    string VisitingCardImg = FileNameVC;
-                    string ShopImg = FileNameSP;
-                    string ReferSheet = FileNameRS;
-                    // Headdst.reqno = reqno;
-
-                    bool IsSubnameIdstaterightswise ;
-
-                    if (chkStatecheck.Checked == true)
-                    {
-                        IsSubnameIdstaterightswise = Convert.ToBoolean(1);
-                    }
-                    else
-                    {
-                        IsSubnameIdstaterightswise = Convert.ToBoolean(0);
-                    }
-
-
-                    bool IsWallSize;
-
-                    if (chkwallsize.Checked == true)
-                    {
-                        IsWallSize = Convert.ToBoolean(1);
-                    }
-                    else
-                    {
-                        IsWallSize = Convert.ToBoolean(0);
-                    }
-
-
-
-                    Headdst.NameTypeId = Convert.ToInt32(nametypeid);
-
-                    Headdst.NameId = Convert.ToInt32(nameid);
-
-                    Headdst.Address = Convert.ToInt32(address);
-                    Headdst.ContactPerson = contactperson;
-                    Headdst.Email = email;
-                    Headdst.ContactNumber = contactnumber;
-                    Headdst.RequestDate = Convert.ToDateTime(requestdate);
-                    Headdst.SubNameId = Convert.ToInt32(subnameid);
-                    Headdst.SubAddress = subaddress;
-                    Headdst.SubContact = subcontact;
-                    Headdst.subemail = subemail;
-                    Headdst.submittedby = submittedby;
-                    Headdst.approvedby = approvedby;
-                    Headdst.GivenBy = givenby;
-                    Headdst.GivenByID = givenbyid;
-                    Headdst.GstNo = gstno;
-                    Headdst.VisitingCardImg = VisitingCardImg;
-                    Headdst.Shopphoto = ShopImg;
-                    Headdst.ReferSheet = ReferSheet;
-                    Headdst.headstatus = Convert.ToInt16(JobRequestStatus);
-                    Headdst.createlogno = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("logno");
-                    Headdst.createuid = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("userlogid");
-                    Headdst.editusercat = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieString("usercat", Convert.ToBoolean(0));
-                    Headdst.pagename = HttpContext.Current.Request.Url.ToString();
-                    Headdst.slno = Convert.ToInt64(slno);
-                    Headdst.finyear = finYear;
-                    Headdst.Statecheck = IsSubnameIdstaterightswise;
-                    Headdst.IsWallSize = IsWallSize;
-                   
-                    Core.JobRequest.JobRequest objinsert = new Core.JobRequest.JobRequest();
-                    result = objinsert.AddUpdateJobRequesHeadtDACore(Headdst);
-                    deleteFiles(hfVisitingImageDelete.Text, slno, slno);
-                    deleteFiles(hfShopPhotoDelete.Text, slno, slno);
-                    deleteFiles(hfReferSheetDelete.Text, slno, slno);
-
-                    #endregion Insert Head
-
-                    #region Insert Child
-
-                    Data.JobRequest.JobRequestModel.JobRequestProperties Childdst = new Data.JobRequest.JobRequestModel.JobRequestProperties();
-                    foreach (GridViewRow row in gvDetails.Rows)
-                    {
-                        if (result == -1)
-                        {
-                            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "showDialog('Warning','Oops ! some error occured !','warning',3);showbuttons();", true);
-                            break;
-                        }
-                        string hfImagename = ((TextBox)row.FindControl("hfImagename")).Text;
-                        string hfFilename = ((TextBox)row.FindControl("hfFilename")).Text;
-                        string txtTaskID = ((Label)row.FindControl("txtTaskID")).Text;
-                        string txtSizeInch = ((TextBox)row.FindControl("txtSizeInch")).Text;
-                        string txtSizeHeight = ((TextBox)row.FindControl("txtSizeHeight")).Text;
-                        DropDownList ddlTypeofJob = (DropDownList)row.FindControl("ddlTypeofJob");
-                        string selectedJobType = ddlTypeofJob.SelectedValue;
-
-                        DropDownList ddlUnit = (DropDownList)row.FindControl("ddlUnit");
-                        string sizeUnit = ddlUnit.SelectedValue;
-
-
-                        DropDownList ddlapprovalto = (DropDownList)row.FindControl("DropDownList1");
-                        string selectedapprovalto = ddlapprovalto.SelectedValue;
-                        TextBox hfddlSubJob = (TextBox)row.FindControl("hfddlSubJob");
-                        string selectedJobSubType = hfddlSubJob.Text;
-                        TextBox hfddlSubSubJob = (TextBox)row.FindControl("hfddlSubSubJob");
-                        string selectedMaterial = hfddlSubSubJob.Text;
-                        DropDownList ddlDesignType = (DropDownList)row.FindControl("ddlDesignType");
-                        string selectedDesign = ddlDesignType.SelectedValue;
-                        DropDownList ddlProductType = (DropDownList)row.FindControl("ddlProductType");
-                        string selectedProduct = ddlProductType.SelectedValue;
-                        string txtQty = ((TextBox)row.FindControl("txtQty")).Text;
-                        string txtmail = ((TextBox)row.FindControl("txtmail")).Text;
-                        string txtInstallAddress = ((TextBox)row.FindControl("txtInstallAddress")).Text;
-                        string txtRemark = ((TextBox)row.FindControl("txtRemark")).Text;
-                        string txtlink = ((TextBox)row.FindControl("txtlink")).Text;
-                        if (lbslno.Text != "0")
-                        {
-                            gvslno = ((HiddenField)row.FindControl("hfslnochild")).Value;
-                        }
-                        TextBox chkisapprov = ((TextBox)row.FindControl("lblchkisapprov"));
-                        string chkapproved = chkisapprov.Text;
-                        bool approved = false;
-                        if (chkapproved == "True")
-                        {
-                            approved = true;
-                        }
-                        else
-                        {
-                            approved = false;
-                        }
-                        TextBox chkisplace = ((TextBox)row.FindControl("lblchkisplace"));
-                        string chkplace = chkisplace.Text;
-                        bool place = false;
-                        if (chkplace == "True")
-                        {
-                            place = true;
-                        }
-                        else
-                        {
-                            place = false;
-                        }
-
-                        #region ImageSave
-
-                        FileUpload fuPhoto = (FileUpload)row.FindControl("fuPhoto");
-                        string FileName = string.Empty;
-
-                        int count = fuPhoto.PostedFiles.Count();
-                        string imagename = string.Empty;
-
-
-
-                        string FileNameimg = string.Empty;
-                        foreach (var file in fuPhoto.PostedFiles)
-                        {
-                            if (file.FileName != "")
-                            {
-                                bool rtnVallpost = false;
-
-                                string uploadedFileName = "";
-                                string strFileTypeimg = Path.GetExtension(file.FileName).ToLower();
-                                string theFileName = string.Empty;
-                                string singleFile = string.Empty;
-                                decimal size = Math.Round(((decimal)file.ContentLength / (decimal)1024), 2);
-
-
-                                if (size <= 20480)
-                                {
-                                    if (strFileTypeimg == ".jpg" || strFileTypeimg == ".jpeg" || strFileTypeimg == ".png")
+                                    if (strFileTypeVC == ".jpg" || strFileTypeVC == ".jpeg" || strFileTypeVC == ".png")
                                     {
 
-                                        SavePostedFile(out rtnVallpost, file, out uploadedFileName, FILE_DIRECTORY_NAME2);
+                                        SavePostedFile(out rtnVallpost, file, out uploadedFileName, FILE_DIRECTORY_NAME);
                                         if (rtnVallpost)
                                         {
 
-                                            strFileTypeimg = Path.GetExtension(file.FileName).ToLower();
-                                            if (FileNameimg == "")
+                                            strFileTypeVC = Path.GetExtension(file.FileName).ToLower();
+
+                                            if (FileNameVC == "")
                                             {
-                                                FileNameimg = uploadedFileName;
+                                                FileNameVC = uploadedFileName;
                                             }
                                             else
                                             {
-                                                FileNameimg = FileNameimg + ',' + uploadedFileName;
+                                                FileNameVC = FileNameVC + ',' + uploadedFileName;
                                             }
+
                                         }
                                     }
-                                }
-
-
-                                else
-                                {
-                                    lblModalTitle.Text = "Warning";
-                                    lblModalBody.Text = "Sorry, Image size can not be greater then 20MB.";
-                                    lblModalBody.Attributes.Add("style", "font-size:15px; color:Red; font-weight:lighter;");
-                                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
-                                    upModal.Update();
+                                    else
+                                    {
+                                        FileNameVC = string.Empty;
+                                        ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Invalid file. Please note Only JPG, jpg, jpeg and png of max size 5MB is allowed.');showbuttons();", true);
+                                        return;
+                                    }
                                 }
                             }
 
-                        }
-                        if (lbslno.Text == "0")
-                        {
-                            FileNameimg = FileNameimg.TrimEnd(',');
 
-                        }
-                        else
-                        {
-                            FileNameimg = FileNameimg.TrimEnd(',') + ',' + hfImagename;
-
-
-                        }
-
-                        FileUpload fuFile = (FileUpload)row.FindControl("fuFile");
-                        string CDRFileName = string.Empty;
-
-                        int CDRFilecount = fuFile.PostedFiles.Count();
-                        string Filename = string.Empty;
-
-
-
-                        string CDRFileNameimg = string.Empty;
-                        foreach (var Cdrfile in fuFile.PostedFiles)
-                        {
-                            if (Cdrfile.FileName != "")
+                            if (lbslno.Text == "0")
                             {
-                                bool cdrrtnVallpost = false;
+                                FileNameVC = FileNameVC.TrimEnd(',');
+                            }
+                            else
+                            {
+                                FileNameVC = FileNameVC.TrimEnd(',') + ',' + hfVisitingImage.Text;
+                            }
+                            #endregion Visiting card
 
-                                string cdruploadedFileName = "";
-                                string cdrstrFileTypeimg = Path.GetExtension(Cdrfile.FileName).ToLower();
-                                string cdrtheFileName = string.Empty;
-                                string singleFile = string.Empty;
-                                decimal size = Math.Round(((decimal)Cdrfile.ContentLength / (decimal)1024), 2);
+                            #region Shop Photo
 
-
-                                if (size <= 4096)
+                            foreach (var file in fuShopPhoto.PostedFiles)
+                            {
+                                if (file.FileName != "")
                                 {
-                                    if (cdrstrFileTypeimg == ".cdr")
+                                    bool rtnVallpost = false;
+                                    string uploadedFileName = "";
+                                    strFileTypeSP = Path.GetExtension(file.FileName).ToLower();
+                                    if (strFileTypeSP == ".jpg" || strFileTypeSP == ".jpeg" || strFileTypeSP == ".png")
                                     {
 
-                                        SavePostedFile(out cdrrtnVallpost, Cdrfile, out cdruploadedFileName, FILE_DIRECTORY_NAME3);
-                                        if (cdrrtnVallpost)
+                                        SavePostedFile(out rtnVallpost, file, out uploadedFileName, FILE_DIRECTORY_NAME4);
+                                        if (rtnVallpost)
                                         {
 
-                                            cdrstrFileTypeimg = Path.GetExtension(Cdrfile.FileName).ToLower();
-                                            if (CDRFileNameimg == "")
+                                            strFileTypeSP = Path.GetExtension(file.FileName).ToLower();
+
+                                            if (FileNameSP == "")
                                             {
-                                                CDRFileNameimg = cdruploadedFileName;
+                                                FileNameSP = uploadedFileName;
                                             }
                                             else
                                             {
-                                                CDRFileNameimg = CDRFileNameimg + ',' + cdruploadedFileName;
+                                                FileNameSP = FileNameSP + ',' + uploadedFileName;
+                                            }
+
+                                        }
+                                    }
+                                    else
+                                    {
+                                        FileNameSP = string.Empty;
+                                        ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Invalid file. Please note Only JPG, jpg, jpeg and png of max size 5MB is allowed.');showbuttons();", true);
+                                        return;
+                                    }
+                                }
+                            }
+
+
+                            if (lbslno.Text == "0")
+                            {
+                                FileNameSP = FileNameSP.TrimEnd(',');
+                            }
+                            else
+                            {
+                                FileNameSP = FileNameSP.TrimEnd(',') + ',' + hfShopPhoto.Text;
+                            }
+                            #endregion Shop Photo
+
+                            #region Regional Lang
+
+                            foreach (var file in fuRegionalLang.PostedFiles)
+                            {
+                                if (file.FileName != "")
+                                {
+                                    bool rtnVallpost = false;
+                                    string uploadedFileName = "";
+                                    strFileTypeSP = Path.GetExtension(file.FileName).ToLower();
+                                    if (strFileTypeSP == ".cdr")
+                                    {
+                                        SavePostedFile(out rtnVallpost, file, out uploadedFileName, FILE_DIRECTORY_NAME5);
+                                        if (rtnVallpost)
+                                        {
+                                            strFileTypeSP = Path.GetExtension(file.FileName).ToLower();
+
+                                            if (FileNameRL == "")
+                                            {
+                                                FileNameRL = uploadedFileName;
+                                            }
+                                            else
+                                            {
+                                                FileNameRL = FileNameRL + ',' + uploadedFileName;
+                                            }
+
+                                        }
+                                    }
+                                    else
+                                    {
+                                        FileNameRL = string.Empty;
+                                        ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Invalid file. Please note Only cdr of max size 25MB is allowed.');showbuttons();", true);
+                                        return;
+                                    }
+                                }
+                            }
+
+
+                            if (lbslno.Text == "0")
+                            {
+                                FileNameRL = FileNameRL.TrimEnd(',');
+                            }
+                            else
+                            {
+                                FileNameRL = FileNameRL.TrimEnd(',') + ',' + hfRegionalLang.Text;
+                            }
+                            #endregion Regional Lang
+
+                            #region Refersheet
+
+                            string strFileTypeRS = "";
+                            string FileNameRS = string.Empty;
+                            foreach (var file in fuReferSheet.PostedFiles)
+                            {
+                                if (file.FileName != "")
+                                {
+                                    bool rtnVallpost = false;
+                                    string uploadedFileName = "";
+
+                                    strFileTypeRS = Path.GetExtension(file.FileName).ToLower();
+                                    if (strFileTypeRS == ".xls" || strFileTypeRS == ".xlsx" || strFileTypeRS == ".ppt" || strFileTypeRS == ".pptx")
+                                    {
+                                        SavePostedFile(out rtnVallpost, file, out uploadedFileName, FILE_DIRECTORY_NAME1);
+                                        if (rtnVallpost)
+                                        {
+
+                                            if (FileNameRS == "")
+                                            {
+                                                FileNameRS = uploadedFileName;
+                                            }
+                                            else
+                                            {
+                                                FileNameRS = FileNameRS + ',' + uploadedFileName;
+                                            }
+
+                                        }
+                                    }
+                                    else
+                                    {
+                                        FileNameRS = string.Empty;
+                                        ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "showDialog('Warning','Invalid file. Please note Only Excel Sheet, Power Point document of max size 20MB is allowed.','warning',3);showbuttons();", true);
+                                        return;
+                                    }
+                                }
+                            }
+                            if (lbslno.Text == "0")
+                            {
+                                FileNameRS = FileNameRS.TrimEnd(',');
+                            }
+                            else
+                            {
+                                FileNameRS = FileNameRS.TrimEnd(',') + ',' + hfReferSheet.Text;
+                            }
+
+
+
+                            #endregion Refersheet
+
+                            if (lbslno.Text == "0")
+                            {
+                                //    getrequestno();
+                            }
+
+                            // var reqno = txtRequestNo.Text;
+                            var nametypeid = HttpUtility.HtmlEncode(cmbNameType.Value);
+                            var nameid = HttpUtility.HtmlEncode(CmbName.SelectedItem.Value.ToString());
+                            var address = HttpUtility.HtmlEncode(cmbAddress.SelectedItem.Value.ToString());
+                            var contactperson = HttpUtility.HtmlEncode(cmbcontactperson.Value);
+                            var email = HttpUtility.HtmlEncode(cmbemail.Text);
+                            var contactnumber = HttpUtility.HtmlEncode(cmbcontact.Text);
+                            //var requestdate = HttpUtility.HtmlEncode(txtDate.Text);
+                            var requestdate = DateTime.Now.ToString();
+                            //var subnameid = HttpUtility.HtmlEncode(cmbSubName.Value);
+                            var subnameid = "";
+                            if (HttpUtility.HtmlEncode(hdfsubname.Text) == "")
+                            {
+                                subnameid = "0";
+                            }
+                            else
+                            {
+                                subnameid = HttpUtility.HtmlEncode(hdfsubname.Text);
+                            }
+
+                            var subaddress = HttpUtility.HtmlEncode(cmbSubAddress.Text);
+                            var subcontact = HttpUtility.HtmlEncode(cmbSubContact.Text);
+                            var subemail = HttpUtility.HtmlEncode(cmbsubmail.Text);
+                            var submittedby = HttpUtility.HtmlEncode(cmbSubmitby.Text);
+                            var approvedby = HttpUtility.HtmlEncode(txtapproveby.Text);
+
+                            var givenby = HttpUtility.HtmlEncode(txtGivenByOther.Text);
+                            var givenbyid = Convert.ToInt32(cmbSalesExecutive.Value);
+
+                            var wallsizechildslno = Convert.ToInt32(cmbWallSizeJobs.Value);
+                            var wallsizeheadreqno = HttpUtility.HtmlEncode(cmbWallSizeJobs.Text);
+
+                            if (cmbGivenBy.SelectedItem != null && cmbGivenBy.SelectedItem.Value != null)
+                            {
+                                if (cmbGivenBy.SelectedItem.Value.ToString() == "1")
+                                {
+                                    givenby = HttpUtility.HtmlEncode(cmbSalesExecutive.Text);
+                                }
+                                if (cmbGivenBy.SelectedItem.Value.ToString() == "2")
+                                {
+                                    givenby = HttpUtility.HtmlEncode(txtGivenByOther.Text);
+                                    givenbyid = 0;
+                                }
+                            }
+
+
+                            string gstno = HttpUtility.HtmlEncode(cmbgst.Value);
+
+                            if (string.IsNullOrEmpty(gstno))
+                            {
+                                gstno = "";
+                            }
+
+                            string slno = lbslno.Text;
+                            string VisitingCardImg = FileNameVC;
+                            string ShopImg = FileNameSP;
+                            string RegionalLang = FileNameRL;
+                            string ReferSheet = FileNameRS;
+                            // Headdst.reqno = reqno;
+
+                            bool IsSubnameIdstaterightswise;
+
+                            if (chkStatecheck.Checked == true)
+                            {
+                                IsSubnameIdstaterightswise = Convert.ToBoolean(1);
+                            }
+                            else
+                            {
+                                IsSubnameIdstaterightswise = Convert.ToBoolean(0);
+                            }
+
+
+                            bool IsWallSize;
+
+                            if (chkwallsize.Checked == true)
+                            {
+                                IsWallSize = Convert.ToBoolean(1);
+                            }
+                            else
+                            {
+                                IsWallSize = Convert.ToBoolean(0);
+                            }
+
+
+
+                            Headdst.NameTypeId = Convert.ToInt32(nametypeid);
+
+                            Headdst.NameId = Convert.ToInt32(nameid);
+
+                            Headdst.Address = Convert.ToInt32(address);
+                            Headdst.ContactPerson = contactperson;
+                            Headdst.Email = email;
+                            Headdst.ContactNumber = contactnumber;
+                            Headdst.RequestDate = Convert.ToDateTime(requestdate);
+                            Headdst.SubNameId = Convert.ToInt32(subnameid);
+                            Headdst.SubAddress = subaddress;
+                            Headdst.SubContact = subcontact;
+                            Headdst.subemail = subemail;
+                            Headdst.submittedby = submittedby;
+                            Headdst.approvedby = approvedby;
+                            Headdst.GivenBy = givenby;
+                            Headdst.GivenByID = givenbyid;
+                            Headdst.GstNo = gstno;
+                            Headdst.VisitingCardImg = VisitingCardImg;
+                            Headdst.RegionalLangCDRFile = RegionalLang;
+                            Headdst.Shopphoto = ShopImg;
+                            Headdst.ReferSheet = ReferSheet;
+                            Headdst.headstatus = Convert.ToInt16(JobRequestStatus);
+                            Headdst.createlogno = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("logno");
+                            Headdst.createuid = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("userlogid");
+                            Headdst.editusercat = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieString("usercat", Convert.ToBoolean(0));
+                            Headdst.pagename = HttpContext.Current.Request.Url.ToString();
+                            Headdst.slno = Convert.ToInt64(slno);
+                            Headdst.finyear = finYear;
+                            Headdst.Statecheck = IsSubnameIdstaterightswise;
+                            Headdst.IsWallSize = IsWallSize;
+
+                            Core.JobRequest.JobRequest objinsert = new Core.JobRequest.JobRequest();
+                            result = objinsert.AddUpdateJobRequesHeadtDACore(Headdst);
+                            deleteFiles(hfVisitingImageDelete.Text, slno, slno);
+                            deleteFiles(hfShopPhotoDelete.Text, slno, slno);
+                            deleteFiles(hfRegionalLangDelete.Text, slno, slno);
+                            deleteFiles(hfReferSheetDelete.Text, slno, slno);
+
+                            #endregion Insert Head
+
+                            #region Insert Child
+
+                            Data.JobRequest.JobRequestModel.JobRequestProperties Childdst = new Data.JobRequest.JobRequestModel.JobRequestProperties();
+                            foreach (GridViewRow row in gvDetails.Rows)
+                            {
+                                if (result == -1)
+                                {
+                                    ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "showDialog('Warning','Oops ! some error occured !','warning',3);showbuttons();", true);
+                                    break;
+                                }
+                                string hfImagename = "";
+                                hfImagename = ((TextBox)row.FindControl("hfImagename")).Text;
+                                string hfFilename = ((TextBox)row.FindControl("hfFilename")).Text;
+                                string txtTaskID = ((Label)row.FindControl("txtTaskID")).Text;
+                                string txtSizeInch = ((TextBox)row.FindControl("txtSizeInch")).Text;
+                                string txtSizeHeight = ((TextBox)row.FindControl("txtSizeHeight")).Text;
+                                DropDownList ddlTypeofJob = (DropDownList)row.FindControl("ddlTypeofJob");
+                                string selectedJobType = ddlTypeofJob.SelectedValue;
+
+                                DropDownList ddlUnit = (DropDownList)row.FindControl("ddlUnit");
+                                string sizeUnit = ddlUnit.SelectedValue;
+
+
+                                DropDownList ddlapprovalto = (DropDownList)row.FindControl("DropDownList1");
+                                string selectedapprovalto = ddlapprovalto.SelectedValue;
+                                TextBox hfddlSubJob = (TextBox)row.FindControl("hfddlSubJob");
+                                string selectedJobSubType = hfddlSubJob.Text;
+                                TextBox hfddlSubSubJob = (TextBox)row.FindControl("hfddlSubSubJob");
+                                string selectedMaterial = hfddlSubSubJob.Text;
+                                DropDownList ddlDesignType = (DropDownList)row.FindControl("ddlDesignType");
+                                string selectedDesign = ddlDesignType.SelectedValue;
+                                DropDownList ddlProductType = (DropDownList)row.FindControl("ddlProductType");
+                                string selectedProduct = ddlProductType.SelectedValue;
+                                string txtQty = ((TextBox)row.FindControl("txtQty")).Text;
+                                string txtmail = ((TextBox)row.FindControl("txtmail")).Text;
+                                string txtInstallAddress = ((TextBox)row.FindControl("txtInstallAddress")).Text;
+                                string txtRemark = ((TextBox)row.FindControl("txtRemark")).Text;
+                                string txtlink = ((TextBox)row.FindControl("txtlink")).Text;
+
+
+                                if (lbslno.Text != "0")
+                                {
+                                    gvslno = ((HiddenField)row.FindControl("hfslnochild")).Value;
+                                }
+                                TextBox chkisapprov = ((TextBox)row.FindControl("lblchkisapprov"));
+                                string chkapproved = chkisapprov.Text;
+                                bool approved = false;
+                                if (chkapproved == "True")
+                                {
+                                    approved = true;
+                                }
+                                else
+                                {
+                                    approved = false;
+                                }
+                                TextBox chkisplace = ((TextBox)row.FindControl("lblchkisplace"));
+                                string chkplace = chkisplace.Text;
+                                bool place = false;
+                                if (chkplace == "True")
+                                {
+                                    place = true;
+                                }
+                                else
+                                {
+                                    place = false;
+                                }
+
+                                #region ImageSave
+
+                                FileUpload fuPhoto = (FileUpload)row.FindControl("fuPhoto");
+                                string FileName = string.Empty;
+
+                                int count = fuPhoto.PostedFiles.Count();
+                                string imagename = string.Empty;
+
+                                string FileNameimg = string.Empty;
+                                foreach (var file in fuPhoto.PostedFiles)
+                                {
+                                    if (file.FileName != "")
+                                    {
+                                        bool rtnVallpost = false;
+
+                                        string uploadedFileName = "";
+                                        string strFileTypeimg = Path.GetExtension(file.FileName).ToLower();
+                                        string theFileName = string.Empty;
+                                        string singleFile = string.Empty;
+                                        decimal size = Math.Round(((decimal)file.ContentLength / (decimal)1024), 2);
+
+
+                                        if (size <= 20480)
+                                        {
+                                            if (strFileTypeimg == ".jpg" || strFileTypeimg == ".jpeg" || strFileTypeimg == ".png")
+                                            {
+
+                                                SavePostedFile(out rtnVallpost, file, out uploadedFileName, FILE_DIRECTORY_NAME2);
+                                                if (rtnVallpost)
+                                                {
+
+                                                    strFileTypeimg = Path.GetExtension(file.FileName).ToLower();
+                                                    if (FileNameimg == "")
+                                                    {
+                                                        FileNameimg = uploadedFileName;
+                                                    }
+                                                    else
+                                                    {
+                                                        FileNameimg = FileNameimg + ',' + uploadedFileName;
+                                                    }
+                                                }
                                             }
                                         }
+
+
+                                        else
+                                        {
+                                            lblModalTitle.Text = "Warning";
+                                            lblModalBody.Text = "Sorry, Image size can not be greater then 20MB.";
+                                            lblModalBody.Attributes.Add("style", "font-size:15px; color:Red; font-weight:lighter;");
+                                            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                                            upModal.Update();
+                                        }
+                                    }
+
+                                }
+                                if (lbslno.Text == "0")
+                                {
+                                    FileNameimg = FileNameimg.TrimEnd(',');
+
+                                }
+                                else
+                                {
+                                    FileNameimg = FileNameimg.TrimEnd(',') + ',' + hfImagename;
+
+
+                                }
+
+                                FileUpload fuFile = (FileUpload)row.FindControl("fuFile");
+                                string CDRFileName = string.Empty;
+
+                                int CDRFilecount = fuFile.PostedFiles.Count();
+                                string Filename = string.Empty;
+
+                                string CDRFileNameimg = string.Empty;
+                                foreach (var Cdrfile in fuFile.PostedFiles)
+                                {
+                                    if (Cdrfile.FileName != "")
+                                    {
+                                        bool cdrrtnVallpost = false;
+
+                                        string cdruploadedFileName = "";
+                                        string cdrstrFileTypeimg = Path.GetExtension(Cdrfile.FileName).ToLower();
+                                        string cdrtheFileName = string.Empty;
+                                        string singleFile = string.Empty;
+                                        decimal size = Math.Round(((decimal)Cdrfile.ContentLength / (decimal)1024), 2);
+
+
+                                        if (size <= 4096)
+                                        {
+                                            if (cdrstrFileTypeimg == ".cdr")
+                                            {
+
+                                                SavePostedFile(out cdrrtnVallpost, Cdrfile, out cdruploadedFileName, FILE_DIRECTORY_NAME3);
+                                                if (cdrrtnVallpost)
+                                                {
+
+                                                    cdrstrFileTypeimg = Path.GetExtension(Cdrfile.FileName).ToLower();
+                                                    if (CDRFileNameimg == "")
+                                                    {
+                                                        CDRFileNameimg = cdruploadedFileName;
+                                                    }
+                                                    else
+                                                    {
+                                                        CDRFileNameimg = CDRFileNameimg + ',' + cdruploadedFileName;
+                                                    }
+                                                }
+                                            }
+                                        }
+
+
+                                        else
+                                        {
+                                            lblModalTitle.Text = "Warning";
+                                            lblModalBody.Text = "Sorry, Image size can not be greater then 4MB.";
+                                            lblModalBody.Attributes.Add("style", "font-size:15px; color:Red; font-weight:lighter;");
+                                            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                                            upModal.Update();
+                                            return;
+                                        }
+                                    }
+
+                                }
+
+
+                                if (lbslno.Text == "0")
+                                {
+
+                                    CDRFileNameimg = CDRFileNameimg.TrimEnd(',');
+                                }
+                                else
+                                {
+
+                                    CDRFileNameimg = CDRFileNameimg.TrimEnd(',') + ',' + hfFilename;
+                                }
+
+
+                                #endregion ImageSave
+
+
+
+                                DropDownList ddlPriority = (DropDownList)row.FindControl("ddlPriority");
+                                int priority = Convert.ToInt16(ddlPriority.SelectedValue);
+
+                                TextBox hfddlBoardType = (TextBox)row.FindControl("hfddlBoardType");
+                                string selectedBoardType = hfddlBoardType.Text;
+
+
+                                DropDownList ddlPrintLocation = (DropDownList)row.FindControl("ddlPrintLocation");
+                                int printlocation = 0;
+
+                                DropDownList ddlFabricatorLocation = (DropDownList)row.FindControl("ddlFabricatorLocation");
+                                int fabricatorlocation = 0;
+
+                                HiddenField hfIsPrintReq = (HiddenField)row.FindControl("hfIsPrintReq");
+                                HiddenField hfIsFabReq = (HiddenField)row.FindControl("hfIsFabReq");
+
+                                string lblPrinterLocation = (row.FindControl("lblPrinterLocation") as TextBox).Text;
+                                string lblFabricatorLocation = (row.FindControl("lblFabricatorLocation") as TextBox).Text;
+
+
+                                if (hfIsPrintReq.Value == "True")
+                                {
+                                    if (ddlPrintLocation.SelectedValue != "Select" && lblPrinterLocation != "")
+                                    {
+                                        printlocation = Convert.ToInt16(lblPrinterLocation);
+                                    }
+                                    else
+                                    {
+                                        printlocation = 0;
                                     }
                                 }
 
-
-                                else
+                                if (hfIsFabReq.Value == "True")
                                 {
-                                    lblModalTitle.Text = "Warning";
-                                    lblModalBody.Text = "Sorry, Image size can not be greater then 4MB.";
-                                    lblModalBody.Attributes.Add("style", "font-size:15px; color:Red; font-weight:lighter;");
-                                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
-                                    upModal.Update();
-                                    return;
+                                    if (ddlFabricatorLocation.SelectedValue != "Select" && lblFabricatorLocation != "")
+                                    {
+                                        fabricatorlocation = Convert.ToInt16(lblFabricatorLocation);
+                                    }
+                                    else
+                                    {
+                                        fabricatorlocation = 0;
+                                    }
+                                }
+                                if (regionalresult == 1)
+                                {
+                                    ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "showDialog('Warning','Please Uplpoad CDR  !','warning',3);showbuttons();", true);
+                                    break;
+                                }
+
+                                //string hfImagename = ((TextBox)row.FindControl("hfImagename")).Text;
+                                if (sizeUnit != "0" && txtSizeInch != string.Empty && txtSizeHeight != string.Empty && selectedJobType != string.Empty && selectedJobSubType != string.Empty && selectedMaterial != string.Empty && selectedDesign != string.Empty && selectedProduct != string.Empty && txtQty != string.Empty && txtInstallAddress != string.Empty)
+
+                                {
+                                    string TaskID = HttpUtility.HtmlEncode(txtTaskID);
+                                    decimal SizeInch = Convert.ToDecimal(HttpUtility.HtmlEncode(txtSizeInch));
+                                    decimal SizeHeight = Convert.ToDecimal(HttpUtility.HtmlEncode(txtSizeHeight));
+                                    string JobType = HttpUtility.HtmlEncode(selectedJobType);
+                                    string JobSubType = HttpUtility.HtmlEncode(selectedJobSubType);
+                                    string Material = HttpUtility.HtmlEncode(selectedMaterial);
+                                    string Design = HttpUtility.HtmlEncode(selectedDesign);
+                                    string Product = HttpUtility.HtmlEncode(selectedProduct);
+                                    string Qty = HttpUtility.HtmlEncode(txtQty);
+                                    string Address = HttpUtility.HtmlEncode(txtInstallAddress);
+                                    string approvalo = HttpUtility.HtmlEncode(selectedapprovalto);
+                                    string emailto = HttpUtility.HtmlEncode(txtmail);
+                                    string Remark = HttpUtility.HtmlEncode(txtRemark);
+                                    string isapprov = HttpUtility.HtmlEncode(chkisapprov);
+                                    // string ImageName = HttpUtility.HtmlEncode(imagename + ',' + hfImagename);
+                                    string Link = HttpUtility.HtmlEncode(txtlink);
+
+                                    string ImageName = HttpUtility.HtmlEncode(FileNameimg);
+                                    string CFileName = HttpUtility.HtmlEncode(CDRFileNameimg);
+                                    string slnochild = gvslno;
+                                    bool DeleteFlag = false;
+                                    string hfimg = ((TextBox)row.FindControl("hfImagenameDelete")).Text;
+                                    deleteFiles(hfimg, slno, slnochild);
+
+                                    string Unit = HttpUtility.HtmlEncode(sizeUnit);
+
+                                    string BoardType = HttpUtility.HtmlEncode(selectedBoardType);
+
+
+                                    Childdst.BoardTypeID = Convert.ToInt16(BoardType);
+                                    Childdst.PrintLocation = Convert.ToInt16(printlocation);
+                                    Childdst.FabricatorLocation = Convert.ToInt16(fabricatorlocation);
+                                    Childdst.Priority = Convert.ToInt16(priority);
+                                    Childdst.UnitID = Convert.ToInt16(Unit);
+                                    Childdst.TaskId = Convert.ToInt16(TaskID);
+                                    Childdst.Height = SizeHeight;
+                                    Childdst.Width = SizeInch;
+                                    Childdst.JobTypeId = Convert.ToInt16(JobType);
+                                    Childdst.SubJobTypeId = Convert.ToInt16(JobSubType);
+                                    Childdst.SubSubJobTypeId = Convert.ToInt16(Material);
+                                    Childdst.approvto = approvalo;
+                                    Childdst.approvalmail = emailto;
+                                    Childdst.DesignTypeId = Convert.ToInt16(Design);
+                                    Childdst.ProductTypeId = Convert.ToInt16(Product);
+                                    Childdst.Qty = Convert.ToInt16(Qty);
+                                    Childdst.Remark = Remark;
+                                    Childdst.ispalce = place;
+                                    Childdst.NeedApproval = approved;
+                                    Childdst.ImageName = ImageName;
+                                    Childdst.installaddress = Address;
+                                    Childdst.childstatus = Convert.ToInt16(JobRequestStatus);
+                                    Childdst.createlogno = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("logno");
+                                    Childdst.createuid = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("userlogid");
+                                    Childdst.editusercat = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieString("usercat", Convert.ToBoolean(0));
+                                    Childdst.pagename = HttpContext.Current.Request.Url.ToString();
+                                    Childdst.refid = result.ToString();
+                                    Childdst.slno = Convert.ToInt64(slnochild);
+                                    Childdst.DeleteFlag = DeleteFlag;
+                                    Childdst.Link = Link;
+                                    Childdst.CdrFile = CFileName;
+                                    Childdst.UseAddressType = Convert.ToInt16(rduseaddress.SelectedValue);
+                                    Childdst.WallSizeJobChildSlno = wallsizechildslno;
+                                    Childdst.WallsizejobheadReqNo = wallsizeheadreqno;
+                                    Core.JobRequest.JobRequest objinsertChild = new Core.JobRequest.JobRequest();
+                                    finalresult = objinsertChild.AddUpdateJobRequestChildDACore(Childdst);
+                                    if (finalresult == -1)
+                                    {
+                                        Data.JobRequest.JobRequestModel.JobRequestProperties delreq = new Data.JobRequest.JobRequestModel.JobRequestProperties();
+                                        delreq.slno = Convert.ToInt64(result);
+                                        errorresulr = objinsertChild.PermanentDeleteJobRequestCore(delreq);
+                                        break;
+                                        ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "showDialog('Warning','Oops ! some error occured !','warning',3);showbuttons();", true);
+                                    }
                                 }
                             }
 
-                        }
-
-
-                        if (lbslno.Text == "0")
-                        {
-
-                            CDRFileNameimg = CDRFileNameimg.TrimEnd(',');
-                        }
-                        else
-                        {
-
-                            CDRFileNameimg = CDRFileNameimg.TrimEnd(',') + ',' + hfFilename;
-                        }
-
-
-                        #endregion ImageSave
-
-
-
-
-                        DropDownList ddlPriority = (DropDownList)row.FindControl("ddlPriority");
-                        int priority = Convert.ToInt16(ddlPriority.SelectedValue);
-
-                        TextBox hfddlBoardType = (TextBox)row.FindControl("hfddlBoardType");
-                        string selectedBoardType = hfddlBoardType.Text;
-
-
-                        DropDownList ddlPrintLocation = (DropDownList)row.FindControl("ddlPrintLocation");
-                        int printlocation = 0;
-
-                        DropDownList ddlFabricatorLocation = (DropDownList)row.FindControl("ddlFabricatorLocation");
-                        int fabricatorlocation = 0;
-
-                        HiddenField hfIsPrintReq = (HiddenField)row.FindControl("hfIsPrintReq");
-                        HiddenField hfIsFabReq = (HiddenField)row.FindControl("hfIsFabReq");
-
-                        string lblPrinterLocation = (row.FindControl("lblPrinterLocation") as TextBox).Text;
-                        string lblFabricatorLocation = (row.FindControl("lblFabricatorLocation") as TextBox).Text;
-
-
-                        if (hfIsPrintReq.Value == "True")
-                        {
-                            if (ddlPrintLocation.SelectedValue != "Select" && lblPrinterLocation != "")
-                            {
-                                printlocation = Convert.ToInt16(lblPrinterLocation);
-                            }
-                            else
-                            {
-                                printlocation = 0;
-                            }
-                        }
-
-                        if (hfIsFabReq.Value == "True")
-                        {
-                            if (ddlFabricatorLocation.SelectedValue != "Select" && lblFabricatorLocation != "")
-                            {
-                                fabricatorlocation = Convert.ToInt16(lblFabricatorLocation);
-                            }
-                            else
-                            {
-                                fabricatorlocation = 0;
-                            }
-                        }
-
-
-                        //string hfImagename = ((TextBox)row.FindControl("hfImagename")).Text;
-                        if (sizeUnit != "0" && txtSizeInch != string.Empty && txtSizeHeight != string.Empty && selectedJobType != string.Empty && selectedJobSubType != string.Empty && selectedMaterial != string.Empty && selectedDesign != string.Empty && selectedProduct != string.Empty && txtQty != string.Empty && txtInstallAddress != string.Empty)
-
-                        {
-                            string TaskID = HttpUtility.HtmlEncode(txtTaskID);
-                            decimal SizeInch = Convert.ToDecimal(HttpUtility.HtmlEncode(txtSizeInch));
-                            decimal SizeHeight = Convert.ToDecimal(HttpUtility.HtmlEncode(txtSizeHeight));
-                            string JobType = HttpUtility.HtmlEncode(selectedJobType);
-                            string JobSubType = HttpUtility.HtmlEncode(selectedJobSubType);
-                            string Material = HttpUtility.HtmlEncode(selectedMaterial);
-                            string Design = HttpUtility.HtmlEncode(selectedDesign);
-                            string Product = HttpUtility.HtmlEncode(selectedProduct);
-                            string Qty = HttpUtility.HtmlEncode(txtQty);
-                            string Address = HttpUtility.HtmlEncode(txtInstallAddress);
-                            string approvalo = HttpUtility.HtmlEncode(selectedapprovalto);
-                            string emailto = HttpUtility.HtmlEncode(txtmail);
-                            string Remark = HttpUtility.HtmlEncode(txtRemark);
-                            string isapprov = HttpUtility.HtmlEncode(chkisapprov);
-                            // string ImageName = HttpUtility.HtmlEncode(imagename + ',' + hfImagename);
-                            string Link = HttpUtility.HtmlEncode(txtlink);
-
-                            string ImageName = HttpUtility.HtmlEncode(FileNameimg);
-                            string CFileName = HttpUtility.HtmlEncode(CDRFileNameimg);
-                            string slnochild = gvslno;
-                            bool DeleteFlag = false;
-                            string hfimg = ((TextBox)row.FindControl("hfImagenameDelete")).Text;
-                            deleteFiles(hfimg, slno, slnochild);
-
-                            string Unit = HttpUtility.HtmlEncode(sizeUnit);
-
-                            string BoardType = HttpUtility.HtmlEncode(selectedBoardType);
-
-
-                            Childdst.BoardTypeID = Convert.ToInt16(BoardType);
-                            Childdst.PrintLocation = Convert.ToInt16(printlocation);
-                            Childdst.FabricatorLocation = Convert.ToInt16(fabricatorlocation);
-                            Childdst.Priority = Convert.ToInt16(priority);
-                            Childdst.UnitID = Convert.ToInt16(Unit);
-                            Childdst.TaskId = Convert.ToInt16(TaskID);
-                            Childdst.Height = SizeHeight;
-                            Childdst.Width = SizeInch;
-                            Childdst.JobTypeId = Convert.ToInt16(JobType);
-                            Childdst.SubJobTypeId = Convert.ToInt16(JobSubType);
-                            Childdst.SubSubJobTypeId = Convert.ToInt16(Material);
-                            Childdst.approvto = approvalo;
-                            Childdst.approvalmail = emailto;
-                            Childdst.DesignTypeId = Convert.ToInt16(Design);
-                            Childdst.ProductTypeId = Convert.ToInt16(Product);
-                            Childdst.Qty = Convert.ToInt16(Qty);
-                            Childdst.Remark = Remark;
-                            Childdst.ispalce = place;
-                            Childdst.NeedApproval = approved;
-                            Childdst.ImageName = ImageName;
-                            Childdst.installaddress = Address;
-                            Childdst.childstatus = Convert.ToInt16(JobRequestStatus);
-                            Childdst.createlogno = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("logno");
-                            Childdst.createuid = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("userlogid");
-                            Childdst.editusercat = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieString("usercat", Convert.ToBoolean(0));
-                            Childdst.pagename = HttpContext.Current.Request.Url.ToString();
-                            Childdst.refid = result.ToString();
-                            Childdst.slno = Convert.ToInt64(slnochild);
-                            Childdst.DeleteFlag = DeleteFlag;
-                            Childdst.Link = Link;
-                            Childdst.CdrFile = CFileName;
-                            Childdst.UseAddressType = Convert.ToInt16(rduseaddress.SelectedValue);
-                            Childdst.WallSizeJobChildSlno = wallsizechildslno;
-                            Childdst.WallsizejobheadReqNo = wallsizeheadreqno;
-                            Core.JobRequest.JobRequest objinsertChild = new Core.JobRequest.JobRequest();
-                            finalresult = objinsertChild.AddUpdateJobRequestChildDACore(Childdst);
-                            if (finalresult == -1)
-                            {
-                                Data.JobRequest.JobRequestModel.JobRequestProperties delreq = new Data.JobRequest.JobRequestModel.JobRequestProperties();
-                                delreq.slno = Convert.ToInt64(result);
-                                errorresulr = objinsertChild.PermanentDeleteJobRequestCore(delreq);
-                                break;
-                                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "showDialog('Warning','Oops ! some error occured !','warning',3);showbuttons();", true);
-                            }
+                            #endregion Insert Child
                         }
                     }
-
-                    #endregion Insert Child
-
                     if (finalresult == 1)
                     {
 
@@ -2371,6 +2477,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                         ResetFunc();
                         Delete(hfVisitingImageDelete.Text, FILE_DIRECTORY_NAME);
                         Delete(hfShopPhotoDelete.Text, FILE_DIRECTORY_NAME4);
+                        Delete(hfRegionalLangDelete.Text, FILE_DIRECTORY_NAME5);
                         Delete(hfReferSheetDelete.Text, FILE_DIRECTORY_NAME1);
                         foreach (GridViewRow row in gvDetails.Rows)
                         {
@@ -2747,8 +2854,8 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
             DataTable dtHead = objdataHead.JobRequestHeadSelectParticularCore(paramHead);
             if (dtHead.Rows.Count > 0)
             {
-                
-               
+
+
 
 
                 txtRequestNo.Text = Convert.ToString(dtHead.Rows[0]["reqno"]);
@@ -2765,7 +2872,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                 LoadWallSizeJobs(Convert.ToInt32(lbslno.Text));
                 cmbWallSizeJobs.Value = Convert.ToString(dtHead.Rows[0]["WallSizeJobChildSlno"]);
                 cmbWallSizeJobs.Text = Convert.ToString(dtHead.Rows[0]["WallSizeJobHeadReqNo"]);
-                
+
 
                 cmbWallSizeJobs.Enabled = false;
                 chkmapjob.Enabled = false;
@@ -2855,6 +2962,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
 
                 hfVisitingImage.Text = Convert.ToString(dtHead.Rows[0]["VisitingCardImg"]);
                 hfShopPhoto.Text = Convert.ToString(dtHead.Rows[0]["ShopPhoto"]);
+                hfRegionalLang.Text = Convert.ToString(dtHead.Rows[0]["RegionalLangCDRFile"]);
                 hfReferSheet.Text = Convert.ToString(dtHead.Rows[0]["Refersheet"]);
                 Core.JobRequest.JobRequest objdataChild = new Core.JobRequest.JobRequest();
                 DataTable dtChild = objdataChild.JobRequestChildSelectParticularCore(paramHead);
@@ -2913,6 +3021,47 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
             return sts;
         }
 
+
+        //public bool getRegioanl()
+        //{
+        //    Boolean result1 = true;
+        //    Data.JobRequest.JobRequestModel.JobRequestProperties param = new Data.JobRequest.JobRequestModel.JobRequestProperties();
+        //    param.userbranchid = Convert.ToInt32(cmbbranch.Value);
+        //    Core.JobRequest.JobRequest objData = new Core.JobRequest.JobRequest();
+        //    DataTable dtResult = objData.JobRequestRegionalLangDACore(param);
+
+        //    if (dtResult.Rows.Count > 0)
+        //    {
+        //        ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "showDialog('Warning','Please Upload Regional Lang CDR File.!','warning',3);", true);
+        //        result1 = false;
+        //    }
+        //}
+
+        protected void GetRegionalLangBlock(string branchid)
+        {
+            Data.JobRequest.JobRequestModel.JobRequestProperties param = new Data.JobRequest.JobRequestModel.JobRequestProperties();
+            param.userbranchid = Convert.ToInt32(branchid);
+            Core.JobRequest.JobRequest objData = new Core.JobRequest.JobRequest();
+            DataTable dtresult = objData.JobRequestRegionalLangDACore(param);
+
+            foreach (var file in fuRegionalLang.PostedFiles)
+            {
+                if (file.FileName == "")
+                {
+                    if (dtresult.Rows.Count > 0)
+                    {
+                        regionalblock = 1;
+                        //ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "showDialog('Warning','Please Upload Regional Lang CDR File.!','warning',3);", true);
+                        //break;
+                    }
+                    else
+                    {
+                        regionalblock = 0;
+                    }
+                }               
+            }           
+         }
+
         protected void GetUploadedJobRequestFiles(int slno, int flag)
         {
             JobRequestDataAccess objselectall = new JobRequestDataAccess();
@@ -2949,6 +3098,23 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                     rptImages3.DataSource = null;
                     rptImages3.DataBind();
                     hdNoRecord3.Visible = true;
+                }
+            }
+
+
+            if (flag == 25)
+            {
+                if (dtResult.Rows.Count > 0)
+                {
+                    rptImages1.DataSource = dtResult;
+                    rptImages1.DataBind();
+                    hdNoRecord1.Visible = false;
+                }
+                else
+                {
+                    rptImages1.DataSource = null;
+                    rptImages1.DataBind();
+                    hdNoRecord1.Visible = false;
                 }
             }
             if (flag == 2)
@@ -2989,8 +3155,6 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                     }
                 }
             }
-
-           
         }
 
         /// <summary>
@@ -3073,7 +3237,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
             cmbSubName.Items.Clear();
             cmbSubName.Value = null;
             cmbSubName.Text = null;
-            
+
             cmbSubAddress.Items.Clear();
             cmbSubAddress.Value = null;
             cmbSubAddress.Text = null;
@@ -3183,7 +3347,9 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
             hfReferSheet.Text = string.Empty;
             hfVisitingImageDelete.Text = string.Empty;
             hfShopPhotoDelete.Text = string.Empty;
+            hfRegionalLangDelete.Text = string.Empty;
             hfVisitingImage.Text = string.Empty;
+            hfRegionalLang.Text = string.Empty;
             hfShopPhoto.Text = string.Empty;
             cmbgst.Text = null;
             cmbSubmitby.Value = null;
@@ -3381,6 +3547,8 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
             hfShopPhotoDelete.Text = string.Empty;
             hfVisitingImage.Text = string.Empty;
             hfShopPhoto.Text = string.Empty;
+            hfRegionalLangDelete.Text = string.Empty;
+            hfRegionalLang.Text = string.Empty;
             cmbgst.Text = null;
             cmbSubmitby.Value = null;
             cmbSubmitby.Text = null;
@@ -4067,10 +4235,15 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                     hfImagename.Text = hfImagename.Text.Trim().Replace(hfImgIName.Value + ',', string.Empty);
                 }
             }
-            if (repType.Value == "4")
+            else if (repType.Value == "4")
             {
                 hfShopPhoto.Text = hfShopPhoto.Text.Trim().Replace(hfImgIName.Value + ',', string.Empty);
                 hfShopPhotoDelete.Text = hfShopPhotoDelete.Text + ',' + hfImgIName.Value;
+            }
+            else if (repType.Value == "5")
+            {
+                hfRegionalLang.Text = hfRegionalLang.Text.Trim().Replace(hfImgIName.Value + ',', string.Empty);
+                hfRegionalLangDelete.Text = hfRegionalLangDelete.Text + ',' + hfImgIName.Value;
             }
             e.Item.FindControl("imgDocs").Parent.Parent.Visible = false;
 
@@ -4122,7 +4295,12 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
             this.mpeImage1.Show();
             repType.Value = "2";
         }
-
+        protected void lnkFiles5_Click(object sender, EventArgs e)
+        {
+            GetUploadedJobRequestFiles(Convert.ToInt32(lbslno.Text), 25);
+            this.mpeImage1.Show();
+            repType.Value = "25";
+        }
         protected void btnCloseMPE_Click1(object sender, EventArgs e)
         {
             if (repType.Value == "1")
@@ -4149,7 +4327,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                     lnkFiles3.Text = string.Empty;
                 }
             }
-           else if (repType.Value == "4")
+            else if (repType.Value == "4")
             {
                 string hfimf = hfShopPhoto.Text;
                 if (!string.IsNullOrEmpty(hfimf.Replace(",", string.Empty)))
@@ -4159,6 +4337,18 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                 else
                 {
                     lnkFiles4.Text = string.Empty;
+                }
+            }
+            else if (repType.Value == "5")
+            {
+                string hfimf = hfRegionalLang.Text;
+                if (!string.IsNullOrEmpty(hfimf.Replace(",", string.Empty)))
+                {
+                    lnkFiles5.Text = "View Files";
+                }
+                else
+                {
+                    lnkFiles5.Text = string.Empty;
                 }
             }
             else
@@ -4190,6 +4380,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
         /// <param name="e"></param>
         protected void CmdSaveAsDraft_Click(object sender, EventArgs e)
         {
+
             SaveAsDraft("0");
         }
 
@@ -4200,7 +4391,16 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            //if (getRegioanl())
+            //{
+
             SaveAsDraft("1");
+            //}
+            //else
+            //{
+            //    SaveAsDraft("1");
+            //}
+
         }
 
         /// <summary>
@@ -4287,25 +4487,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        //protected void txtQty_TextChanged(object sender, EventArgs e)
-        //{
-        //    TextBox ddl = (TextBox)sender;
-        //    GridViewRow row = (GridViewRow)ddl.NamingContainer;
-        //    TextBox txtaddress = (TextBox)row.FindControl("txtInstallAddress");
-        //    if (rduseaddress.SelectedValue == "0")
-        //    {
-        //        txtaddress.Text = cmbAddress.Text;
-        //    }
-        //    else if(rduseaddress.SelectedValue == "1")
-        //    {
-        //        txtaddress.Text = cmbSubAddress.Text;
-        //    }
-        //    else
-        //    {
-        //        txtaddress.Text = "";
-        //    }
-        //}
-
+     
         protected void rduseaddress_SelectedIndexChanged(object sender, EventArgs e)
         {
             foreach (GridViewRow row in gvDetails.Rows)
@@ -4444,7 +4626,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
                 hfVisitingImage.Text = hfVisitingImage.Text.Trim().Replace(hfImgIName.Value, "");
                 hfVisitingImageDelete.Text = hfVisitingImageDelete.Text + ',' + hfImgIName.Value;
 
-              
+
 
                 e.Item.FindControl("imgDocs").Parent.Parent.Visible = false;
                 this.mpeImage.Show();
@@ -4483,9 +4665,18 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
             }
             if (e.CommandName == "Down")
             {
-                var path = string.Format("{0}/{1}", FILE_DIRECTORY_NAME1, hfImgIName.Value);
-                Download(path);
-                GetUploadedJobRequestFiles(Convert.ToInt32(lbslno.Text), 2);
+                if (hfImgIName.Value.ToUpper().Contains(".CDR"))
+                {
+                    var path = string.Format("{0}/{1}", FILE_DIRECTORY_NAME5, hfImgIName.Value);
+                    Download(path);
+                    GetUploadedJobRequestFiles(Convert.ToInt32(lbslno.Text), 25);
+                }
+                else
+                {
+                    var path = string.Format("{0}/{1}", FILE_DIRECTORY_NAME1, hfImgIName.Value);
+                    Download(path);
+                    GetUploadedJobRequestFiles(Convert.ToInt32(lbslno.Text), 2);
+                }
             }
         }
         protected void rptImages1_ItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -4626,7 +4817,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
         public void LoadDealerJobHistory()
         {
             Data.JobRequest.JobRequestModel.JobRequestProperties param = new Data.JobRequest.JobRequestModel.JobRequestProperties();
-            
+
             param.nameid = Convert.ToInt32(CmbName.Value);
             Core.JobRequest.JobRequest objselectsingle = new Core.JobRequest.JobRequest();
             DataTable dt = objselectsingle.GetDealerJobHistoryCore(param);
@@ -4654,7 +4845,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
             HiddenField rphfslno = (HiddenField)e.Item.FindControl("rphfslno");
             if (e.CommandName == "cmdRemove")
             {
-              
+
                 hfShopPhoto.Text = hfShopPhoto.Text.Trim().Replace(hfImgIName.Value, "");
                 hfShopPhotoDelete.Text = hfShopPhotoDelete.Text + ',' + hfImgIName.Value;
 
@@ -4717,7 +4908,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
             DataTable dt = objdatastatus.StatusOfRetailer(dtsingle);
             if (dt.Rows.Count > 0)
             {
-                lblApprovalStatus.Text= Convert.ToString(dt.Rows[0]["ApprovalStatus"]);
+                lblApprovalStatus.Text = Convert.ToString(dt.Rows[0]["ApprovalStatus"]);
                 lblCurrentStatus.Text = Convert.ToString(dt.Rows[0]["CurrentStatus"]);
             }
             this.mpeConfirmPopup.Show();
@@ -4741,7 +4932,7 @@ namespace GoldMedal.Branding.Admin.Transaction.JobRequest
 
         protected void chkmapjob_CheckedChanged(object sender, EventArgs e)
         {
-            if(chkmapjob.Checked==true)
+            if (chkmapjob.Checked == true)
             {
                 LoadWallSizeJobs(0);
 

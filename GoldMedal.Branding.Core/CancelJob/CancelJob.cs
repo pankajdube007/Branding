@@ -12,6 +12,13 @@ namespace GoldMedal.Branding.Core.CancelJob
             return recid;
         }
 
+        public DataTable ListOfJobForCancelDateWise(string Fromdate, string ToDate, string BranchIDs)
+        {
+            DataTable recid = new DataTable();
+            recid = CancelJobServiceCall.ListOfJobForCancelServiceMethodDateWise(Fromdate, ToDate, BranchIDs, "MSSQLSERVER");
+            return recid;
+        }
+
 
         public DataTable DetailsOfJobForJobCancel(GoldMedal.Branding.Data.CancelJob.CancelJob.CancelJobProperty dtsingle)
         {

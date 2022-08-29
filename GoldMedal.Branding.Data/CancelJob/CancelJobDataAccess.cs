@@ -32,5 +32,14 @@ namespace GoldMedal.Branding.Data.CancelJob
             return Convert.ToInt32(objDataAccess.ExecuteNonQueryWithOutputParameters("CancelJob", objParameter));
         }
 
+        public DataTable GetJobdetailforthejobcancelDateWise(string Fromdate, string ToDate, string BranchIDs)
+        {
+            SqlParameter[] objParameter = new SqlParameter[3];
+            objParameter[0] = new SqlParameter("@BranchIDs", BranchIDs);
+            objParameter[1] = new SqlParameter("@Fromdate", Fromdate);
+            objParameter[2] = new SqlParameter("@ToDate", ToDate);
+            return (objDataAccess.ReturnDataTableWithParameters("getJobdetailforthejobcancelDateWise", objParameter));
+        }
+
     }
 }

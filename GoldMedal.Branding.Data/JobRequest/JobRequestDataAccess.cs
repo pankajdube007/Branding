@@ -176,7 +176,13 @@ namespace GoldMedal.Branding.Data.JobRequest
             objParameter[1] = new SqlParameter("@Flag", ObjJobTypeMappingsingle.flag);
             return (objDataAccess.ReturnDataTableWithParameters("GetJobRequestFiles", objParameter));
         }
-
+        public DataTable JobRequestRegionallangBranchFilesDA(JobRequestModel.JobRequestProperties ObjJobTypeMappingsingle)
+        {
+            SqlParameter[] objParameter = new SqlParameter[1];
+           // objParameter[0] = new SqlParameter("@slno", ObjJobTypeMappingsingle.slno);
+            objParameter[0] = new SqlParameter("@branchid", ObjJobTypeMappingsingle.userbranchid);
+            return (objDataAccess.ReturnDataTableWithParameters("JobRequestbranchwiseRegionalLang", objParameter));
+        }
         public DataTable LiveProductFilesDA(JobRequestModel.JobRequestProperties ObjJobTypeMappingsingle)
         {
             SqlParameter[] objParameter = new SqlParameter[2];
@@ -193,7 +199,7 @@ namespace GoldMedal.Branding.Data.JobRequest
 
         public int AddUpdateJobRequesHeadtDA(JobRequestModel.JobRequestProperties ObjJobRequestInput)
         {
-            SqlParameter[] objParameter = new SqlParameter[29];
+            SqlParameter[] objParameter = new SqlParameter[30];
           //  objParameter[0] = new SqlParameter("@reqno", ObjJobRequestInput.reqno);
             objParameter[0] = new SqlParameter("@NameTypeId", ObjJobRequestInput.NameTypeId);
             objParameter[1] = new SqlParameter("@NameId", ObjJobRequestInput.NameId);
@@ -223,9 +229,10 @@ namespace GoldMedal.Branding.Data.JobRequest
             objParameter[25] = new SqlParameter("@GivenByID", ObjJobRequestInput.GivenByID);
             objParameter[26] = new SqlParameter("@IsSubnameIdstaterightswise", ObjJobRequestInput.Statecheck);
             objParameter[27] = new SqlParameter("@IsWallSize", ObjJobRequestInput.IsWallSize);
-          
-            objParameter[28] = new SqlParameter("@Out", SqlDbType.Int, 10);
-            objParameter[28].Direction = ParameterDirection.Output;
+            objParameter[28] = new SqlParameter("@regionallangcdr", ObjJobRequestInput.RegionalLangCDRFile);
+
+            objParameter[29] = new SqlParameter("@Out", SqlDbType.Int, 10);
+            objParameter[29].Direction = ParameterDirection.Output;
             return Convert.ToInt32(objDataAccess.ExecuteNonQueryWithOutputParameters("JobRequestHeadAddUpdate", objParameter));
         }
 

@@ -22,6 +22,12 @@ namespace GoldMedal.Branding.Data.FinalAssembaly
             objParameter[1] = new SqlParameter("@uid", Objsingle.userid);
             return (objDataAccess.ReturnDataTableWithParameters("getJobdetailforthefinalassembalymodeupdate", objParameter));
         }
+        public DataTable DispatchListOfJobForFinlaAssemblyModeUpdateDA(FinalAssembaly.FinalAssembly.FinalAssemblyProperty Objsingle)
+        {
+            SqlParameter[] objParameter = new SqlParameter[1];
+            objParameter[0] = new SqlParameter("@uid", Objsingle.userid);
+            return (objDataAccess.ReturnDataTableWithParameters("getJobdetailforthefinalassembalymodeDistpatchList", objParameter));
+        }
         public DataTable ListOfJobForFinlaAssemblyDispatchModeDA(FinalAssembaly.FinalAssembly.FinalAssemblyProperty Objsingle)
         {
             SqlParameter[] objParameter = new SqlParameter[1];
@@ -396,6 +402,15 @@ namespace GoldMedal.Branding.Data.FinalAssembaly
             return (objDataAccess.ReturnDataTableWithParameters("getJobdetailforthejobhistory", objParameter));
         }
 
+
+        public DataTable ConsolidatedConsumptionRpt(String FromDate , String ToDate)
+        {
+            SqlParameter[] objParameter = new SqlParameter[2];
+            objParameter[0] = new SqlParameter("@FromDate", FromDate);
+            objParameter[1] = new SqlParameter("@ToDate", ToDate);
+            return (objDataAccess.ReturnDataTableWithParameters("ConsolidatedConsumptionRpt", objParameter));
+        }
+
         public DataTable GetJobAgingReportDA(FinalAssembaly.FinalAssembly.FinalAssemblyProperty Objsingle)
         {
             SqlParameter[] objParameter = new SqlParameter[1];
@@ -518,6 +533,16 @@ namespace GoldMedal.Branding.Data.FinalAssembaly
             objParameter[2] = new SqlParameter("@Out", SqlDbType.VarChar, 200);
             objParameter[2].Direction = ParameterDirection.Output;
             return Convert.ToString(objDataAccess.ExecuteNonQueryWithOutputParameters("VendorTeamLogin", objParameter));
+        }
+
+
+        public DataTable GetPasswordDA(string Username,string NewPassword, int Category)
+        {
+            SqlParameter[] objParameter = new SqlParameter[3];
+            objParameter[0] = new SqlParameter("@Username", Username);
+            objParameter[1] = new SqlParameter("@NewPassword", NewPassword);
+            objParameter[2] = new SqlParameter("@CategoryID", Category);
+            return (objDataAccess.ReturnDataTableWithParameters("GetNewPassword", objParameter));
         }
     }
 }

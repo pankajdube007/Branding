@@ -38,16 +38,16 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
                 }
                 else
                 {
-                    txtFrmDate.Text = "01/04/2021";
+                    txtFrmDate.Text = "01/04/" + DateTime.Now.Date.ToString("yyyy");
                     txtToDate.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
                     lblassignfabricatorslno.Text = "0";
-                      ASPxPageControl1.ActiveTabIndex = 0;
-                     lbActiveTab.Text = "1";
-                       ASPxGridView1.DataBind();
+                    ASPxPageControl1.ActiveTabIndex = 0;
+                    lbActiveTab.Text = "1";
+                    ASPxGridView1.DataBind();
                     //    ASPxGridView2.DataBind();
                     GetAllJobCount();
                 }
-               
+
             }
             txtToDate.MaxDate = DateTime.Now;
             txtFrmDate.MaxDate = DateTime.Now.AddDays(-1);
@@ -158,11 +158,11 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
 
         protected void columnhide()
         {
-            ASPxGridView1.Columns[46].Visible = false;
-            ASPxGridView1.Columns[47].Visible = false;
-            ASPxGridView1.Columns[48].Visible = false;
-            ASPxGridView1.Columns[49].Visible = false;
-            ASPxGridView1.Columns[54].Visible = false;
+            ASPxGridView1.Columns[50].Visible = false;
+            ASPxGridView1.Columns[51].Visible = false;
+            ASPxGridView1.Columns[52].Visible = false;
+            ASPxGridView1.Columns[53].Visible = false;
+            ASPxGridView1.Columns[58].Visible = false;
             //ASPxGridView1.Columns[11].Visible = false;
         }
 
@@ -171,11 +171,11 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
         /// </summary>
         protected void columnshow()
         {
-            ASPxGridView1.Columns[46].Visible = true;
-            ASPxGridView1.Columns[47].Visible = true;
-            ASPxGridView1.Columns[48].Visible = true;
-            ASPxGridView1.Columns[49].Visible = true;
-            ASPxGridView1.Columns[54].Visible = true;
+            ASPxGridView1.Columns[50].Visible = true;
+            ASPxGridView1.Columns[51].Visible = true;
+            ASPxGridView1.Columns[52].Visible = true;
+            ASPxGridView1.Columns[53].Visible = true;
+            ASPxGridView1.Columns[58].Visible = true;
             //ASPxGridView1.Columns[0].Visible = true;
             //ASPxGridView1.Columns[11].Visible = true;
         }
@@ -508,8 +508,8 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
             ASPxGridView2.Columns[46].Visible = false;
             ASPxGridView2.Columns[47].Visible = false;
             ASPxGridView2.Columns[48].Visible = false;
-           
-            ASPxGridView2.Columns[53].Visible = false;
+
+            ASPxGridView2.Columns[54].Visible = false;
             //ASPxGridView1.Columns[11].Visible = false;
         }
 
@@ -522,8 +522,8 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
             ASPxGridView2.Columns[46].Visible = true;
             ASPxGridView2.Columns[47].Visible = true;
             ASPxGridView2.Columns[48].Visible = true;
-            
-            ASPxGridView2.Columns[53].Visible = true;
+
+            ASPxGridView2.Columns[54].Visible = true;
             //ASPxGridView1.Columns[0].Visible = true;
             //ASPxGridView1.Columns[11].Visible = true;
         }
@@ -548,13 +548,13 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
             if (frmDate != "" && toDate != "")
             {
                 Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty dsp = new Data.FinalAssembaly.FinalAssembly.FinalAssemblyProperty();
-            dsp.slno = 0; // Convert.ToInt32(lblfinalassemblyslno.Text);
-            dsp.userid = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("userlogid");
+                dsp.slno = 0; // Convert.ToInt32(lblfinalassemblyslno.Text);
+                dsp.userid = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("userlogid");
                 dsp.Fromdate = frmDate;
                 dsp.ToDate = toDate;
                 Core.FinalAssembaly.FinalAssembly objselectall = new Core.FinalAssembaly.FinalAssembly();
-            dt5 = objselectall.ListOfCancelledJobForJobHistory(dsp);
-                }
+                dt5 = objselectall.ListOfCancelledJobForJobHistory(dsp);
+            }
             return dt5;
         }
         protected void ASPxGridView2_HtmlRowCreated(object sender, ASPxGridViewTableRowEventArgs e)
@@ -621,7 +621,7 @@ namespace GoldMedal.Branding.Admin.Transaction.FinalAssembaly
 
                 if (dtFrm <= dtTo)
                 {
-                    
+
 
                     if (lbActiveTab.Text == "1")
                     {

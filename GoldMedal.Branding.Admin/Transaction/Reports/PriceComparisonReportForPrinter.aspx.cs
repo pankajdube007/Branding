@@ -25,7 +25,7 @@ namespace GoldMedal.Branding.Admin.Transaction.Reports
         {
             if (!IsPostBack)
             {
-                if (GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("designationid") == 46)
+                if (GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("designationid") == 46 || GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("designationid") == 44)
                 {
                     ASPxGridView1.DataBind();
                 }

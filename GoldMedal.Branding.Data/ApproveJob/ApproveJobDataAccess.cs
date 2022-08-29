@@ -34,13 +34,16 @@ namespace GoldMedal.Branding.Data.ApproveJob
 
         public string AddApproveJobeDA(ApproveJob.ApproveJobModel.ApproveProperties ObjAssignJobInput)
         {
-            SqlParameter[] objParameter = new SqlParameter[6];
+            SqlParameter[] objParameter = new SqlParameter[9];
             objParameter[0] = new SqlParameter("@slno", ObjAssignJobInput.slno);
             objParameter[1] = new SqlParameter("@branchid", ObjAssignJobInput.branchid);
             objParameter[2] = new SqlParameter("@uid", ObjAssignJobInput.uid);
             objParameter[3] = new SqlParameter("@tableNm", ObjAssignJobInput.tableNm);
             objParameter[4] = new SqlParameter("@moduleid", ObjAssignJobInput.moduleid);
             objParameter[5] = new SqlParameter("@apdisapremarks", ObjAssignJobInput.apdisapremarks);
+            objParameter[6] = new SqlParameter("@apdprinterlocation", ObjAssignJobInput.apdprinterlocation);
+            objParameter[7] = new SqlParameter("@apdfabricatorlocation", ObjAssignJobInput.apdfabricatorlocation);
+            objParameter[8] = new SqlParameter("@apdimagename", ObjAssignJobInput.apdimageName);
             return Convert.ToString(objDataAccess.ExecuteNonQueryWithOutputParameters("CommonAppprovalSystem", objParameter));
         }
 
@@ -77,14 +80,16 @@ namespace GoldMedal.Branding.Data.ApproveJob
 
         public string AddDisApproveJobeDA(ApproveJob.ApproveJobModel.ApproveProperties ObjAssignJobInput)
         {
-            SqlParameter[] objParameter = new SqlParameter[6];
+            SqlParameter[] objParameter = new SqlParameter[9];
             objParameter[0] = new SqlParameter("@slno", ObjAssignJobInput.slno);
             objParameter[1] = new SqlParameter("@branchid", ObjAssignJobInput.branchid);
             objParameter[2] = new SqlParameter("@uid", ObjAssignJobInput.uid);
             objParameter[3] = new SqlParameter("@tableNm", ObjAssignJobInput.tableNm);
             objParameter[4] = new SqlParameter("@moduleid", ObjAssignJobInput.moduleid);
             objParameter[5] = new SqlParameter("@apdisapremarks", ObjAssignJobInput.apdisapremarks);
-
+            objParameter[6] = new SqlParameter("@apdprinterlocation", ObjAssignJobInput.apdprinterlocation);
+            objParameter[7] = new SqlParameter("@apdfabricatorlocation", ObjAssignJobInput.apdfabricatorlocation);
+            objParameter[8] = new SqlParameter("@apdimagename", ObjAssignJobInput.apdimageName);
             return Convert.ToString(objDataAccess.ExecuteNonQueryWithOutputParameters("CommonDisAppprovalSystem", objParameter));
         }
 

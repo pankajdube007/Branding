@@ -13,16 +13,26 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GoldMedal.Branding.Data.JobRequest;
+using System.Configuration;
 
 namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
 {
     public partial class JobArpprove : System.Web.UI.Page
     {
+
+        public JobArpprove()
+        {
+            _goldMedia = new GoldMedia();
+            //  finYear = "17-18";
+            finYear = ConfigurationManager.AppSettings["finYear"];
+        }
         #region Initialization
+
+
 
         public string party = string.Empty;
         private int rows = 0;
-        
+
         private string flagImg = string.Empty;
         private string FileName = string.Empty;
         private IExport xpt = null;
@@ -72,7 +82,7 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
             txtToDate.MaxDate = DateTime.Now;
             txtFromDate.MaxDate = DateTime.Now.AddDays(-1);
         }
-
+      
         #endregion 
 
         #region Method
@@ -89,6 +99,43 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
             DataTable dt = objdata.AllJobRequestHeadForApproveDACore(paramHead);
             return dt;
         }
+
+        public void LoadPrintLocation()
+        {
+            foreach (GridViewRow row in gvDetails.Rows)
+            {
+                DropDownList ddlPrintLocation = (DropDownList)row.FindControl("ddlPrintLocation");
+
+                Core.JobType.JobType db = new Core.JobType.JobType();
+                DataTable dtprintloc = db.GetPrinterLocation();
+
+                ddlPrintLocation.Items.Clear();
+
+                ddlPrintLocation.DataSource = dtprintloc;
+                ddlPrintLocation.DataBind();
+
+                ddlPrintLocation.Items.Insert(0, "Select");
+            }
+        }
+
+        public void LoadFabricatorLocation()
+        {
+            foreach (GridViewRow row in gvDetails.Rows)
+            {
+                DropDownList ddlFabricatorLocation = (DropDownList)row.FindControl("ddlFabricatorLocation");
+
+                Core.JobType.JobType db = new Core.JobType.JobType();
+                DataTable dtfabloc = db.GetFabricatorLocation();
+
+                ddlFabricatorLocation.Items.Clear();
+
+                ddlFabricatorLocation.DataSource = dtfabloc;
+                ddlFabricatorLocation.DataBind();
+
+                ddlFabricatorLocation.Items.Insert(0, "Select");
+            }
+        }
+
 
         private DataTable GetApprovedJobs()
         {
@@ -218,7 +265,8 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
             {
                 list.Add(test1);
             }
-
+            LoadPrintLocation();
+            LoadFabricatorLocation();
             gvDetails.DataSource = list;
             gvDetails.DataBind();
         }
@@ -347,9 +395,64 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
             }
         }
 
+
+        private string SavePostedFile(out bool rtnVal, HttpPostedFile file, out string uploadedFileName, string FILE_DIRECTORY_NAME)
+        {
+            rtnVal = false;
+            long size = 0;
+            string result = string.Empty, contentType = string.Empty, oldFileName = string.Empty, oldFileExtension = string.Empty; uploadedFileName = string.Empty;
+            oldFileName = Path.GetFileNameWithoutExtension(file.FileName);
+            oldFileExtension = Path.GetExtension(file.FileName);
+            var mineTypeAllowed = new MimeType[]
+            {
+            MimeType.Xlsx,
+            MimeType.Xls,
+            MimeType.Doc,
+            MimeType.Docx,
+            MimeType.Txt,
+            MimeType.Png,
+            MimeType.Jpeg,
+            MimeType.Jpg,
+            MimeType.Pdf,
+            MimeType.cdr,
+            MimeType.ppt,
+            MimeType.pptx
+            };
+            #region Validation
+            if (String.IsNullOrWhiteSpace(file.FileName))
+                return string.Empty;
+            if (!GoldMimeType.IsMimeTypeAllowed(oldFileExtension, mineTypeAllowed, out contentType))
+            {
+                result = string.Format("{0} : Oops!! This type of file upload not allowed.", oldFileName);
+                return result;
+            }
+            if (!GoldMimeType.IsFileSizeAllowed(file.ContentLength, out size, 1024 * 1024 * 25))
+            {
+                result = string.Format("{0} : Oops!! Max File Size allowed : {1} MB", oldFileName, size / (1024.0 * 1024.0));
+                return result;
+            }
+            #endregion
+            var retStr = _goldMedia.GoldMediaUpload(oldFileName, FILE_DIRECTORY_NAME, oldFileExtension, file.InputStream, contentType, true, true);
+            if (retStr.Keys.FirstOrDefault())
+            {
+                var uploadedFilePath = retStr.Values.FirstOrDefault();//save this file path to database
+                uploadedFileName = uploadedFilePath.Split('/').Last();
+                result = string.Format("Successfully uploaded the file {0} ~ {1}", oldFileName, uploadedFileName);
+                string path = string.Format("{0}/{1}", FILE_DIRECTORY_NAME, uploadedFileName);
+
+                rtnVal = true;
+            }
+            else
+            {
+                result = string.Format("{0} : {1}", oldFileName, retStr.Values.FirstOrDefault());
+            }
+            return result;
+        }
         /// <summary>
         /// Fill the head and child data after clicking on view link
         /// </summary>
+        /// 
+
         protected void show()
         {
             #region Edit Block
@@ -494,11 +597,93 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
                 string result = "0";
                 string error = string.Empty;
                 string approvestatus = string.Empty;
+                
 
                 Data.ApproveJob.ApproveJobModel.ApproveProperties ApproveDst = new Data.ApproveJob.ApproveJobModel.ApproveProperties();
                 string success = string.Empty;
                 foreach (GridViewRow row in gvDetails.Rows)
                 {
+                    HiddenField hfIsPrintReq = (HiddenField)row.FindControl("hfIsPrintReq");
+                    HiddenField hfIsFabReq = (HiddenField)row.FindControl("hfIsFabReq");
+
+                    DropDownList ddlPrintLocation = (DropDownList)row.FindControl("ddlPrintLocation");
+
+                    DropDownList ddlFabricatorLocation = (DropDownList)row.FindControl("ddlFabricatorLocation");
+
+                    string PrinterLocation = "";
+                    string FabricatorLocation = "";
+                    if (!string.IsNullOrEmpty(ddlPrintLocation.SelectedItem.Value))
+                    {
+                        PrinterLocation = ddlPrintLocation.SelectedItem.Value;
+                        //ddlPrintLocation.Items.FindByValue(lblPrinterLocation).Selected = true;
+                    }
+                    if (!string.IsNullOrEmpty(ddlFabricatorLocation.SelectedItem.Value))
+                    {
+                        FabricatorLocation = ddlFabricatorLocation.SelectedItem.Value;
+                        //ddlFabricatorLocation.Items.FindByValue(lblFabricatorLocation).Selected = true;
+                    }
+                    string hfImagename = "";
+                    string FileNameimg = string.Empty;
+                    FileUpload fuPhoto = (FileUpload)row.FindControl("fuPhoto");
+                     hfImagename = ((TextBox)row.FindControl("hfnewImagename")).Text;
+
+                    foreach (var file in fuPhoto.PostedFiles)
+                    {
+                        if (file.FileName != "")
+                        {
+                            bool rtnVallpost = false;
+                            string uploadedFileName = "";
+                            string strFileTypeimg = Path.GetExtension(file.FileName).ToLower();
+                            string theFileName = string.Empty;
+                            string singleFile = string.Empty;
+                            decimal size = Math.Round(((decimal)file.ContentLength / (decimal)1024), 2);
+
+
+                            if (size <= 20480)
+                            {
+                                if (strFileTypeimg == ".jpg" || strFileTypeimg == ".jpeg" || strFileTypeimg == ".png")
+                                {
+                                    SavePostedFile(out rtnVallpost, file, out uploadedFileName, FILE_DIRECTORY_NAME3);
+                                    if (rtnVallpost)
+                                    {
+
+                                        strFileTypeimg = Path.GetExtension(file.FileName).ToLower();
+                                        if (FileNameimg == "")
+                                        {
+                                            FileNameimg = uploadedFileName;
+                                        }
+                                        else
+                                        {
+                                            FileNameimg = FileNameimg + ',' + uploadedFileName;
+                                        }
+                                    }
+                                }
+                            }
+
+
+                            else
+                            {
+                                lblModalTitle.Text = "Warning";
+                                lblModalBody.Text = "Sorry, Image size can not be greater then 20MB.";
+                                lblModalBody.Attributes.Add("style", "font-size:15px; color:Red; font-weight:lighter;");
+                                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                                upModal.Update();
+                            }
+                        }
+
+                    }
+                    if (lbslno.Text == "0")
+                    {
+                        FileNameimg = FileNameimg.TrimEnd(',');
+
+                    }
+                    else
+                    {
+                        FileNameimg = FileNameimg.TrimEnd(',') + ',' + hfImagename;
+
+                    }
+
+
                     string txtRemark = ((TextBox)row.FindControl("txtRemark")).Text;
                     string lblwidth = ((Label)row.FindControl("lblwidth")).Text;
                     string hfslnochild = ((HiddenField)row.FindControl("hfslnochild")).Value;
@@ -514,10 +699,10 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
                     {
                         approvestatus = "2";
 
-                        if(txtRemark=="")
+                        if (txtRemark == "")
                         {
                             ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "showDialog('Error','Enter Remark !','error',3);", true);
-                                return;
+                            return;
                         }
 
                     }
@@ -530,7 +715,8 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
                     {
                         var childsno = HttpUtility.HtmlEncode(hfslnochild);
                         var Remark = HttpUtility.HtmlEncode(txtRemark);
-
+                        var PrintLocation = HttpUtility.HtmlEncode(PrinterLocation);
+                        var FabricLocation = HttpUtility.HtmlEncode(FabricatorLocation);
                         if (!string.IsNullOrWhiteSpace(lblBranchID.Text))
                         {
                             ApproveDst.branchid = Convert.ToInt32(lblBranchID.Text);
@@ -541,7 +727,9 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
                         ApproveDst.slno = Convert.ToInt64(childsno);
                         ApproveDst.tableNm = TableNme;
                         ApproveDst.apdisapremarks = ValidateDataType.EnsureMaximumLength((HttpUtility.HtmlEncode(Remark)), 6000);
-
+                        ApproveDst.apdprinterlocation = Convert.ToInt32(PrintLocation);
+                        ApproveDst.apdfabricatorlocation = Convert.ToInt32(FabricLocation);
+                        ApproveDst.apdimageName = HttpUtility.HtmlEncode(FileNameimg);
                         ApproveDst.uid = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("userlogid");
 
                         Core.ApproveJob.ApproveJob objinsertAssignJob = new Core.ApproveJob.ApproveJob();
@@ -552,7 +740,7 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
                         }
                         else
                         {
-                            
+
                             ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "showDialog('Success','Approved successfully !','success',3);", true);
                         }
                     }
@@ -560,6 +748,8 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
                     {
                         var childsno = HttpUtility.HtmlEncode(hfslnochild);
                         var Remark = HttpUtility.HtmlEncode(txtRemark);
+                        var PrintLocation = HttpUtility.HtmlEncode(PrinterLocation);
+                        var FabricLocation = HttpUtility.HtmlEncode(FabricatorLocation);
 
                         if (!string.IsNullOrWhiteSpace(lblBranchID.Text))
                         {
@@ -571,7 +761,9 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
                         ApproveDst.slno = Convert.ToInt32(childsno);
                         ApproveDst.tableNm = TableNme;
                         ApproveDst.apdisapremarks = ValidateDataType.EnsureMaximumLength((HttpUtility.HtmlEncode(Remark)), 6000);
-
+                        ApproveDst.apdprinterlocation = Convert.ToInt32(PrintLocation);
+                        ApproveDst.apdfabricatorlocation = Convert.ToInt32(FabricLocation);
+                        ApproveDst.apdimageName = HttpUtility.HtmlEncode(FileNameimg);
                         ApproveDst.uid = GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("userlogid");
 
                         Core.ApproveJob.ApproveJob objinsertAssignJob = new Core.ApproveJob.ApproveJob();
@@ -594,7 +786,7 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
 
             ResetFunc();
             clean();
-            
+
         }
 
         /// <summary>
@@ -722,7 +914,7 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
         /// </summary>
         protected void columnshow()
         {
-            
+
             gvHead.Columns[20].Visible = true;
             gvHead.Columns[26].Visible = true;
         }
@@ -737,7 +929,7 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
             ASPxGridView1.Columns[16].Visible = true;
         }
 
-        #endregion 
+        #endregion
 
         #region Export
 
@@ -812,7 +1004,7 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
         }
 
 
-        #endregion 
+        #endregion
 
         #region Event
 
@@ -878,12 +1070,41 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
             this.mpeAll.Show();
         }
 
-        
+
 
         protected void gvDetails_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                HiddenField hfIsPrintReq = (HiddenField)e.Row.FindControl("hfIsPrintReq");
+                HiddenField hfIsFabReq = (HiddenField)e.Row.FindControl("hfIsFabReq");
+
+                Core.JobType.JobType db22 = new Core.JobType.JobType();
+                DataTable dtprintloc = db22.GetPrinterLocation();
+
+               
+
+
+                //ddlPrintLocation.Items.Insert(0, "Select");
+                DropDownList ddlPrintLocation = (DropDownList)e.Row.FindControl("ddlPrintLocation");
+                ddlPrintLocation.Items.Clear();
+                ddlPrintLocation.SelectedValue = null;
+                ddlPrintLocation.DataSource = dtprintloc;
+                ddlPrintLocation.DataBind();
+
+
+                DropDownList ddlFabricatorLocation = (DropDownList)e.Row.FindControl("ddlFabricatorLocation");
+
+                Core.JobType.JobType db33 = new Core.JobType.JobType();
+                DataTable dtfabloc = db33.GetFabricatorLocation();
+                ddlFabricatorLocation.Items.Clear();
+
+
+                ddlFabricatorLocation.DataSource = dtfabloc;
+                ddlFabricatorLocation.DataBind();
+
+                //ddlFabricatorLocation.Items.Insert(0, "Select");
+
                 TextBox hfImagename = (TextBox)e.Row.FindControl("hfImagename");
                 LinkButton CmdlnkImage3 = (LinkButton)e.Row.FindControl("CmdlnkImage3");
                 if (hfImagename.Text != string.Empty)
@@ -894,6 +1115,24 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
 
                 TextBox txtSizeInchHidden = (TextBox)e.Row.FindControl("txtSizeInchHidden");
                 Label lblchkisapprov = (Label)e.Row.FindControl("lblchkisapprov");
+
+                string lblPrinterLocation = (e.Row.FindControl("lblPrinterLocation") as TextBox).Text;
+
+                if (!string.IsNullOrEmpty(lblPrinterLocation))
+                {
+                    //ddlPrintLocation.SelectedItem.Text = lblPrinterLocation;
+                    ddlPrintLocation.Items.FindByText(lblPrinterLocation).Selected = true;
+                    //ddlPrintLocation.Items.FindByValue(lblPrinterLocation).Selected = true;
+                }
+
+                string lblFabricatorLocation = (e.Row.FindControl("lblFabricatorLocation") as TextBox).Text;
+
+                if (!string.IsNullOrEmpty(lblFabricatorLocation))
+                {
+                    //ddlFabricatorLocation.SelectedItem.Text = lblFabricatorLocation;
+                    ddlFabricatorLocation.Items.FindByText(lblFabricatorLocation).Selected = true;
+                    //ddlFabricatorLocation.Items.FindByValue(lblFabricatorLocation).Selected = true;
+                }
             }
         }
 
@@ -910,7 +1149,7 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
             GetUploadedJobRequestFiles(Convert.ToInt64(FieldTripID), 3);
             this.mpeAll.Show();
         }
-       
+
         protected void btnOverWrite_Click(object sender, EventArgs e)
         {
             show();
@@ -955,8 +1194,11 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
             }
             else if (e.Tab.Index == 2)
             {
-                txtToDate.Text = DateTime.Now.ToShortDateString();
-                txtFromDate.Text = DateTime.Now.AddDays(-30).ToShortDateString();
+                //txtToDate.Text = DateTime.Now.ToShortDateString();
+                //txtFromDate.Text = DateTime.Now.AddDays(-30).ToShortDateString();
+
+                txtToDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
+                txtFromDate.Text = DateTime.Now.AddDays(-30).ToString("MM/dd/yyyy");
                 ASPxGridView1.DataBind();
             }
         }
@@ -968,7 +1210,7 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
             string VisitingCardImg = e.GetValue("VisitingCardImg").ToString();
 
             LinkButton hlSubImg = gvHead.FindRowCellTemplateControl(e.VisibleIndex, gvHead.Columns["Visiting Card Image"] as GridViewDataTextColumn, "lnkShowImg") as LinkButton;
-           
+
             if (VisitingCardImg == "")
             {
                 hlSubImg.Visible = false;
@@ -999,7 +1241,7 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
         {
             int FieldTripID = Convert.ToInt32(e.CommandArgument);
             lblImageSlno.Text = FieldTripID.ToString();
-           
+
             GetUploadedJobRequestFiles(Convert.ToInt64(lblImageSlno.Text), 1);
             this.mpeAll.Show();
         }
@@ -1014,9 +1256,9 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
         }
 
 
-        
 
-        
+
+
         /// <summary>
         /// Show View File Link In the Case Of Update
         /// </summary>
@@ -1208,14 +1450,14 @@ namespace GoldMedal.Branding.Admin.Transaction.ApproveJob
 
         protected void rdisapprave_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(lblSubName.Text != "" && popupcount.Value != "1")
+            if (lblSubName.Text != "" && popupcount.Value != "1")
             {
                 mpeConfirmPopup.Show();
                 popupcount.Value = "1";
             }
-                
-           
-            
+
+
+
         }
 
         protected void lnkFilesShop_Click(object sender, EventArgs e)

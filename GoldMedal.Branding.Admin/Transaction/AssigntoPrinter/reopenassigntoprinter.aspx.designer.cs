@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
-{
-
-
-    public partial class reopenassigntoprinter
-    {
-
+namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter {
+    
+    
+    public partial class reopenassigntoprinter {
+        
         /// <summary>
         /// tsm control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager tsm;
-
+        
         /// <summary>
         /// ASPxGridViewExporter1 control.
         /// </summary>
@@ -31,7 +29,16 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGridViewExporter ASPxGridViewExporter1;
-
+        
+        /// <summary>
+        /// ASPxGridViewExporter2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridViewExporter ASPxGridViewExporter2;
+        
         /// <summary>
         /// lbslno control.
         /// </summary>
@@ -40,7 +47,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbslno;
-
+        
         /// <summary>
         /// lbldslno control.
         /// </summary>
@@ -49,7 +56,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbldslno;
-
+        
         /// <summary>
         /// lblchildid control.
         /// </summary>
@@ -58,7 +65,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblchildid;
-
+        
         /// <summary>
         /// lbprilrequestno control.
         /// </summary>
@@ -67,7 +74,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbprilrequestno;
-
+        
         /// <summary>
         /// lblsizetype control.
         /// </summary>
@@ -76,7 +83,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblsizetype;
-
+        
         /// <summary>
         /// lblDSSlno control.
         /// </summary>
@@ -85,7 +92,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDSSlno;
-
+        
         /// <summary>
         /// lblBranchID control.
         /// </summary>
@@ -94,7 +101,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblBranchID;
-
+        
         /// <summary>
         /// lblBranch control.
         /// </summary>
@@ -103,7 +110,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblBranch;
-
+        
         /// <summary>
         /// lnkvisible control.
         /// </summary>
@@ -112,7 +119,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lnkvisible;
-
+        
         /// <summary>
         /// lbIsListShow control.
         /// </summary>
@@ -121,7 +128,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbIsListShow;
-
+        
         /// <summary>
         /// lblPrintLocationID control.
         /// </summary>
@@ -130,7 +137,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPrintLocationID;
-
+        
         /// <summary>
         /// lblFabLocationID control.
         /// </summary>
@@ -139,7 +146,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFabLocationID;
-
+        
         /// <summary>
         /// hfPopupImageFlag control.
         /// </summary>
@@ -148,7 +155,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfPopupImageFlag;
-
+        
         /// <summary>
         /// hfAllowSubmit control.
         /// </summary>
@@ -157,7 +164,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfAllowSubmit;
-
+        
         /// <summary>
         /// hfAllowSubmit2 control.
         /// </summary>
@@ -166,7 +173,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfAllowSubmit2;
-
+        
         /// <summary>
         /// hfIsFabSend control.
         /// </summary>
@@ -175,7 +182,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfIsFabSend;
-
+        
         /// <summary>
         /// hfFabPricingAvailable control.
         /// </summary>
@@ -184,7 +191,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfFabPricingAvailable;
-
+        
         /// <summary>
         /// hfNameId control.
         /// </summary>
@@ -193,7 +200,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfNameId;
-
+        
         /// <summary>
         /// hfNameTypeId control.
         /// </summary>
@@ -202,7 +209,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfNameTypeId;
-
+        
         /// <summary>
         /// hfSubNameId control.
         /// </summary>
@@ -211,7 +218,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfSubNameId;
-
+        
         /// <summary>
         /// hfUseAddressType control.
         /// </summary>
@@ -220,7 +227,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfUseAddressType;
-
+        
         /// <summary>
         /// hfsendto control.
         /// </summary>
@@ -229,7 +236,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfsendto;
-
+        
         /// <summary>
         /// ASPxLoadingPanel1 control.
         /// </summary>
@@ -238,7 +245,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLoadingPanel ASPxLoadingPanel1;
-
+        
         /// <summary>
         /// ASPxPageControl1 control.
         /// </summary>
@@ -247,7 +254,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPageControl ASPxPageControl1;
-
+        
         /// <summary>
         /// ContentControl3 control.
         /// </summary>
@@ -256,7 +263,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ContentControl ContentControl3;
-
+        
         /// <summary>
         /// UpdatePanel49 control.
         /// </summary>
@@ -265,7 +272,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel49;
-
+        
         /// <summary>
         /// UpdatePanel50 control.
         /// </summary>
@@ -274,7 +281,34 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel50;
-
+        
+        /// <summary>
+        /// btnXlsExport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnXlsExport;
+        
+        /// <summary>
+        /// btnXlsxExport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnXlsxExport;
+        
+        /// <summary>
+        /// btnCsvExport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnCsvExport;
+        
         /// <summary>
         /// ASPxGridView2 control.
         /// </summary>
@@ -283,7 +317,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGridView ASPxGridView2;
-
+        
         /// <summary>
         /// btnResumeShowUp control.
         /// </summary>
@@ -292,7 +326,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnResumeShowUp;
-
+        
         /// <summary>
         /// upModal control.
         /// </summary>
@@ -301,7 +335,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel upModal;
-
+        
         /// <summary>
         /// lblModalTitle control.
         /// </summary>
@@ -310,7 +344,7 @@ namespace GoldMedal.Branding.Admin.Transaction.AssigntoPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblModalTitle;
-
+        
         /// <summary>
         /// lblModalBody control.
         /// </summary>

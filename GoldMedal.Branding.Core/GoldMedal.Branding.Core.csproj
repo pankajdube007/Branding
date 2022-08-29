@@ -62,6 +62,8 @@
     <Compile Include="AssignToFabricator\IAssignToFabricator.cs" />
     <Compile Include="AssigntoPrinter\Assigntoprinter.cs" />
     <Compile Include="AssigntoPrinter\IAssigntoprinter.cs" />
+    <Compile Include="BillUpload\BillUpload.cs" />
+    <Compile Include="BillUpload\IBillUpload.cs" />
     <Compile Include="BoardType\BoardType.cs" />
     <Compile Include="BoardType\IBoardType.cs" />
     <Compile Include="CancelJob\CancelJob.cs" />
@@ -83,6 +85,10 @@
     <Compile Include="Common\ValidateDataType.cs" />
     <Compile Include="Dashboard\Dashboard.cs" />
     <Compile Include="Dashboard\IDashboard.cs" />
+    <Compile Include="DCGenerationDesignSubmit\DCGenerationDesignSubmit.cs" />
+    <Compile Include="DCGenerationDesignSubmit\IDCGenerationDesignSubmit.cs" />
+    <Compile Include="DCGeneration\DCGeneration.cs" />
+    <Compile Include="DCGeneration\IDCGeneration.cs" />
     <Compile Include="DesignSubmit\DesignSubmit.cs" />
     <Compile Include="DesignSubmit\IDesignSubmit.cs" />
     <Compile Include="Design\DesignType.cs" />
@@ -126,6 +132,10 @@
     <Compile Include="Product\IProductType.cs" />
     <Compile Include="Product\ProductType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegionalLang\IRegionalLang.cs" />
+    <Compile Include="RegionalLang\RegionalLang.cs" />
+    <Compile Include="Report\IReport.cs" />
+    <Compile Include="Report\Report.cs" />
     <Compile Include="SubJobTypeMaping\ISubJobTypeMaping.cs" />
     <Compile Include="SubJobTypeMaping\SubJobTypeMaping.cs" />
     <Compile Include="SubJobType\ISubJobType.cs" />

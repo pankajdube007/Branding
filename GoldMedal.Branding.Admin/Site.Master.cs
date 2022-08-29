@@ -79,10 +79,12 @@ namespace GoldMedal.Branding.Admin
                                 //ReportMenu2.Style.Add("display", "block");
                                 ReportMenu22.Style.Add("display", "block");
                                 ReportMenu3.Style.Add("display", "block");
+                             
                                 ReportMenu4.Style.Add("display", "block");
                                 ReportMenuJobAging.Style.Add("display", "block");
                                 ReportMenuPrinterPOAging.Style.Add("display", "block");
                                 ReportMenuFabricatorPOAging.Style.Add("display", "block");
+                                ReportMenuPrinterPOCancelled.Style.Add("display", "block");
                                 ReportMenu10.Style.Add("display", "block");
                                 ReportMenu11.Style.Add("display", "block");
                                 //  ReportMenu12.Style.Add("display", "block");
@@ -101,6 +103,13 @@ namespace GoldMedal.Branding.Admin
                                     ReportMenu9.Style.Add("display", "block");
                                     AuditReportMenuMaster.Style.Add("display", "block");
                                 }
+                               else if (GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("designationid") == 44)
+                                {
+                                    ReportMenu5.Style.Add("display", "block");
+                                    ReportMenu8.Style.Add("display", "block");
+                                    ReportMenu9.Style.Add("display", "block");
+                                    AuditReportMenuMaster.Style.Add("display", "block");
+                                }
                                 else if (GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("designationid") == 132)
                                 {
                                     ReportMenu21.Style.Add("display", "block");
@@ -110,7 +119,7 @@ namespace GoldMedal.Branding.Admin
                                 {
                                     ReportMenu5.Style.Add("display", "none");
                                     //  ReportMenu6.Style.Add("display", "none");
-                                    // ReportMenu7.Style.Add("display", "none");
+                                    //  ReportMenu7.Style.Add("display", "none");
                                     //  ReportMenu21.Style.Add("display", "none");
                                     BranchMenu1.Style.Add("display", "none");
                                     BranchMenuReopenSendForPrint.Style.Add("display", "none");
@@ -138,13 +147,15 @@ namespace GoldMedal.Branding.Admin
                                 ChangeAssignMenu.Style.Add("display", "none");
                                 //ReportMenu2.Style.Add("display", "none");
                                 ReportMenu3.Style.Add("display", "block");
+                              
                                 ReportMenu4.Style.Add("display", "block");
                                 ReportMenuJobAging.Style.Add("display", "block");
                                 ReportMenuPrinterPOAging.Style.Add("display", "block");
                                 ReportMenuFabricatorPOAging.Style.Add("display", "block");
+                                ReportMenuPrinterPOCancelled.Style.Add("display", "block");
                                 ReportMenu10.Style.Add("display", "block");
                                 ReportMenu11.Style.Add("display", "block");
-                                //  ReportMenu12.Style.Add("display", "block");
+                                //ReportMenu12.Style.Add("display", "block");
                                 DbMenu.Style.Add("display", "none");
                                 helpmenu.Style.Add("display", "block");
                                 if (GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("designationid") == 46)
@@ -155,6 +166,13 @@ namespace GoldMedal.Branding.Admin
 
                                     BranchMenu1.Style.Add("display", "block");
                                     BranchMenuReopenSendForPrint.Style.Add("display", "block");
+                                    ReportMenu8.Style.Add("display", "block");
+                                    ReportMenu9.Style.Add("display", "block");
+                                    AuditReportMenuMaster.Style.Add("display", "block");
+                                }
+                                else if (GoldMedal.Branding.Core.Common.ValidateDataType.GetCookieInt("designationid") == 44)
+                                {
+                                    ReportMenu5.Style.Add("display", "block");
                                     ReportMenu8.Style.Add("display", "block");
                                     ReportMenu9.Style.Add("display", "block");
                                     AuditReportMenuMaster.Style.Add("display", "block");

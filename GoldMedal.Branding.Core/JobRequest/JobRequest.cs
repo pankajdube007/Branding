@@ -158,6 +158,13 @@ namespace GoldMedal.Branding.Core.JobRequest
             return result;
         }
 
+        public DataTable JobRequestRegionalLangDACore(GoldMedal.Branding.Data.JobRequest.JobRequestModel.JobRequestProperties alldata)
+        {
+            DataTable result = new DataTable();
+            result = JobRequestServiceCall.JobRequestRegionalLangBranchDAServiceMethod(alldata, "MSSQLSERVER");
+            return result;
+        }
+
         public DataTable LiveProductFilesDACore(GoldMedal.Branding.Data.JobRequest.JobRequestModel.JobRequestProperties alldata)
         {
             DataTable result = new DataTable();

@@ -18,14 +18,20 @@ using GoldMedal.Branding.Admin.Common;
 using GoldMedal.Branding.Admin.Security;
 using GoldMedal.Branding.Core.UAParser;
 using GoldMedal.Branding.Core.UAParser.Models;
+using System.Security.Cryptography;
+using System.Net.Mail;
+
 
 namespace GoldMedal.Branding.Admin
 {
     public partial class Default : System.Web.UI.Page
     {
+      
         DataTable dt = new DataTable();
         PrinterDataAccess objdata = new PrinterDataAccess();
         private DataAccess objDataAccess = new DataAccess();
+       
+      //  General g1 = new General();
 
         private readonly  IUserManagement _userManagement = new UserManagement();
         int UserID = 0;
@@ -944,6 +950,106 @@ namespace GoldMedal.Branding.Admin
             {
                 hfLcFound.Value = "0";
             }
+        }
+        protected void SubmitButton_Click(object sender, EventArgs e)
+        {
+            string result = "0";
+            if (ddlCategory.SelectedValue != "0")
+            {
+                if (txtEmailID.Text != "")
+                {
+                    string NewPassword = GetRandomKey(8);
+                    DataTable dtEmail = new DataTable();
+                  //  dtEmail = g1.return_dt("exec GetPassword '" + txtEmailID.Text + "','" + NewPassword + "'," + ddlCategory.SelectedValue + "");
+
+
+                    Core.FinalAssembaly.FinalAssembly objLogin = new Core.FinalAssembaly.FinalAssembly();
+                  
+
+                    dtEmail = objLogin.GetPassword(txtEmailID.Text, NewPassword, Convert.ToInt32(ddlCategory.SelectedItem.Value));
+
+                    
+
+                    if (dtEmail.Rows.Count > 0)
+                    {
+                        string subject2 = "<div><span>Dear </span><span>" + dtEmail.Rows[0]["name"].ToString() + "</span>,</div><br><div><span>Your Email</span>:<span>" + dtEmail.Rows[0]["usernm"].ToString() + "</span></div><br><div><span>Your Password</span>:<span>" + NewPassword + "</span></div>";
+                        sendmail(txtEmailID.Text, subject2, "Forgot Password", "GoldMedal");
+                        txtEmailID.Text = string.Empty;
+                        ddlCategory.SelectedItem.Value = "0";
+                        ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Send Password To Your Email Address');", true);
+                       
+                        ASPxPopupControlID.ShowOnPageLoad = false;
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Enter Correct Email');", true);
+                        txtEmailID.Text = string.Empty;
+                        ddlCategory.SelectedItem.Value = "0";
+                        ASPxPopupControlID.ShowOnPageLoad = true;
+                    }
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Enter Your Email');", true);
+                    txtEmailID.Text = string.Empty;
+                    ddlCategory.SelectedItem.Value = "0";
+                    ASPxPopupControlID.ShowOnPageLoad = true;
+                }
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Select Category');", true);
+                ASPxPopupControlID.ShowOnPageLoad = true;
+            }
+
+        }
+
+        protected string GetRandomKey(int len)
+        {
+            int maxSize = len;
+            char[] chars = new char[30];
+            string a;
+            a = "1234567890";
+            chars = a.ToCharArray();
+            int size = maxSize;
+            byte[] data = new byte[1];
+            RNGCryptoServiceProvider crypto = new RNGCryptoServiceProvider();
+            crypto.GetNonZeroBytes(data);
+            size = maxSize;
+            data = new byte[size];
+            crypto.GetNonZeroBytes(data);
+            StringBuilder result = new StringBuilder(size);
+            foreach (byte b in data) { result.Append(chars[b % (chars.Length)]); }
+            return result.ToString();
+        }
+        public string sendmail(string ToEmail, string Body, string Subject, string DisplayName)
+        {
+            string error = "0";
+
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            smtpClient.Credentials = new System.Net.NetworkCredential("noreply.goldmedal@goldmedalindia.com", "Goldmedal9867");
+            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtpClient.EnableSsl = true;
+            MailMessage mail = new MailMessage();
+
+            try
+            {
+                mail.From = new MailAddress("noreply.goldmedal@goldmedalindia.com", DisplayName);
+                mail.To.Add(new MailAddress(ToEmail));
+                mail.IsBodyHtml = true;
+                mail.Priority = MailPriority.High;
+                mail.Body = Body;
+                mail.Subject = Subject;
+                smtpClient.Send(mail);
+                error = "1";
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message;
+                error = msg;
+                error = "-1";
+            }
+            return error;
         }
 
         #endregion

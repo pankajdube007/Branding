@@ -41,12 +41,15 @@
     <Compile Include="AssignJobService\AssignJobServiceCall.cs" />
     <Compile Include="AssignToFabricator\AssignToFabricatorServiceCall.cs.cs" />
     <Compile Include="AssigntoPrinter\AssignToPrinterServiceCall.cs.cs" />
+    <Compile Include="BillUpload\BillUploadServiceCall.cs" />
     <Compile Include="BoardType\BoardTypeServiceCall.cs" />
     <Compile Include="CancelJob\CancelJobServiceCall.cs" />
     <Compile Include="ChangePassword\ChangePasswordServiceCall.cs" />
     <Compile Include="CheckEditService\CheckEditServiceCall.cs" />
     <Compile Include="CheckTime\CheckTimeServiceCall.cs" />
     <Compile Include="Dashboard\DashboardServiceCall.cs" />
+    <Compile Include="DCGenerationDesignSubmit\DCGenerationDesignSubmitServiceCall.cs" />
+    <Compile Include="DCGeneration\DCGenerationServiceCall.cs" />
     <Compile Include="DesignSubmit\DesignSubmitServiceCall.cs" />
     <Compile Include="DesignTypeService\DesignTypeServiceCall.cs" />
     <Compile Include="DesignTypeSubCatService\DesignTypeSubCatServiceCall.cs" />
@@ -64,6 +67,8 @@
     <Compile Include="Printer\PrinterServiceCall.cs" />
     <Compile Include="ProductTypeService\ProductTypeServiceCall.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegionalLang\RegionalLangServiceCall.cs" />
+    <Compile Include="Report\ReportServiceCall.cs" />
     <Compile Include="SubJobTypeMaping\SubJobTypeMapingServiceCall.cs" />
     <Compile Include="SubJobType\SubJobTypeServiceCall.cs" />
     <Compile Include="SubSubJobTypeService\SubSubJobTypeServiceCall.cs" />

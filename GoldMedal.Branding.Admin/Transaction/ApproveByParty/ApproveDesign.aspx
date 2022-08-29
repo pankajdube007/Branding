@@ -156,7 +156,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="border: thin inset #808080; text-align: center" class="auto-style4">Upload Files</td>
+                        <td style="border: thin inset #808080; text-align: center" class="auto-style4">Upload Files *</td>
                         <td colspan="3" style="border: thin inset #808080; text-align: left" class="auto-style4">
                             <asp:FileUpload ID="fuupload" runat="server" AllowMultiple="True" CssClass="form-control upload" TabIndex="6" />
                         </td>

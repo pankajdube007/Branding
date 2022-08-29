@@ -40,6 +40,7 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         private const string FILE_DIRECTORY_NAME4 = "jobrequest/submitimage";
         private const string FILE_DIRECTORY_NAME5 = "jobrequest/shopphoto";
         private const string FILE_DIRECTORY_NAME13 = "jobrequest/cdrfile";
+        private const string FILE_DIRECTORY_NAME6 =  "jobrequest/regionallangcdr";
 
         private readonly IGoldMedia _goldMedia;
         private readonly string finYear = string.Empty;
@@ -177,6 +178,8 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
                 ImgLink.Text= Convert.ToString(dt.Rows[0]["ImageLink"]);
                 ImgLink.NavigateUrl= Convert.ToString(dt.Rows[0]["ImageLink"]);
                 lnkFiles2.Visible = true;
+                lbCDRFile.Visible = true;
+                lnkRegionalCDRFile.Visible = true;
                 LblRequestNo.Text = Convert.ToString(dt.Rows[0]["reqno"]);
                 lblDate.Text = Convert.ToString(dt.Rows[0]["RequestDate"]);
                 lblNameType.Text = Convert.ToString(dt.Rows[0]["nametype"]);
@@ -2009,6 +2012,12 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
                     Download(path);
                     GetUploadedJobRequestFiles(Convert.ToInt32(lblchildid.Text), 13);
                 }
+                else if (hfPopupImageFlag.Value == "26")
+                {
+                    path = string.Format("{0}/{1}", FILE_DIRECTORY_NAME6, hfPImgName.Value);
+                    Download(path);
+                    GetUploadedJobRequestFiles(Convert.ToInt32(lblchildid.Text), 26);
+                }
             }
         }
         protected void rptAllImages_ItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -2054,6 +2063,11 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
             {
                 PictureIDPath = string.Format("../../Download/ImageHandler.aspx?PictureID={0}/{1}", FILE_DIRECTORY_NAME13, hfPImgName.Value);
                 FileIdPath = string.Format("../../Download/ImageHandler.aspx?FileId={0}/{1}", FILE_DIRECTORY_NAME13, hfPImgName.Value);
+            }
+            else if (hfPopupImageFlag.Value == "26")
+            {
+                PictureIDPath = string.Format("../../Download/ImageHandler.aspx?PictureID={0}/{1}", FILE_DIRECTORY_NAME6, hfPImgName.Value);
+                FileIdPath = string.Format("../../Download/ImageHandler.aspx?FileId={0}/{1}", FILE_DIRECTORY_NAME6, hfPImgName.Value);
             }
 
             if (hfPImgName.Value.Contains(".jpg") || hfPImgName.Value.Contains(".png") || hfPImgName.Value.Contains(".jpeg"))
@@ -2141,6 +2155,12 @@ namespace GoldMedal.Branding.Admin.Transaction.DesignSubmit
         protected void lbCDRFile_Click(object sender, EventArgs e)
         {
             GetUploadedJobRequestFiles(Convert.ToInt64(lblchildid.Text), 13);
+            this.mpeAll.Show();
+        }
+
+        protected void lnkRegionalCDRFile_Click(object sender, EventArgs e)
+        {
+            GetUploadedJobRequestFiles(Convert.ToInt64(lblchildid.Text), 26);
             this.mpeAll.Show();
         }
     }
